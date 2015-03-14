@@ -61,7 +61,7 @@ def plot_lightness():
     for label in labels:
         label.set_rotation(60)
 
-    fig.savefig('figures/lightness.png', bbox_inches='tight')
+    fig.savefig('../figures/lightness.png', bbox_inches='tight')
 
 
 def print_colormaps():
@@ -109,7 +109,7 @@ def plot_data():
         cb.set_label(cmap.name)
         i += 1
 
-    fig.savefig('figures/sample-data.png', bbox_inches='tight')
+    fig.savefig('../figures/sample-data.png', bbox_inches='tight')
 
 
 def plot_gallery():
@@ -151,5 +151,5 @@ def plot_gallery():
     for ax in axes:
         ax.set_axis_off()
 
-    fig.savefig('figures/gallery.pdf', bbox_inches='tight')
-    fig.savefig('figures/gallery.png', bbox_inches='tight')
+    fig.savefig('../figures/gallery.pdf', bbox_inches='tight')
+    fig.savefig('../figures/gallery.png', bbox_inches='tight')
