@@ -3,9 +3,7 @@ Making and testing colormaps.
 '''
 
 import numpy as np
-from matplotlib import cm, colors
 import matplotlib.pyplot as plt
-import pdb
 import matplotlib as mpl
 from skimage import color
 
