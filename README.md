@@ -5,6 +5,10 @@ Colormap setup for standardizing commonly-plotting oceanographic variables, espe
 
 Here is our gallery: [<img src="figures/gallery.png" class="picFloat">](figures/gallery.png)
 
+Lightness plots of the colormaps: [<img src="figures/lightness.png" class="picFloat">](figures/lightness.png)
+
+Sample data plots of the colormaps: [<img src="figures/sample-data-showfullcolors.png" class="picFloat">](figures/sample-data-showfullcolors.png)
+
 ## To use:
 
 * `git clone git@github.com:kthyng/cmtamu.git`
@@ -21,6 +25,7 @@ Here is our gallery: [<img src="figures/gallery.png" class="picFloat">](figures/
 ### tools:
 * Plot lightness of colormaps.
 * Print the rgb of the colormaps to text files.
+* Plot sample data up with colormaps.
 * Plot a matplotlib-style gallery of the colormaps, including the grayscale equivalent.
 
 ### cmtamu:
