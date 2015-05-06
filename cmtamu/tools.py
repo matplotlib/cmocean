@@ -48,7 +48,7 @@ def plot_lightness():
         if L[-1] > L[0]:
             ax.scatter(x+j*dc, L, c=x, cmap=cmap, s=300, linewidths=0.)
         else:
-            ax.scatter(x+j*dc, L[::-1], c=x, cmap=cmap, s=300, linewidths=0.)
+            ax.scatter(x+j*dc, L[::-1], c=x[::-1], cmap=cmap, s=300, linewidths=0.)
         locs.append(x[-1]+j*dc) # store locations for colormap labels
 
     # Set up labels for colormaps
@@ -61,7 +61,7 @@ def plot_lightness():
     for label in labels:
         label.set_rotation(60)
 
-    fig.savefig('../figures/lightness.png', bbox_inches='tight')
+    fig.savefig('figures/lightness.png', bbox_inches='tight')
 
 
 def print_colormaps():
