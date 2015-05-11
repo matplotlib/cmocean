@@ -11,6 +11,7 @@ import matplotlib as mpl
 import cmtamu
 from skimage import color
 import test
+import os
 
 mpl.rcParams.update({'font.size': 14})
 mpl.rcParams['font.sans-serif'] = 'Arev Sans, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Helvetica, Avant Garde, sans-serif'
@@ -24,7 +25,8 @@ mpl.rcParams['mathtext.sf'] = 'sans'
 mpl.rcParams['mathtext.fallback_to_cm'] = 'True'
 
 # list of colormaps for several functions
-cmaps = [cmtamu.salinity, cmtamu.temp, cmtamu.o2, cmtamu.chl, cmtamu.cdom, cmtamu.turb]
+cmaps = [cmtamu.temp, cmtamu.o2, cmtamu.salinity, cmtamu.chl, 
+            cmtamu.rho, cmtamu.par, cmtamu.turb, cmtamu.cdom]
 
 def plot_lightness():
     '''
@@ -37,7 +39,7 @@ def plot_lightness():
 
     fig = plt.figure(figsize=(16,6))
     ax = fig.add_subplot(111)
-    ax.set_xlim(-0.1, 6.1)
+    ax.set_xlim(-0.1, 8.1)
     ax.set_ylim(0, 100)
     ax.set_xlabel('Lightness for each colormap')
 
@@ -62,6 +64,7 @@ def plot_lightness():
         label.set_rotation(60)
 
     fig.savefig('figures/lightness.png', bbox_inches='tight')
+    fig.savefig('figures/lightness.pdf', bbox_inches='tight')
 
 
 def print_colormaps():
@@ -69,9 +72,12 @@ def print_colormaps():
     Print colormaps in 256 RGB colors to text files.
     '''
 
+    if not os.path.exists('rgb'):
+        os.makedirs('rgb')
+
     for cmap in cmaps:
 
-        np.savetxt(cmap.name + '-rgb.txt', cmap(np.linspace(0,1,256))[np.newaxis,:,:3][0])
+        np.savetxt('rgb/' + cmap.name + '-rgb.txt', cmap(np.linspace(0,1,256))[np.newaxis,:,:3][0])
 
 
 def plot_data():
@@ -79,14 +85,14 @@ def plot_data():
     Plot sample data up with the fancy colormaps.
     '''
 
-    var = ['salinity', 'temp', 'oxygen', 'fluorescence-ECO', 'fluorescence-CDOM', 'turbidity']
+    var = ['temp', 'oxygen', 'salinity', 'fluorescence-ECO', 'density', 'PAR', 'turbidity', 'fluorescence-CDOM']
     # colorbar limits for each property
-    lims = np.array([[0,36], [26,33], [0,7], [0,6], [0,9], [0,2]]) # reasonable values
+    lims = np.array([[26,33], [0,10], [0,36], [0,6], [1005, 1025], [0,0.6], [0,2], [0,9]]) # reasonable values
     # lims = np.array([[20,36], [26,33], [1.5,5.6], [0,4], [0,9], [0,1.5]]) # values to show colormaps
 
-    fig, axes = plt.subplots(nrows=3, ncols=2)
+    fig, axes = plt.subplots(nrows=4, ncols=2)
     fig.set_size_inches(20,10)
-    fig.subplots_adjust(top=0.95, bottom=0.01, left=0.2, right=0.99, wspace=-0.03, hspace=0.07)
+    fig.subplots_adjust(top=0.95, bottom=0.01, left=0.2, right=0.99, wspace=-0.01, hspace=0.07)
     i = 0
     for ax, Var, cmap in zip(axes.flat, var, cmaps): # loop through data to plot up
 
@@ -97,7 +103,7 @@ def plot_data():
         # no stupid offset
         y_formatter = mpl.ticker.ScalarFormatter(useOffset=False)
         ax.xaxis.set_major_formatter(y_formatter)
-        if i==4:
+        if i==6:
             ax.set_xlabel('Longitude [degrees]')
             ax.set_ylabel('Depth [m]')
         else:
@@ -109,7 +115,7 @@ def plot_data():
         cb.set_label(cmap.name)
         i += 1
 
-    fig.savefig('../figures/sample-data.png', bbox_inches='tight')
+    fig.savefig('figures/sample-data.png', bbox_inches='tight')
 
 
 def plot_gallery():
@@ -122,7 +128,7 @@ def plot_gallery():
     gradient = np.vstack((gradient, gradient))
     x = np.linspace(0.0, 1.0, 256)
 
-    fig, axes = plt.subplots(nrows=6, ncols=1)
+    fig, axes = plt.subplots(nrows=len(cmaps), ncols=1)
     fig.subplots_adjust(top=0.95, bottom=0.01, left=0.2, right=0.99, wspace=0.05)
     fig.suptitle('Texas A&M Oceanography colormaps', fontsize=16, y=1.0, x=0.6)
 
@@ -151,5 +157,5 @@ def plot_gallery():
     for ax in axes:
         ax.set_axis_off()
 
-    fig.savefig('../figures/gallery.pdf', bbox_inches='tight')
-    fig.savefig('../figures/gallery.png', bbox_inches='tight')
+    fig.savefig('figures/gallery.pdf', bbox_inches='tight')
+    fig.savefig('figures/gallery.png', bbox_inches='tight')
