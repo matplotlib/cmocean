@@ -54,14 +54,22 @@ def read(varin):
     Read in dataset for variable var
     '''
 
-    fname = 'MS2_L10.mat.txt'
+    fname = 'MS09_L10.mat.txt'
+    # fname = 'MS09_L05.mat.txt' # has PAR
+    # fname = 'MS2_L10.mat.txt' # empty PAR
 
     d = np.loadtxt(fname, comments='*')
 
-    var = ['lat', 'lon', 'depth', 'temp', 'density', 'sigma', 'oxygen', 
-            'voltage 2', 'voltage 3', 'fluorescence-CDOM', 'fluorescence-ECO', 
-            'turbidity', 'pressure', 'salinity', 'RINKO temperature', 
-            'RINKO DO - CTD temp', 'RINKO DO - RINKO temp', 'bottom', 'PAR']
+    if fname == 'MS2_L10.mat.txt':
+        var = ['lat', 'lon', 'depth', 'temp', 'density', 'sigma', 'oxygen', 
+                'voltage 2', 'voltage 3', 'fluorescence-CDOM', 'fluorescence-ECO', 
+                'turbidity', 'pressure', 'salinity', 'RINKO temperature', 
+                'RINKO DO - CTD temp', 'RINKO DO - RINKO temp', 'bottom', 'PAR']
+    elif (fname == 'MS09_L05.mat.txt') or (fname == 'MS09_L10.mat.txt'):
+        var = ['lat', 'lon', 'depth', 'temp', 'density', 'sigma', 'oxygen', 
+                'voltage 2', 'voltage 3', 'voltage 4', 'fluorescence-CDOM', 'fluorescence-ECO', 
+                'turbidity', 'pressure', 'salinity', 'RINKO temperature', 
+                'RINKO DO - CTD temp', 'RINKO DO - RINKO temp', 'bottom', 'PAR']
 
     # return data for variable varin
     return d[:,0], d[:,1], d[:,2], d[:,var.index(varin)]
