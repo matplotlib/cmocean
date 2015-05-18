@@ -30,5 +30,5 @@ Sample data plots of the colormaps: [<img src="figures/sample-data-MS2_L10.png" 
 * Plot a matplotlib-style gallery of the colormaps, including the grayscale equivalent.
 
 ### cmtamu:
-* Functions that specify colormaps for each of six oceanographic fields: salinity, temperature, oxygen, CDOM, chlorophyll, and turbidity.
+* Functions that specify colormaps for each of eight oceanographic fields: salinity, temperature, density, PAR, oxygen, CDOM, chlorophyll, and turbidity.
 * Can be imported and used directly to access colormaps by property.
