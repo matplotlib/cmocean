@@ -92,7 +92,7 @@ def plot_data():
 
     fig, axes = plt.subplots(nrows=4, ncols=2)
     fig.set_size_inches(20,10)
-    fig.subplots_adjust(top=0.95, bottom=0.01, left=0.2, right=0.99, wspace=-0.01, hspace=0.07)
+    fig.subplots_adjust(top=0.95, bottom=0.01, left=0.2, right=0.99, wspace=0.0, hspace=0.07)
     i = 0
     for ax, Var, cmap in zip(axes.flat, var, cmaps): # loop through data to plot up
 
@@ -112,7 +112,7 @@ def plot_data():
         ax.set_ylim(-z.max(), 0)
         ax.set_xlim(lon.min(), lon.max())
         cb = plt.colorbar(map1, ax=ax, pad=0.02)
-        cb.set_label(cmap.name)
+        cb.set_label(cmap.name + ' [' + '$' + cmap.units + '$]') 
         i += 1
 
     fig.savefig('figures/sample-data.png', bbox_inches='tight')
