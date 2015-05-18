@@ -72,7 +72,7 @@ def make_turbidity_cmap():
     cmap = test.cmap(['#FEEBB7', '#B0911E', '#4F3F18'])
     # cmap = cm.YlOrBr
     cmap.name = 'Turbidity'
-    cmap.units = '?'
+    cmap.units = 'NTU'
     cmap.author = 'kmt'
     return cmap
 
