@@ -7,7 +7,8 @@ Here is our gallery: [<img src="figures/gallery.png" class="picFloat">](figures/
 
 Lightness plots of the colormaps: [<img src="figures/lightness.png" class="picFloat">](figures/lightness.png)
 
-Sample data plots of the colormaps: [<img src="figures/sample-data-showfullcolors.png" class="picFloat">](figures/sample-data-showfullcolors.png)
+Sample data plots of the colormaps: [<img src="figures/sample-data-MS2_L10.png" class="picFloat">](figures/sample-data-MS2-L10.png)
+[<img src="figures/sample-data-MS09_L10.png" class="picFloat">](figures/sample-data-MS09-L10.png)
 
 ## To use:
 
