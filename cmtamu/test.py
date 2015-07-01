@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from skimage import color
+from pycam02ucs.cm.viscm import viscm
 
 
 def cmap(rgbin, N=10):
@@ -49,13 +50,13 @@ def test(cmap):
     ax.scatter(x, lab[0,:,0], c=x, cmap=cmap, s=300, linewidths=0.)
 
 
-def read(varin):
+def read(varin, fname='MS2_L10.mat.txt'):
     '''
     Read in dataset for variable var
     '''
 
-    fname = 'MS09_L10.mat.txt'
-    # fname = 'MS09_L05.mat.txt' # has PAR
+    # # fname = 'MS09_L10.mat.txt'
+    # # fname = 'MS09_L05.mat.txt' # has PAR
     # fname = 'MS2_L10.mat.txt' # empty PAR
 
     d = np.loadtxt(fname, comments='*')
@@ -65,7 +66,7 @@ def read(varin):
                 'voltage 2', 'voltage 3', 'fluorescence-CDOM', 'fluorescence-ECO', 
                 'turbidity', 'pressure', 'salinity', 'RINKO temperature', 
                 'RINKO DO - CTD temp', 'RINKO DO - RINKO temp', 'bottom', 'PAR']
-    elif (fname == 'MS09_L05.mat.txt') or (fname == 'MS09_L10.mat.txt'):
+    elif (fname == 'MS09_L05.mat.txt') or (fname == 'MS09_L10.mat.txt') or (fname == 'MS08_L12.mat.txt'):
         var = ['lat', 'lon', 'depth', 'temp', 'density', 'sigma', 'oxygen', 
                 'voltage 2', 'voltage 3', 'voltage 4', 'fluorescence-CDOM', 'fluorescence-ECO', 
                 'turbidity', 'pressure', 'salinity', 'RINKO temperature', 
@@ -107,3 +108,15 @@ def show(cmap, var, vmin=None, vmax=None):
     plt.colorbar(map1, ax=ax)
 
     plt.suptitle(var)
+
+
+def eval(cmap):
+    '''
+    Evaluate goodness of colormap using perceptual deltas.
+    '''
+
+    viscm(cmap)
+    fig = plt.gcf()
+    fig.set_size_inches(22,10)
+    plt.show()
+    fig.savefig('figures/eval_' + cmap.name + '.png', bbox_inches='tight')

@@ -26,7 +26,13 @@ mpl.rcParams['mathtext.fallback_to_cm'] = 'True'
 
 # list of colormaps for several functions
 cmaps = [cmtamu.temp, cmtamu.o2, cmtamu.salinity, cmtamu.chl, 
-            cmtamu.rho, cmtamu.par, cmtamu.turb, cmtamu.cdom]
+            cmtamu.rho, cmtamu.par, cmtamu.turb, cmtamu.cdom] 
+            # cmtamu.bathy, cmtamu.s, cmtamu.v, cmtamu.vort, 
+            # cmtamu.eta]
+
+# data files
+fnames = ['MS09_L10.mat.txt', 'MS09_L05.mat.txt', 
+            'MS2_L10.mat.txt', 'MS08_L12.mat.txt']
 
 def plot_lightness():
     '''
@@ -37,9 +43,9 @@ def plot_lightness():
     x = np.linspace(0.0, 1.0, 256)
     locs = [] # locations for text labels
 
-    fig = plt.figure(figsize=(16,6))
+    fig = plt.figure(figsize=(16,6)) #(24,6))
     ax = fig.add_subplot(111)
-    ax.set_xlim(-0.1, 8.1)
+    ax.set_xlim(-0.1, 8.1) #13.1)
     ax.set_ylim(0, 100)
     ax.set_xlabel('Lightness for each colormap')
 
@@ -90,32 +96,33 @@ def plot_data():
     lims = np.array([[26,33], [0,10], [0,36], [0,6], [1005, 1025], [0,0.6], [0,2], [0,9]]) # reasonable values
     # lims = np.array([[20,36], [26,33], [1.5,5.6], [0,4], [0,9], [0,1.5]]) # values to show colormaps
 
-    fig, axes = plt.subplots(nrows=4, ncols=2)
-    fig.set_size_inches(20,10)
-    fig.subplots_adjust(top=0.95, bottom=0.01, left=0.2, right=0.99, wspace=0.0, hspace=0.07)
-    i = 0
-    for ax, Var, cmap in zip(axes.flat, var, cmaps): # loop through data to plot up
+    for fname in fnames:
+        fig, axes = plt.subplots(nrows=4, ncols=2)
+        fig.set_size_inches(20,10)
+        fig.subplots_adjust(top=0.95, bottom=0.01, left=0.2, right=0.99, wspace=0.0, hspace=0.07)
+        i = 0
+        for ax, Var, cmap in zip(axes.flat, var, cmaps): # loop through data to plot up
 
-        # get variable data
-        lat, lon, z, data = test.read(Var)
+            # get variable data
+            lat, lon, z, data = test.read(Var, fname)
 
-        map1 = ax.scatter(lon, -z, c=data, cmap=cmap, s=10, linewidths=0., vmin=lims[i,0], vmax=lims[i,1])
-        # no stupid offset
-        y_formatter = mpl.ticker.ScalarFormatter(useOffset=False)
-        ax.xaxis.set_major_formatter(y_formatter)
-        if i==6:
-            ax.set_xlabel('Longitude [degrees]')
-            ax.set_ylabel('Depth [m]')
-        else:
-            ax.set_xticklabels([])
-            ax.set_yticklabels([])
-        ax.set_ylim(-z.max(), 0)
-        ax.set_xlim(lon.min(), lon.max())
-        cb = plt.colorbar(map1, ax=ax, pad=0.02)
-        cb.set_label(cmap.name + ' [' + '$' + cmap.units + '$]') 
-        i += 1
+            map1 = ax.scatter(lat, -z, c=data, cmap=cmap, s=10, linewidths=0., vmin=lims[i,0], vmax=lims[i,1])
+            # no stupid offset
+            y_formatter = mpl.ticker.ScalarFormatter(useOffset=False)
+            ax.xaxis.set_major_formatter(y_formatter)
+            if i==6:
+                ax.set_xlabel('Latitude [degrees]')
+                ax.set_ylabel('Depth [m]')
+            else:
+                ax.set_xticklabels([])
+                ax.set_yticklabels([])
+            ax.set_ylim(-z.max(), 0)
+            ax.set_xlim(lat.min(), lat.max())
+            cb = plt.colorbar(map1, ax=ax, pad=0.02)
+            cb.set_label(cmap.name + ' [' + '$' + cmap.units + '$]') 
+            i += 1
 
-    fig.savefig('figures/sample-data.png', bbox_inches='tight')
+        fig.savefig('figures/' + fname.split('.')[0] + '.png', bbox_inches='tight')
 
 
 def plot_gallery():
