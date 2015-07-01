@@ -1,7 +1,7 @@
 cmtamu
 ======
 
-Colormap setup for standardizing commonly-plotting oceanographic variables, especially at Texas A&M. Most of the colormaps are straight from [matplotlib](http://matplotlib.org/).
+Colormap setup for standardizing commonly-plotting oceanographic variables, especially at Texas A&M. Most of the colormaps started from [matplotlib](http://matplotlib.org/) colormaps, but have now been adjusted using the [Pycam02ucs tool](http://bids.github.io/colormap/).
 
 Here is our gallery: [<img src="figures/gallery.png" class="picFloat">](figures/gallery.png)
 
