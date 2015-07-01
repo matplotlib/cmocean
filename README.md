@@ -7,8 +7,19 @@ Here is our gallery: [<img src="figures/gallery.png" class="picFloat">](figures/
 
 Lightness plots of the colormaps: [<img src="figures/lightness.png" class="picFloat">](figures/lightness.png)
 
-Sample data plots of the colormaps: [<img src="figures/sample-data-MS2_L10.png" class="picFloat">](figures/sample-data-MS2-L10.png)
-[<img src="figures/sample-data-MS09_L10.png" class="picFloat">](figures/sample-data-MS09-L10.png)
+Sample data plots of the colormaps: [<img src="figures/MS2_L10.png" class="picFloat">](figures/MS2-L10.png)
+[<img src="figures/MS08_L12.png" class="picFloat">](figures/MS08-L12.png)
+[<img src="figures/MS09_L05.png" class="picFloat">](figures/MS09-L05.png)
+[<img src="figures/MS09_L10.png" class="picFloat">](figures/MS09-L10.png)
+
+Evaluations of the perceptual accuracy of the colormaps (see http://bids.github.io/colormap/): [<img src="figures/eval_Temperature.png" class="picFloat">](figures/eval_Temperature.png)
+[<img src="figures/eval_Oxygen.png" class="picFloat">](figures/eval_Oxygen.png)
+[<img src="figures/eval_Salinity.png" class="picFloat">](figures/eval_Salinity.png)
+[<img src="figures/eval_Chlorophyll.png" class="picFloat">](figures/eval_Chlorophyll.png)
+[<img src="figures/eval_Density.png" class="picFloat">](figures/eval_Density.png)
+[<img src="figures/eval_PAR.png" class="picFloat">](figures/eval_PAR.png)
+[<img src="figures/eval_Turbidity.png" class="picFloat">](figures/eval_Turbidity.png)
+[<img src="figures/eval_CDOM.png" class="picFloat">](figures/eval_CDOM.png)
 
 ## To use:
 
