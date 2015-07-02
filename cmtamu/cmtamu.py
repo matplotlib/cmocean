@@ -43,34 +43,19 @@ def make_temperature_cmap():
     cmap.author = 'kmt'
     return cmap
 
-def make_oxygen_cmap(hypo_low  = [0.30, 0.1, 0.1],
-                hypo_high = [0.6, 0.1, 0.1],
-                norm_low  = [0.3, 0.3, 0.3],
-                norm_high = [0.80, 0.80, 0.80], bpt=0.2,
-                sup_high  = [1.0, 1.0, 0.4],
-                sup_low = [0.73, 0.85, 0.4], bpth=0.8):
-    '''
-    The colormap has hue breaks for hypoxic, normal, and supersaturated levels 
-    of oxygen. Reasonable lightness functions though.
-    '''
 
-
-    cdict = {'red':   ((0.0, 0.0, hypo_low[0]),
-                       (bpt, hypo_high[0], norm_low[0]),
-                       (bpth, norm_high[0], sup_low[0]),
-                       (1.0, sup_high[0], 1.0)),
-             'green':((0.0, 0.0, hypo_low[1]),
-                       (bpt, hypo_high[1], norm_low[1]),
-                       (bpth, norm_high[1], sup_low[1]),
-                       (1.0, sup_high[1], 1.0)),
-             'blue':  ((0.0, 0.0, hypo_low[2]),
-                       (bpt, hypo_high[2], norm_low[2]),
-                       (bpth, norm_high[2], sup_low[2]),
-                       (1.0, sup_high[2], 1.0))}
-
-    cmap = colors.LinearSegmentedColormap('Oxygen', cdict, 256)
+def make_oxygen_cmap():
+    rgb = np.load('rgb/Oxygen.npy')
+    # convert middle .2 to .8 of colormap to grayscale
+    l = rgb.shape[0]
+    num = l/5.
+    rgb[num:l-num,0] = 0.2989*rgb[num:l-num,0] + 0.5870*rgb[num:l-num,1] + 0.1140*rgb[num:l-num,2]
+    rgb[num:l-num,1] = rgb[num:l-num,0]
+    rgb[num:l-num,2] = rgb[num:l-num,0]
+    cmap = test.cmap(rgb, N=256)
+    cmap.name = 'Oxygen'
     cmap.units = 'm/l'
-    cmap.author = 'rdh'
+    cmap.author = 'kmt'
     return cmap
 
 
