@@ -6,7 +6,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from skimage import color
-from pycam02ucs.cm.viscm import viscm
 
 
 def cmap(rgbin, N=10):
@@ -110,13 +109,16 @@ def show(cmap, var, vmin=None, vmax=None):
     plt.suptitle(var)
 
 
-def eval(cmap):
+def eval(cmap, dpi=100):
     '''
     Evaluate goodness of colormap using perceptual deltas.
     '''
+    
+    from pycam02ucs.cm.viscm import viscm
 
     viscm(cmap)
     fig = plt.gcf()
     fig.set_size_inches(22,10)
     plt.show()
-    fig.savefig('figures/eval_' + cmap.name + '.png', bbox_inches='tight')
+    fig.savefig('figures/eval_' + cmap.name + '.png', bbox_inches='tight', dpi=dpi)
+    fig.savefig('figures/eval_' + cmap.name + '.pdf', bbox_inches='tight', dpi=dpi)
