@@ -26,8 +26,11 @@ import numpy as np
 import os
 
 
+# Location of rgb files
+datadir = os.path.join(os.path.split(__file__)[0], 'rgb')
+
 def make_salinity_cmap():
-    rgb = np.load('cmtamu/cmtamu/rgb/Salinity.npy')
+    rgb = np.load(os.path.join(datadir, 'Salinity.npy'))
     cmap = test.cmap(rgb, N=256)
     cmap.name = 'Salinity'
     cmap.units = 'g/kg'
@@ -36,7 +39,7 @@ def make_salinity_cmap():
 
 
 def make_temperature_cmap():
-    rgb = np.load('cmtamu/cmtamu/rgb/Temperature.npy')
+    rgb = np.load(os.path.join(datadir, 'Temperature.npy'))
     cmap = test.cmap(rgb, N=256)
     cmap.name = 'Temperature'
     cmap.units = 'C'
@@ -45,7 +48,7 @@ def make_temperature_cmap():
 
 
 def make_oxygen_cmap():
-    rgb = np.load('cmtamu/cmtamu/rgb/Oxygen.npy')
+    rgb = np.load(os.path.join(datadir, 'Oxygen.npy'))
     # convert middle .2 to .8 of colormap to grayscale
     l = rgb.shape[0]
     num = l/5.
@@ -60,7 +63,7 @@ def make_oxygen_cmap():
 
 
 def make_chlorophyll_cmap():
-    rgb = np.load('cmtamu/cmtamu/rgb/Chlorophyll.npy')
+    rgb = np.load(os.path.join(datadir, 'Chlorophyll.npy'))
     cmap = test.cmap(rgb[::-1], N=256)
     cmap.name = 'Chlorophyll'
     cmap.units = 'mg/m^3'
@@ -69,7 +72,7 @@ def make_chlorophyll_cmap():
 
 
 def make_CDOM_cmap():
-    rgb = np.load('cmtamu/cmtamu/rgb/CDOM.npy')
+    rgb = np.load(os.path.join(datadir, 'CDOM.npy'))
     cmap = test.cmap(rgb[::-1], N=256)
     cmap.name = 'CDOM'
     cmap.units = 'mg/m^3'
@@ -78,7 +81,7 @@ def make_CDOM_cmap():
 
 
 def make_turbidity_cmap():
-    rgb = np.load('cmtamu/cmtamu/rgb/turbidity.npy')
+    rgb = np.load(os.path.join(datadir, 'turbidity.npy'))
     cmap = test.cmap(rgb[::-1], N=256)
     cmap.name = 'Turbidity'
     cmap.units = 'NTU'
@@ -87,7 +90,7 @@ def make_turbidity_cmap():
 
 
 def make_PAR_cmap():
-    rgb = np.load('cmtamu/cmtamu/rgb/PAR.npy')
+    rgb = np.load(os.path.join(datadir, 'PAR.npy'))
     cmap = test.cmap(rgb, N=256)
     cmap.name = 'PAR'
     cmap.units = 'W/m^2'
@@ -96,7 +99,7 @@ def make_PAR_cmap():
 
 
 def make_density_cmap():
-    rgb = np.load('cmtamu/cmtamu/rgb/Density.npy')
+    rgb = np.load(os.path.join(datadir, 'Density.npy'))
     cmap = test.cmap(rgb[::-1], N=256)
     cmap.name = 'Density'
     cmap.units = 'kg/m^3'
@@ -105,7 +108,7 @@ def make_density_cmap():
 
 
 def make_bathymetry_cmap():  
-    rgb = np.load('cmtamu/cmtamu/rgb/Bathymetry.npy')
+    rgb = np.load(os.path.join(datadir, 'Bathymetry.npy'))
     cmap = test.cmap(rgb, N=256)
     cmap.name = 'Bathymetry' 
     cmap.units = 'm'
@@ -113,7 +116,7 @@ def make_bathymetry_cmap():
     return cmap
 
 def make_speed_cmap():
-    rgb = np.load('cmtamu/cmtamu/rgb/Speed.npy')
+    rgb = np.load(os.path.join(datadir, 'Speed.npy'))
     cmap = test.cmap(rgb, N=256)
     cmap.name = 'Speed'
     cmap.units = 'm/s'
@@ -142,7 +145,7 @@ def make_seasurface_cmap():
     return cmap
 
 def make_option_d_cmap():
-    rgb = np.load('cmtamu/cmtamu/rgb/option_d.npy')
+    rgb = np.load(os.path.join(datadir, 'option_d.npy'))
     cmap = test.cmap(rgb, N=256)
     cmap.name = 'matplotlib option_d'
     cmap.units = '[]'
