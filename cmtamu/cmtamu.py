@@ -121,7 +121,7 @@ def make_speed_cmap():
     return cmap
 
 def make_velocity_cmap():
-    cmap = cm.PuOr
+    cmap = cm.BrBG #cm.PuOr
     cmap.name = 'Velocity'
     cmap.units = 'm/s'
     cmap.author = 'kmt'
@@ -139,6 +139,14 @@ def make_seasurface_cmap():
     cmap.name = 'Sea surface'
     cmap.units = 'm'
     cmap.author = 'kmt'
+    return cmap
+
+def make_option_d_cmap():
+    rgb = np.load('rgb/option_d.npy')
+    cmap = test.cmap(rgb, N=256)
+    cmap.name = 'matplotlib option_d'
+    cmap.units = '[]'
+    cmap.author = 'eric firing'
     return cmap
 
 
@@ -174,6 +182,8 @@ seasurface = make_seasurface_cmap()
 freesurface = make_seasurface_cmap()
 zeta = make_seasurface_cmap()
 eta = make_seasurface_cmap()
+option_d = make_option_d_cmap()
+optiond = make_option_d_cmap()
 
 
 
