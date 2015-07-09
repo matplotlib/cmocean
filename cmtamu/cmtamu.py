@@ -87,7 +87,7 @@ def make_CDOM_cmap():
 
 
 def make_turbidity_cmap():
-    rgb = np.load(os.path.join(datadir, 'turbidity.npy'))
+    rgb = np.load(os.path.join(datadir, 'Turbidity.npy'))
     cmap = test.cmap(rgb[::-1], N=256)
     cmap.name = 'Turbidity'
     cmap.units = 'NTU'
