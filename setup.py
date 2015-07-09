@@ -8,6 +8,13 @@ setup.py for cmtamu
 from setuptools import setup # to support "develop" mode
 # from numpy.distutils.core import setup, Extension
 
+# cmtamu_mod = Extension(name = "cmtamu",
+#                          sources=['rgb/*',
+#                                   ],
+#                       )
+
+# print cmtamu_mod
+
 setup(
     name = "cmtamu",
     version = "0.01",
@@ -19,8 +26,10 @@ setup(
                  "Development Status :: 3 - Alpha",
     #             "Topic :: Utilities",
                  ],
-    packages = ["cmtamu"],
-    # py_modules = modules,
-    ext_package='cmtamu', 
+    data_files=[('rgb', '*')],
+    packages = 'cmtamu',
+    # py_modules = cmtamu_mod,
+    # ext_package='cmtamu', 
+    # ext_modules = [cmtamu_mod],
     scripts = [],
     )
