@@ -19,7 +19,7 @@ setup(
     name = "cmtamu",
     version = "0.01",
     author = "Kristen Thyng",
-    author_email = "",
+    author_email = "kthyng@gmail.com",
     description = ("Colormaps for Texas A&M Oceanography"),
     long_description=open('README.md').read(),
     classifiers=[
@@ -27,9 +27,9 @@ setup(
     #             "Topic :: Utilities",
                  ],
     data_files=[('rgb', '*')],
-    packages = 'cmtamu',
+    packages = ["cmtamu"],
     # py_modules = cmtamu_mod,
-    # ext_package='cmtamu', 
+    ext_package='cmtamu', 
     # ext_modules = [cmtamu_mod],
     scripts = [],
     )
