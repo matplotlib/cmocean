@@ -20,11 +20,17 @@ Colormaps are available for:
 Used tool from http://bids.github.io/colormap/ to redo colormaps to be more perceptually correct.
 '''
 
-from matplotlib import cm, colors
+# from matplotlib import cm, colors
 import test
 import numpy as np
 import os
 
+__all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
+            'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
+            'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
+            'bathymetry', 'bathy', 'speed', 's', 'velocity', 'vel', 
+            'u', 'v', 'vorticity', 'vort', 'seasurface', 'freesurface', 
+            'zeta', 'eta', 'option_d', 'optiond']
 
 # Location of rgb files
 datadir = os.path.join(os.path.split(__file__)[0], 'rgb')
@@ -192,5 +198,5 @@ optiond = make_option_d_cmap()
 
 if __name__ == '__main__':
 
-    make_salinility_cmap()
+    make_salinity_cmap()
     # pass

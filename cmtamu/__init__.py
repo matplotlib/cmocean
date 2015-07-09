@@ -5,7 +5,7 @@ oceanographic properties in the Oceanography department at Texas A&M.
 See README.md for an overview on instructions.
 '''
 
-import cmtamu
+from cmtamu import *
 import test
 import tools
 
