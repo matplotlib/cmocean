@@ -28,9 +28,13 @@ import os
 __all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
             'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
             'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
-            'bathymetry', 'bathy', 'speed', 's', 'velocity', 'vel', 
-            'u', 'v', 'vorticity', 'vort', 'seasurface', 'freesurface', 
-            'zeta', 'eta', 'option_d', 'optiond']
+            'option_d', 'optiond']
+# __all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
+#             'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
+#             'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
+#             'bathymetry', 'bathy', 'speed', 's', 'velocity', 'vel', 
+#             'u', 'v', 'vorticity', 'vort', 'seasurface', 'freesurface', 
+#             'zeta', 'eta', 'option_d', 'optiond']
 
 # Location of rgb files
 datadir = os.path.join(os.path.split(__file__)[0], 'rgb')
