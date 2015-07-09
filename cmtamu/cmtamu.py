@@ -20,7 +20,7 @@ Colormaps are available for:
 Used tool from http://bids.github.io/colormap/ to redo colormaps to be more perceptually correct.
 '''
 
-# from matplotlib import cm, colors
+from matplotlib import cm, colors
 import test
 import numpy as np
 import os
