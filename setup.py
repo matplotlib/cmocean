@@ -26,7 +26,9 @@ setup(
                  "Development Status :: 3 - Alpha",
     #             "Topic :: Utilities",
                  ],
-    data_files=[('rgb', '*')],
+    package_data={
+        'cmtamu': ['rgb/*.npy'],
+    },    
     packages = ["cmtamu"],
     # py_modules = cmtamu_mod,
     ext_package='cmtamu', 
