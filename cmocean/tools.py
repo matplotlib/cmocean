@@ -168,14 +168,14 @@ def plot_gallery():
     fig.savefig('figures/gallery.png', bbox_inches='tight')
 
 
-def get_dict(cmap):
+def get_dict(cmap, N=256):
     '''
     Change from rgb to dictionary that LinearSegmentedColormap expects. 
     Code from https://mycarta.wordpress.com/2014/04/25/convert-color-palettes-to-python-matplotlib-colormaps/
     and http://nbviewer.ipython.org/github/kwinkunks/notebooks/blob/master/Matteo_colourmaps.ipynb
     '''
 
-    rgb = cmap(np.arange(255))
+    rgb = cmap(np.arange(N))
 
     b3 = rgb[:,2] # value of blue at sample n
     b2 = rgb[:,2] # value of blue at sample n
