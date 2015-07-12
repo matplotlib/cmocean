@@ -1,7 +1,7 @@
-cmtamu
-======
+cmocean
+=======
 
-Colormap setup for standardizing commonly-plotting oceanographic variables, especially at Texas A&M. Most of the colormaps started from [matplotlib](http://matplotlib.org/) colormaps, but have now been adjusted using the [Pycam02ucs tool](http://bids.github.io/colormap/).
+Colormap setup for standardizing commonly-plotting oceanographic variables. Most of the colormaps started from [matplotlib](http://matplotlib.org/) colormaps, but have now been adjusted using the [viscm tool](https://github.com/BIDS/viscm).
 
 Here is our gallery: [<img src="figures/gallery.png" class="picFloat">](figures/gallery.png)
 
@@ -23,9 +23,9 @@ Evaluations of the perceptual accuracy of the colormaps (see http://bids.github.
 
 ## To use:
 
-* `git clone git@github.com:kthyng/cmtamu.git`
+* `git clone git@github.com:matplotlib/cmocean.git`
 * `pip install -e .` in the cloned directory to install a link to this package to where your site packages are stored. You might need to figure out permissions or prefixes, etc.
-* Now you can import the package from wherever and use the awesome colormaps! That is, `from cmtamu import cmtamu` and get your salinity colormap instance with `cmap = cmtamu.salinity`. 
+* Now you can import the package from wherever and use the awesome colormaps! That is, `import cmocean` and get your salinity colormap instance with `cmap = cmocean.salinity`. 
 
 ## Functions available:
 
@@ -40,6 +40,6 @@ Evaluations of the perceptual accuracy of the colormaps (see http://bids.github.
 * Plot sample data up with colormaps.
 * Plot a matplotlib-style gallery of the colormaps, including the grayscale equivalent.
 
-### cmtamu:
+### cmocean:
 * Functions that specify colormaps for each of eight oceanographic fields: salinity, temperature, density, PAR, oxygen, CDOM, chlorophyll, and turbidity.
 * Can be imported and used directly to access colormaps by property.
