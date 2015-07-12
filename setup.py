@@ -1,37 +1,37 @@
 #!/usr/bin/env python
 
 """
-setup.py for cmtamu
+setup.py for cmocean
 
 """
 # import shutil
 from setuptools import setup # to support "develop" mode
 # from numpy.distutils.core import setup, Extension
 
-# cmtamu_mod = Extension(name = "cmtamu",
+# cmocean_mod = Extension(name = "cmocean",
 #                          sources=['rgb/*',
 #                                   ],
 #                       )
 
-# print cmtamu_mod
+# print cmocean_mod
 
 setup(
-    name = "cmtamu",
+    name = "cmocean",
     version = "0.01",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
-    description = ("Colormaps for Texas A&M Oceanography"),
+    description = ("Colormaps for Oceanography"),
     long_description=open('README.md').read(),
     classifiers=[
                  "Development Status :: 3 - Alpha",
     #             "Topic :: Utilities",
                  ],
     package_data={
-        'cmtamu': ['rgb/*.npy'],
+        'cmocean': ['rgb/*.npy'],
     },    
-    packages = ["cmtamu"],
-    # py_modules = cmtamu_mod,
-    ext_package='cmtamu', 
-    # ext_modules = [cmtamu_mod],
+    packages = ["cmocean"],
+    # py_modules = cmocean_mod,
+    ext_package='cmocean', 
+    # ext_modules = [cmocean_mod],
     scripts = [],
     )

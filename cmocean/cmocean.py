@@ -1,5 +1,5 @@
 '''
-Standardized colormaps for TAMU oceanography plots.
+Standardized colormaps for oceanography plots.
 
 Colormaps are available for:
     salinity, salt

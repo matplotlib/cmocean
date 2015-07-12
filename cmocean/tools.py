@@ -8,7 +8,7 @@ sample MCH data with each colormap.
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
-import cmtamu
+import cmocean
 from skimage import color
 import test
 import os
@@ -25,10 +25,10 @@ mpl.rcParams['mathtext.sf'] = 'sans'
 mpl.rcParams['mathtext.fallback_to_cm'] = 'True'
 
 # list of colormaps for several functions
-cmaps = [cmtamu.temp, cmtamu.o2, cmtamu.salinity, cmtamu.chl, 
-            cmtamu.rho, cmtamu.par, cmtamu.turb, cmtamu.cdom] 
-            # cmtamu.bathy, cmtamu.s, cmtamu.v, cmtamu.vort, 
-            # cmtamu.eta]
+cmaps = [cmocean.temp, cmocean.o2, cmocean.salinity, cmocean.chl, 
+            cmocean.rho, cmocean.par, cmocean.turb, cmocean.cdom] 
+            # cmocean.bathy, cmocean.s, cmocean.v, cmocean.vort, 
+            # cmocean.eta]
 
 # data files
 fnames = ['MS09_L10.mat.txt', 'MS09_L05.mat.txt', 

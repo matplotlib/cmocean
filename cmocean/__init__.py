@@ -1,11 +1,11 @@
 '''
-cmtamu is a package to help standardize colormaps for commonly-plotted
-oceanographic properties in the Oceanography department at Texas A&M. 
+cmocean is a package to help standardize colormaps for commonly-plotted
+oceanographic properties. 
 
 See README.md for an overview on instructions.
 '''
 
-from cmtamu import *
+from cmocean import *
 import test
 import tools
 
