@@ -175,32 +175,31 @@ def get_dict(cmap, N=256):
     and http://nbviewer.ipython.org/github/kwinkunks/notebooks/blob/master/Matteo_colourmaps.ipynb
     '''
 
-    rgb = cmap(np.arange(N))
+    x = np.linspace(0, 1, N)  # position of sample n - ranges from 0 to 1
 
-    b3 = rgb[:,2] # value of blue at sample n
-    b2 = rgb[:,2] # value of blue at sample n
-    b1 = np.linspace(0, 1, len(b2)) # position of sample n - ranges from 0 to 1
+    rgb = cmap(x)
+
+    # flip colormap to follow matplotlib standard
+    if rgb[0, :].sum() < rgb[-1, :].sum():
+        rgb = np.flipud(rgb)
+
+    b3 = rgb[:, 2]  # value of blue at sample n
+    b2 = rgb[:, 2]  # value of blue at sample n
 
     # Setting up columns for tuples
-    g3 = rgb[:,1]
-    g2 = rgb[:,1]
-    g1 = np.linspace(0,1,len(g2))
+    g3 = rgb[:, 1]
+    g2 = rgb[:, 1]
 
-    r3 = rgb[:,0]
-    r2 = rgb[:,0]
-    r1 = np.linspace(0,1,len(r2))
+    r3 = rgb[:, 0]
+    r2 = rgb[:, 0]
 
     # Creating tuples
-    R = zip(r1,r2,r3)
-    G = zip(g1,g2,g3)
-    B = zip(b1,b2,b3)
-
-    # Transposing
-    RGB = zip(R,G,B)
-    rgb = zip(*RGB)
+    R = zip(x, r2, r3)
+    G = zip(x, g2, g3)
+    B = zip(x, b2, b3)
 
     # Creating dictionary
     k = ['red', 'green', 'blue']
-    LinearL = dict(zip(k,rgb))
+    LinearL = dict(zip(k, [R, G, B]))
 
     return LinearL
