@@ -113,12 +113,29 @@ def eval(cmap, dpi=100):
     '''
     Evaluate goodness of colormap using perceptual deltas.
     '''
-    
+
     from pycam02ucs.cm.viscm import viscm
 
     viscm(cmap)
     fig = plt.gcf()
-    fig.set_size_inches(22,10)
+    fig.set_size_inches(22, 10)
     plt.show()
     fig.savefig('figures/eval_' + cmap.name + '.png', bbox_inches='tight', dpi=dpi)
     fig.savefig('figures/eval_' + cmap.name + '.pdf', bbox_inches='tight', dpi=dpi)
+
+
+def quick_plot(cmap, fname=None):
+    '''
+    Show quick test of a colormap.
+    '''
+
+    x = np.arange(10)
+    X, _ = np.meshgrid(x, x)
+
+    plt.figure()
+    plt.pcolor(X, cmap=cmap)
+    plt.colorbar()
+    plt.show()
+
+    if fname is not None:
+        plt.savefig(fname + '.png', bbox_inches='tight')
