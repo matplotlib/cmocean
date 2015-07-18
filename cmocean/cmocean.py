@@ -21,7 +21,7 @@ Used tool from http://bids.github.io/colormap/ to redo colormaps to be more perc
 '''
 
 from matplotlib import cm, colors
-import test
+import tools
 import numpy as np
 import os
 
@@ -41,7 +41,7 @@ datadir = os.path.join(os.path.split(__file__)[0], 'rgb')
 
 def make_salinity_cmap():
     rgb = np.load(os.path.join(datadir, 'Salinity.npy'))
-    cmap = test.cmap(rgb, N=256)
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Salinity'
     cmap.units = 'g/kg'
     cmap.author = 'kmt'
@@ -50,7 +50,7 @@ def make_salinity_cmap():
 
 def make_temperature_cmap():
     rgb = np.load(os.path.join(datadir, 'Temperature.npy'))
-    cmap = test.cmap(rgb, N=256)
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Temperature'
     cmap.units = 'C'
     cmap.author = 'kmt'
@@ -65,7 +65,7 @@ def make_oxygen_cmap():
     rgb[num:l-num,0] = 0.2989*rgb[num:l-num,0] + 0.5870*rgb[num:l-num,1] + 0.1140*rgb[num:l-num,2]
     rgb[num:l-num,1] = rgb[num:l-num,0]
     rgb[num:l-num,2] = rgb[num:l-num,0]
-    cmap = test.cmap(rgb, N=256)
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Oxygen'
     cmap.units = 'm/l'
     cmap.author = 'kmt'
@@ -74,7 +74,7 @@ def make_oxygen_cmap():
 
 def make_chlorophyll_cmap():
     rgb = np.load(os.path.join(datadir, 'Chlorophyll.npy'))
-    cmap = test.cmap(rgb[::-1], N=256)
+    cmap = tools.cmap(rgb[::-1], N=256)
     cmap.name = 'Chlorophyll'
     cmap.units = 'mg/m^3'
     cmap.author = 'kmt'
@@ -83,7 +83,7 @@ def make_chlorophyll_cmap():
 
 def make_CDOM_cmap():
     rgb = np.load(os.path.join(datadir, 'CDOM.npy'))
-    cmap = test.cmap(rgb[::-1], N=256)
+    cmap = tools.cmap(rgb[::-1], N=256)
     cmap.name = 'CDOM'
     cmap.units = 'mg/m^3'
     cmap.author = 'kmt'
@@ -92,7 +92,7 @@ def make_CDOM_cmap():
 
 def make_turbidity_cmap():
     rgb = np.load(os.path.join(datadir, 'Turbidity.npy'))
-    cmap = test.cmap(rgb[::-1], N=256)
+    cmap = tools.cmap(rgb[::-1], N=256)
     cmap.name = 'Turbidity'
     cmap.units = 'NTU'
     cmap.author = 'kmt'
@@ -101,7 +101,7 @@ def make_turbidity_cmap():
 
 def make_PAR_cmap():
     rgb = np.load(os.path.join(datadir, 'PAR.npy'))
-    cmap = test.cmap(rgb, N=256)
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'PAR'
     cmap.units = 'W/m^2'
     cmap.author = 'kmt'
@@ -110,7 +110,7 @@ def make_PAR_cmap():
 
 def make_density_cmap():
     rgb = np.load(os.path.join(datadir, 'Density.npy'))
-    cmap = test.cmap(rgb[::-1], N=256)
+    cmap = tools.cmap(rgb[::-1], N=256)
     cmap.name = 'Density'
     cmap.units = 'kg/m^3'
     cmap.author = 'kmt'
@@ -119,7 +119,7 @@ def make_density_cmap():
 
 def make_bathymetry_cmap():  
     rgb = np.load(os.path.join(datadir, 'Bathymetry.npy'))
-    cmap = test.cmap(rgb, N=256)
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Bathymetry' 
     cmap.units = 'm'
     cmap.author = 'kmt'
@@ -127,7 +127,7 @@ def make_bathymetry_cmap():
 
 def make_speed_cmap():
     rgb = np.load(os.path.join(datadir, 'Speed.npy'))
-    cmap = test.cmap(rgb, N=256)
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Speed'
     cmap.units = 'm/s'
     cmap.author = 'kmt'
@@ -156,7 +156,7 @@ def make_seasurface_cmap():
 
 def make_option_d_cmap():
     rgb = np.load(os.path.join(datadir, 'option_d.npy'))
-    cmap = test.cmap(rgb, N=256)
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'matplotlib option_d'
     cmap.units = '[]'
     cmap.author = 'eric firing'

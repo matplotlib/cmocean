@@ -87,45 +87,6 @@ def print_colormaps():
         np.savetxt('rgb/' + cmap.name + '-rgb.txt', cmap(np.linspace(0, 1, 256))[np.newaxis, :, :3][0])
 
 
-def plot_data():
-    '''Plot sample data up with the fancy colormaps.
-
-    '''
-
-    var = ['temp', 'oxygen', 'salinity', 'fluorescence-ECO', 'density', 'PAR', 'turbidity', 'fluorescence-CDOM']
-    # colorbar limits for each property
-    lims = np.array([[26, 33], [0, 10], [0, 36], [0, 6], [1005, 1025], [0, 0.6], [0, 2], [0, 9]])  # reasonable values
-    # lims = np.array([[20,36], [26,33], [1.5,5.6], [0,4], [0,9], [0,1.5]]) # values to show colormaps
-
-    for fname in fnames:
-        fig, axes = plt.subplots(nrows=4, ncols=2)
-        fig.set_size_inches(20, 10)
-        fig.subplots_adjust(top=0.95, bottom=0.01, left=0.2, right=0.99, wspace=0.0, hspace=0.07)
-        i = 0
-        for ax, Var, cmap in zip(axes.flat, var, cmaps):  # loop through data to plot up
-
-            # get variable data
-            lat, lon, z, data = test.read(Var, fname)
-
-            map1 = ax.scatter(lat, -z, c=data, cmap=cmap, s=10, linewidths=0., vmin=lims[i, 0], vmax=lims[i, 1])
-            # no stupid offset
-            y_formatter = mpl.ticker.ScalarFormatter(useOffset=False)
-            ax.xaxis.set_major_formatter(y_formatter)
-            if i == 6:
-                ax.set_xlabel('Latitude [degrees]')
-                ax.set_ylabel('Depth [m]')
-            else:
-                ax.set_xticklabels([])
-                ax.set_yticklabels([])
-            ax.set_ylim(-z.max(), 0)
-            ax.set_xlim(lat.min(), lat.max())
-            cb = plt.colorbar(map1, ax=ax, pad=0.02)
-            cb.set_label(cmap.name + ' [' + '$' + cmap.units + '$]')
-            i += 1
-
-        fig.savefig('figures/' + fname.split('.')[0] + '.png', bbox_inches='tight')
-
-
 def plot_gallery():
     '''Make plot of colormaps and labels, like in the matplotlib
     gallery.
@@ -203,3 +164,79 @@ def get_dict(cmap, N=256):
     LinearL = dict(zip(k, [R, G, B]))
 
     return LinearL
+
+
+def cmap(rgbin, N=10):
+    '''Input an array of rgb values to generate a colormap.
+
+    :param rgbin: An [mx3] array, where m is the number of input color triplets which
+         are interpolated between to make the colormap that is returned. hex values
+         can be input instead, as [mx1] in single quotes with a #.
+    :param N: The number of levels to be interpolated to.
+
+    '''
+
+    # rgb inputs here
+    if not mpl.cbook.is_string_like(rgbin[0]):
+        # normalize to be out of 1 if out of 256 instead
+        if rgbin.max() > 1:
+            rgbin = rgbin/256.
+
+    cmap = mpl.colors.LinearSegmentedColormap.from_list('mycmap', rgbin)
+
+    return cmap
+
+
+def test(cmap):
+    '''Test colormap by plotting.
+
+    :param cmap: A colormap instance. Use a named one with cm.get_cmap(colormap)
+
+    '''
+
+    # indices to step through colormap
+    x = np.linspace(0.0, 1.0, 100)
+
+    # will plot colormap and lightness
+    rgb = cmap(x)[np.newaxis, :, :3]
+    # rgb = cm.get_cmap(cmap)(x)[np.newaxis,:,:3]
+    lab = color.rgb2lab(rgb)
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.scatter(x, lab[0, :, 0], c=x, cmap=cmap, s=300, linewidths=0.)
+
+
+def eval(cmap, dpi=100):
+    '''Evaluate goodness of colormap using perceptual deltas.
+
+    :param cmap: Colormap instance.
+    :param dpi=100: dpi for saved image.
+
+    '''
+
+    import viscm
+
+    viscm(cmap)
+    fig = plt.gcf()
+    fig.set_size_inches(22, 10)
+    plt.show()
+    fig.savefig('figures/eval_' + cmap.name + '.png', bbox_inches='tight', dpi=dpi)
+    fig.savefig('figures/eval_' + cmap.name + '.pdf', bbox_inches='tight', dpi=dpi)
+
+
+def quick_plot(cmap, fname=None):
+    '''Show quick test of a colormap.
+
+    '''
+
+    x = np.arange(10)
+    X, _ = np.meshgrid(x, x)
+
+    plt.figure()
+    plt.pcolor(X, cmap=cmap)
+    plt.colorbar()
+    plt.show()
+
+    if fname is not None:
+        plt.savefig(fname + '.png', bbox_inches='tight')
