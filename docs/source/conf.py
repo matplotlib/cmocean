@@ -32,6 +32,7 @@ sys.path.insert(0, '../../cmocean')
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'matplotlib.sphinxext.plot_directive',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

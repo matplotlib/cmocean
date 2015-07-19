@@ -12,10 +12,10 @@ cmocean.cmocean module
     :undoc-members:
     :show-inheritance:
 
-cmocean.test module
--------------------
+cmocean.plots module
+--------------------
 
-.. automodule:: cmocean.test
+.. automodule:: cmocean.plots
     :members:
     :undoc-members:
     :show-inheritance:
