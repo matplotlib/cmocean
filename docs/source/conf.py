@@ -33,6 +33,8 @@ sys.path.insert(0, '../../cmocean')
 extensions = [
     'sphinx.ext.autodoc',
     'matplotlib.sphinxext.plot_directive',
+    'IPython.sphinxext.ipython_directive',
+    'IPython.sphinxext.ipython_console_highlighting',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

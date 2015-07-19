@@ -2,7 +2,7 @@
 Plots with colormaps.
 '''
 
-import cmocean
+# import cmocean
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
@@ -22,14 +22,14 @@ mpl.rcParams['mathtext.sf'] = 'sans'
 mpl.rcParams['mathtext.fallback_to_cm'] = 'True'
 
 # import pdb; pdb.set_trace()
-# # list of colormaps for several functions
-cmaps = [cmocean.temp, cmocean.o2, cmocean.salinity, cmocean.chl,
-         cmocean.rho, cmocean.par, cmocean.turb, cmocean.cdom]
-            # cmocean.bathy, cmocean.s, cmocean.v, cmocean.vort,
-            # cmocean.eta]
+# # # list of colormaps for several functions
+# cmaps = [cmocean.temp, cmocean.o2, cmocean.salinity, cmocean.chl,
+#          cmocean.rho, cmocean.par, cmocean.turb, cmocean.cdom]
+#             # cmocean.bathy, cmocean.s, cmocean.v, cmocean.vort,
+#             # cmocean.eta]
 
 
-def plot_lightness():
+def plot_lightness(saveplot=False):
     '''Plot lightness of colormaps together.
 
     '''
@@ -64,11 +64,14 @@ def plot_lightness():
     for label in labels:
         label.set_rotation(60)
 
-    fig.savefig('figures/lightness.png', bbox_inches='tight')
-    fig.savefig('figures/lightness.pdf', bbox_inches='tight')
+    if saveplot:
+        fig.savefig('figures/lightness.png', bbox_inches='tight')
+        fig.savefig('figures/lightness.pdf', bbox_inches='tight')
+
+    plt.show()
 
 
-def plot_gallery(saveplot=False):
+def plot_gallery(cmaps, saveplot=False):
     '''Make plot of colormaps and labels, like in the matplotlib
     gallery.
 
@@ -134,7 +137,7 @@ def test(cmap):
     ax.scatter(x, lab[0, :, 0], c=x, cmap=cmap, s=300, linewidths=0.)
 
 
-def wrap_viscm(cmap, dpi=100):
+def wrap_viscm(cmap, dpi=100, saveplot=False):
     '''Evaluate goodness of colormap using perceptual deltas.
 
     :param cmap: Colormap instance.
@@ -142,14 +145,16 @@ def wrap_viscm(cmap, dpi=100):
 
     '''
 
-    import viscm
+    from viscm import viscm
 
     viscm(cmap)
     fig = plt.gcf()
     fig.set_size_inches(22, 10)
     plt.show()
-    fig.savefig('figures/eval_' + cmap.name + '.png', bbox_inches='tight', dpi=dpi)
-    fig.savefig('figures/eval_' + cmap.name + '.pdf', bbox_inches='tight', dpi=dpi)
+
+    if saveplot:
+        fig.savefig('figures/eval_' + cmap.name + '.png', bbox_inches='tight', dpi=dpi)
+        fig.savefig('figures/eval_' + cmap.name + '.pdf', bbox_inches='tight', dpi=dpi)
 
 
 def quick_plot(cmap, fname=None):

@@ -22,13 +22,15 @@ Used tool from http://bids.github.io/colormap/ to redo colormaps to be more perc
 
 from matplotlib import cm, colors
 import tools
+import plotting
+import data
 import numpy as np
 import os
 
 __all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
             'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
             'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
-            'option_d', 'optiond']
+            'option_d', 'optiond', 'cmall', 'cmall_unique']
 # __all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
 #             'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
 #             'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
@@ -160,7 +162,7 @@ def make_option_d_cmap():
     cmap.name = 'matplotlib option_d'
     cmap.units = '[]'
     cmap.author = 'eric firing'
-    return cmap
+    return cmap    
 
 
 salinity = make_salinity_cmap()
@@ -197,6 +199,31 @@ eta = make_seasurface_cmap()
 option_d = make_option_d_cmap()
 optiond = make_option_d_cmap()
 
+
+def all_colormaps():
+    cmall = [salinity, salt, temperature, temp, oxygen,
+             o2, chl, chloro, chlorophyll, cdom, CDOM,
+             turbidity, turb, PAR, par, density, rho,
+             option_d, optiond]
+    return cmall
+
+
+cmall = all_colormaps()
+
+
+def all_colormaps_unique(cmall):
+
+    cmall_names = []
+    cmall_unique = []
+    for cmalls in cmall:
+        if cmalls.name not in cmall_names:
+            cmall_unique.append(cmalls)
+            cmall_names.append(cmalls.name)
+
+    return cmall_unique
+
+
+cmall_unique = all_colormaps_unique(cmall)
 
 if __name__ == '__main__':
 

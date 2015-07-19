@@ -8,5 +8,6 @@ See README.md for an overview on instructions.
 from cmocean import *
 import tools
 import plots
+import data
 
 __authors__ = ['Kristen Thyng <kthyng@tamu.edu>']

@@ -6,37 +6,73 @@
 Beautiful colormaps for oceanography: **cmocean**
 =================================================
 
-Contents:
-
-.. toctree::
-   :maxdepth: 2
-
 This package contains colormaps for standardizing commonly-plotting oceanographic variables. Most of the colormaps started from `matplotlib <http://matplotlib.org/>`_ colormaps, but have now been adjusted using the `viscm tool <https://github.com/BIDS/viscm>`_ to be `perceptually uniform <http://bids.github.io/colormap/>`_.
 
 Here is our gallery:
 
 .. plot::
-   :include-source:
-   
+
    import cmocean
-   cmocean.plots.plot_gallery()
+   import matplotlib.pyplot as plt
+   import numpy as np
+
+   plt.figure()
+   x = np.arange(10)
+   X, _ = np.meshgrid(x, x)
+
+   plt.pcolor(X, cmap=cmocean.salt)
+   plt.show()
 
 
-Lightness plots of the colormaps: [<img src="figures/lightness.png" class="picFloat">](figures/lightness.png)
+.. ipython:: python
 
-Sample data plots of the colormaps: [<img src="figures/MS2_L10.png" class="picFloat">](figures/MS2-L10.png)
-[<img src="figures/MS08_L12.png" class="picFloat">](figures/MS08-L12.png)
-[<img src="figures/MS09_L05.png" class="picFloat">](figures/MS09-L05.png)
-[<img src="figures/MS09_L10.png" class="picFloat">](figures/MS09-L10.png)
+   import cmocean
 
-Evaluations of the perceptual accuracy of the colormaps (see http://bids.github.io/colormap/): [<img src="figures/eval_Temperature.png" class="picFloat">](figures/eval_Temperature.png)
-[<img src="figures/eval_Oxygen.png" class="picFloat">](figures/eval_Oxygen.png)
-[<img src="figures/eval_Salinity.png" class="picFloat">](figures/eval_Salinity.png)
-[<img src="figures/eval_Chlorophyll.png" class="picFloat">](figures/eval_Chlorophyll.png)
-[<img src="figures/eval_Density.png" class="picFloat">](figures/eval_Density.png)
-[<img src="figures/eval_PAR.png" class="picFloat">](figures/eval_PAR.png)
-[<img src="figures/eval_Turbidity.png" class="picFloat">](figures/eval_Turbidity.png)
-[<img src="figures/eval_CDOM.png" class="picFloat">](figures/eval_CDOM.png)
+   cmdict = cmocean.tools.get_dict(cmocean.salt)
+   print cmdict.keys()
+   'plotting' in dir(cmocean)
+   'tools' in dir(cmocean)
+   'data' in dir(cmocean)
+   print cmocean.__file__
+
+.. .. plot::
+..    :include-source:
+
+..    import cmocean
+..    cmocean.plots.plot_gallery()
+
+
+If you think about CIELAB colorspace, here is the lightness of the colormaps:
+
+.. .. plot::
+..    :include-source:
+
+..    import cmocean
+..    cmocean.plots.plot_lightness()
+
+
+It is probably better to think in cam02ucs colorspace, in which Euclidean distance is made to be equivalent to changes in human perception. Plots of these colormaps in this colorspace and with some other important properties are seen using the `viscm tool <https://github.com/BIDS/viscm>`_.
+
+Here are some properties from the Salinity colormap. We can see that the colormap prints nicely to grayscale, has consistent perceptual deltas across the colormap, and good viewability for people with color blindness. It has a smooth representation in its 3D colorspace, and detail in the images is clear.
+
+.. .. plot::
+..    :include-source:
+
+..    import cmocean
+..    cmocean.plots.wrap_viscm(cmocean.salt)
+
+
+The other colormaps are shown below.
+
+.. .. plot::
+..    :include-source:
+
+..    import cmocean
+
+..    cmaps = cmocean.cmall_unique
+
+..    for cmap in cmaps:
+..       cmocean.plots.wrap_viscm(cmap)
 
 
 
