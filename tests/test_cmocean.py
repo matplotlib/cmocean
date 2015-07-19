@@ -21,8 +21,8 @@ def test_cmap_import():
     for method in methods:
 
         # see if method is a colormap
-        if type(method) == matplotlib.colors.LinearSegmentedColormap:
+        if type(eval('cmocean.' + method)) == matplotlib.colors.LinearSegmentedColormap:
             x = np.linspace(0, 10)
-            X = np.meshgrid(x, x)
-            fig = plt.figure()
-            fig.pcolor(X, cmap=method)
+            X, _ = np.meshgrid(x, x)
+            plt.figure()
+            plt.pcolor(X, cmap=eval('cmocean.' + method))
