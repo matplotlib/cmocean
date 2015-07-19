@@ -5,7 +5,8 @@ oceanographic properties.
 See README.md for an overview on instructions.
 '''
 
-from cmocean import *
+# from cmocean import *
+import cm
 import tools
 import plots
 import data

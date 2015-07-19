@@ -20,17 +20,17 @@ Colormaps are available for:
 Used tool from http://bids.github.io/colormap/ to redo colormaps to be more perceptually correct.
 '''
 
-from matplotlib import cm, colors
+# from matplotlib import cm, colors
 import tools
-import plotting
-import data
+# import plotting
+# import data
 import numpy as np
 import os
 
-__all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
-            'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
-            'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
-            'option_d', 'optiond', 'cmall', 'cmall_unique']
+# __all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
+#             'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
+#             'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
+#             'option_d', 'optiond', 'cmall', 'cmall_unique']
 # __all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
 #             'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
 #             'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
@@ -135,26 +135,26 @@ def make_speed_cmap():
     cmap.author = 'kmt'
     return cmap
 
-def make_velocity_cmap():
-    cmap = cm.BrBG #cm.PuOr
-    cmap.name = 'Velocity'
-    cmap.units = 'm/s'
-    cmap.author = 'kmt'
-    return cmap
+# def make_velocity_cmap():
+#     cmap = cm.BrBG #cm.PuOr
+#     cmap.name = 'Velocity'
+#     cmap.units = 'm/s'
+#     cmap.author = 'kmt'
+#     return cmap
 
-def make_vorticity_cmap():
-    cmap = cm.PiYG  # BrBG
-    cmap.name = 'Vorticity'
-    cmap.units = '1/s'
-    cmap.author = 'kmt'
-    return cmap
+# def make_vorticity_cmap():
+#     cmap = cm.PiYG  # BrBG
+#     cmap.name = 'Vorticity'
+#     cmap.units = '1/s'
+#     cmap.author = 'kmt'
+#     return cmap
 
-def make_seasurface_cmap():
-    cmap = cm.RdBu
-    cmap.name = 'Sea surface'
-    cmap.units = 'm'
-    cmap.author = 'kmt'
-    return cmap
+# def make_seasurface_cmap():
+#     cmap = cm.RdBu
+#     cmap.name = 'Sea surface'
+#     cmap.units = 'm'
+#     cmap.author = 'kmt'
+#     return cmap
 
 def make_option_d_cmap():
     rgb = np.load(os.path.join(datadir, 'option_d.npy'))
@@ -182,20 +182,20 @@ PAR = make_PAR_cmap()
 par = make_PAR_cmap()
 density = make_density_cmap()
 rho = make_density_cmap()
-bathymetry = make_bathymetry_cmap()
-bathy = make_bathymetry_cmap()
-speed = make_speed_cmap()
-s = make_speed_cmap()
-velocity = make_velocity_cmap()
-vel = make_velocity_cmap()
-u = make_velocity_cmap()
-v = make_velocity_cmap()
-vorticity = make_vorticity_cmap()
-vort = make_vorticity_cmap()
-seasurface = make_seasurface_cmap()
-freesurface = make_seasurface_cmap()
-zeta = make_seasurface_cmap()
-eta = make_seasurface_cmap()
+# bathymetry = make_bathymetry_cmap()
+# bathy = make_bathymetry_cmap()
+# speed = make_speed_cmap()
+# s = make_speed_cmap()
+# velocity = make_velocity_cmap()
+# vel = make_velocity_cmap()
+# u = make_velocity_cmap()
+# v = make_velocity_cmap()
+# vorticity = make_vorticity_cmap()
+# vort = make_vorticity_cmap()
+# seasurface = make_seasurface_cmap()
+# freesurface = make_seasurface_cmap()
+# zeta = make_seasurface_cmap()
+# eta = make_seasurface_cmap()
 option_d = make_option_d_cmap()
 optiond = make_option_d_cmap()
 

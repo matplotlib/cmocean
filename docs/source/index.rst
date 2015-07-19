@@ -20,7 +20,7 @@ Here is our gallery:
    x = np.arange(10)
    X, _ = np.meshgrid(x, x)
 
-   plt.pcolor(X, cmap=cmocean.salt)
+   plt.pcolor(X, cmap=cmocean.cm.salt)
    plt.show()
 
 
@@ -28,12 +28,15 @@ Here is our gallery:
 
    import cmocean
 
-   cmdict = cmocean.tools.get_dict(cmocean.salt)
+   cmdict = cmocean.tools.get_dict(cmocean.cm.salt)
    print cmdict.keys()
    'plotting' in dir(cmocean)
    'tools' in dir(cmocean)
    'data' in dir(cmocean)
    print cmocean.__file__
+   print dir(cmocean)
+   print dir(cmocean.cm)
+   print dir(cmocean.tools)
 
 .. .. plot::
 ..    :include-source:
