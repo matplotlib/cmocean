@@ -3,7 +3,8 @@ All functions related to actual data go in here. Probably only
 people at TAMU will want to use this.
 '''
 
-
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 def read(varin, fname='MS2_L10.mat.txt'):

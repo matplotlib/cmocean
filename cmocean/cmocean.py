@@ -163,7 +163,6 @@ def make_option_d_cmap():
     return cmap
 
 
-
 salinity = make_salinity_cmap()
 salt = make_salinity_cmap()
 temperature = make_temperature_cmap()
@@ -197,7 +196,6 @@ zeta = make_seasurface_cmap()
 eta = make_seasurface_cmap()
 option_d = make_option_d_cmap()
 optiond = make_option_d_cmap()
-
 
 
 if __name__ == '__main__':

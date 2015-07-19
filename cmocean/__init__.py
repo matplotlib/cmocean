@@ -1,12 +1,12 @@
 '''
 cmocean is a package to help standardize colormaps for commonly-plotted
-oceanographic properties. 
+oceanographic properties.
 
 See README.md for an overview on instructions.
 '''
 
 from cmocean import *
-import test
 import tools
+import plots
 
 __authors__ = ['Kristen Thyng <kthyng@tamu.edu>']
