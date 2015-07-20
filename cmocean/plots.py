@@ -41,7 +41,7 @@ def plot_lightness(saveplot=False):
 
     fig = plt.figure(figsize=(16, 6))
     ax = fig.add_subplot(111)
-    ax.set_xlim(-0.1, 8.1)
+    ax.set_xlim(-0.1, len(cmaps) + 0.1)
     ax.set_ylim(0, 100)
     ax.set_xlabel('Lightness for each colormap')
 
