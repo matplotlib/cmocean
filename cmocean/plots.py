@@ -2,12 +2,11 @@
 Plots with colormaps.
 '''
 
-# import cmocean
+import cm
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
 from skimage import color
-import os
 
 
 mpl.rcParams.update({'font.size': 14})
@@ -22,11 +21,13 @@ mpl.rcParams['mathtext.sf'] = 'sans'
 mpl.rcParams['mathtext.fallback_to_cm'] = 'True'
 
 # import pdb; pdb.set_trace()
-# # # list of colormaps for several functions
+# # list of colormaps for several functions
 # cmaps = [cmocean.temp, cmocean.o2, cmocean.salinity, cmocean.chl,
 #          cmocean.rho, cmocean.par, cmocean.turb, cmocean.cdom]
-#             # cmocean.bathy, cmocean.s, cmocean.v, cmocean.vort,
-#             # cmocean.eta]
+            # cmocean.bathy, cmocean.s, cmocean.v, cmocean.vort,
+            # cmocean.eta]
+
+cmaps = cm.cmall
 
 
 def plot_lightness(saveplot=False):
@@ -71,7 +72,7 @@ def plot_lightness(saveplot=False):
     plt.show()
 
 
-def plot_gallery(cmaps, saveplot=False):
+def plot_gallery(saveplot=False):
     '''Make plot of colormaps and labels, like in the matplotlib
     gallery.
 
@@ -117,26 +118,6 @@ def plot_gallery(cmaps, saveplot=False):
     plt.show()
 
 
-def test(cmap):
-    '''Test colormap by plotting.
-
-    :param cmap: A colormap instance. Use a named one with cm.get_cmap(colormap)
-
-    '''
-
-    # indices to step through colormap
-    x = np.linspace(0.0, 1.0, 100)
-
-    # will plot colormap and lightness
-    rgb = cmap(x)[np.newaxis, :, :3]
-    # rgb = cm.get_cmap(cmap)(x)[np.newaxis,:,:3]
-    lab = color.rgb2lab(rgb)
-
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.scatter(x, lab[0, :, 0], c=x, cmap=cmap, s=300, linewidths=0.)
-
-
 def wrap_viscm(cmap, dpi=100, saveplot=False):
     '''Evaluate goodness of colormap using perceptual deltas.
 
@@ -157,17 +138,46 @@ def wrap_viscm(cmap, dpi=100, saveplot=False):
         fig.savefig('figures/eval_' + cmap.name + '.pdf', bbox_inches='tight', dpi=dpi)
 
 
-def quick_plot(cmap, fname=None):
+def test(cmap, fig=None, ax=None):
+    '''Test colormap by plotting.
+
+    :param cmap: A colormap instance. Use a named one with cm.get_cmap(colormap)
+
+    '''
+
+    # indices to step through colormap
+    x = np.linspace(0.0, 1.0, 100)
+
+    # will plot colormap and lightness
+    rgb = cmap(x)[np.newaxis, :, :3]
+    # rgb = cm.get_cmap(cmap)(x)[np.newaxis,:,:3]
+    lab = color.rgb2lab(rgb)
+
+    if ax is None:
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+    ax.scatter(x, lab[0, :, 0], c=x, cmap=cmap, s=300, linewidths=0.)
+    ax.set_title(cmap.name)
+    ax.set_ylabel('Lightness')
+    ax.set_xticks([])
+
+
+def quick_plot(cmap, fname=None, fig=None, ax=None):
     '''Show quick test of a colormap.
 
     '''
 
-    x = np.arange(10)
+    x = np.linspace(0, 10)
     X, _ = np.meshgrid(x, x)
 
-    plt.figure()
-    plt.pcolor(X, cmap=cmap)
-    plt.colorbar()
+    if ax is None:
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+    mappable = ax.pcolor(X, cmap=cmap)
+    ax.set_title(cmap.name)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    plt.colorbar(mappable)
     plt.show()
 
     if fname is not None:

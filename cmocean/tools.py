@@ -5,38 +5,12 @@ lightness
 sample MCH data with each colormap.
 '''
 
-import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
-from skimage import color
 import os
 
 
-
-# def cmall():
-#     '''All available colormaps
-
-#     '''
-
-    # cmall = []
-
-    # # find all methods in cmocean
-    # methods = dir(cmocean)
-
-    # # loop through all methods in cmocean
-    # for method in methods:
-
-    #     # see if method is a colormap
-    #     if type(eval('cmocean.' + method)) == mpl.colors.LinearSegmentedColormap:
-
-    #         import pdb; pdb.set_trace()
-
-    #         cmall.append(eval('cmocean.' + method))
-
-    # return cmall
-
-
-def print_colormaps():
+def print_colormaps(cmaps):
     '''Print colormaps in 256 RGB colors to text files.
 
     '''

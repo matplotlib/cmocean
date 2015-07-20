@@ -22,6 +22,7 @@ Used tool from http://bids.github.io/colormap/ to redo colormaps to be more perc
 
 # from matplotlib import cm, colors
 import tools
+import matplotlib
 # import plotting
 # import data
 import numpy as np
@@ -40,6 +41,7 @@ import os
 
 # Location of rgb files
 datadir = os.path.join(os.path.split(__file__)[0], 'rgb')
+
 
 def make_salinity_cmap():
     rgb = np.load(os.path.join(datadir, 'Salinity.npy'))
@@ -200,30 +202,46 @@ option_d = make_option_d_cmap()
 optiond = make_option_d_cmap()
 
 
-def all_colormaps():
-    cmall = [salinity, salt, temperature, temp, oxygen,
-             o2, chl, chloro, chlorophyll, cdom, CDOM,
-             turbidity, turb, PAR, par, density, rho,
-             option_d, optiond]
+def all_colormap_names(methods):
+    '''Return all names available to refer to colormaps. 
+    This includes duplicates.
+
+    '''
+
+    cmall = []
+    cmnames = []
+
+    # loop through all the methods
+    for method in methods:
+
+        # see if method is a colormap
+        if type(eval(method)) == matplotlib.colors.LinearSegmentedColormap:
+            # import pdb; pdb.set_trace()
+            cmnames.append(method)  # add on colormap nickname
+
+    return cmnames
+
+cmnames = all_colormap_names(dir())
+
+
+def all_colormaps(cmnames):
+    '''All available colormaps with names
+
+    '''
+
+    cmallname = []
+    cmall = []
+    for cmname in cmnames:
+        thisname = eval(cmname).name
+        if thisname not in cmallname:
+            cmall.append(eval(cmname))
+            cmallname.append(thisname)
+
     return cmall
 
 
-cmall = all_colormaps()
+cmall = all_colormaps(cmnames)
 
-
-def all_colormaps_unique(cmall):
-
-    cmall_names = []
-    cmall_unique = []
-    for cmalls in cmall:
-        if cmalls.name not in cmall_names:
-            cmall_unique.append(cmalls)
-            cmall_names.append(cmalls.name)
-
-    return cmall_unique
-
-
-cmall_unique = all_colormaps_unique(cmall)
 
 if __name__ == '__main__':
 

@@ -11,72 +11,85 @@ This package contains colormaps for standardizing commonly-plotting oceanographi
 Here is our gallery:
 
 .. plot::
+   :include-source:
 
    import cmocean
-   import matplotlib.pyplot as plt
-   import numpy as np
-
-   plt.figure()
-   x = np.arange(10)
-   X, _ = np.meshgrid(x, x)
-
-   plt.pcolor(X, cmap=cmocean.cm.salt)
-   plt.show()
-
-
-.. ipython:: python
-
-   import cmocean
-
-   cmdict = cmocean.tools.get_dict(cmocean.cm.salt)
-   print cmdict.keys()
-   'plotting' in dir(cmocean)
-   'tools' in dir(cmocean)
-   'data' in dir(cmocean)
-   print cmocean.__file__
-   print dir(cmocean)
-   print dir(cmocean.cm)
-   print dir(cmocean.tools)
-
-.. .. plot::
-..    :include-source:
-
-..    import cmocean
-..    cmocean.plots.plot_gallery()
+   cmocean.plots.plot_gallery()
 
 
 If you think about CIELAB colorspace, here is the lightness of the colormaps:
 
-.. .. plot::
-..    :include-source:
+.. plot::
+   :include-source:
 
-..    import cmocean
-..    cmocean.plots.plot_lightness()
+   import cmocean
+   cmocean.plots.plot_lightness()
 
 
 It is probably better to think in cam02ucs colorspace, in which Euclidean distance is made to be equivalent to changes in human perception. Plots of these colormaps in this colorspace and with some other important properties are seen using the `viscm tool <https://github.com/BIDS/viscm>`_.
 
 Here are some properties from the Salinity colormap. We can see that the colormap prints nicely to grayscale, has consistent perceptual deltas across the colormap, and good viewability for people with color blindness. It has a smooth representation in its 3D colorspace, and detail in the images is clear.
 
-.. .. plot::
-..    :include-source:
+.. plot::
+   :include-source:
 
-..    import cmocean
-..    cmocean.plots.wrap_viscm(cmocean.salt)
+   import cmocean
+   cmocean.plots.wrap_viscm(cmocean.cm.salt)
 
 
-The other colormaps are shown below.
+All of the evaluations of the colormaps using the viscm tool are shown in the page :ref:`colormaps_viscm`.
 
-.. .. plot::
-..    :include-source:
 
-..    import cmocean
+Capabilities
+------------
 
-..    cmaps = cmocean.cmall_unique
+The colormaps are all available in ``cmocean.cm``. They can be accessed, and simply plotted, as follows:
 
-..    for cmap in cmaps:
-..       cmocean.plots.wrap_viscm(cmap)
+.. plot::
+   :include-source:
 
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.temp, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.chl, ax=ax)
+
+All available nicknames of the colormaps can be accessed with ``cmocean.cm.cmnames``:
+
+.. ipython:: python
+
+   import cmocean
+
+   cmocean.cm.cmnames
+
+
+The distinct colormap instances can be accessed with:
+
+.. ipython:: python
+
+   import cmocean
+   
+   cmaps = cmocean.cm.cmall;
+
+Print all of the available colormaps to text files with 256 rgb entries with:
+
+``cmaps = cmocean.cm.cmall``
+
+``cmocean.tools.print_colormaps(cmaps)``
+
+Output a dictionary to define a colormap with:
+
+.. ipython:: python
+
+   import cmocean
+
+   cmdict = cmocean.tools.get_dict(cmocean.cm.cdom, N=9)
+   print cmdict
+
+Make a colormap instance with ``cmap = cmocean.tools.cmap(rgbin, N=10)`` given the rgb input array.
 
 
 Indices and tables

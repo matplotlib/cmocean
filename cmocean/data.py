@@ -7,6 +7,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+# data files
+fnames = ['MS09_L10.mat.txt', 'MS09_L05.mat.txt',
+          'MS2_L10.mat.txt', 'MS08_L12.mat.txt']
+
+
 def read(varin, fname='MS2_L10.mat.txt'):
     '''Read in dataset for variable var
 
