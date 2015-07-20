@@ -16,6 +16,7 @@ Here is our gallery:
    import cmocean
    cmocean.plots.plot_gallery()
 
+These colormaps were chosen to be perceptually uniform and to reflect the data they are representing in terms of being sequential or divergent, and to be intuitive. For example, chlorophyll is represented by shades of green, turbidity is shades of brown, and temperature goes from cool blues to warm yellows.
 
 If you think about CIELAB colorspace, here is the lightness of the colormaps:
 
