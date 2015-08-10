@@ -10,8 +10,10 @@ import matplotlib as mpl
 import os
 
 
-def print_colormaps(cmaps):
+def print_colormaps(cmaps, returnrgb=False):
     '''Print colormaps in 256 RGB colors to text files.
+
+    :param returnrgb=False: Whether or not to return the rgb array. Only makes sense to do if print one colormaps' rgb.
 
     '''
 
@@ -20,7 +22,11 @@ def print_colormaps(cmaps):
 
     for cmap in cmaps:
 
-        np.savetxt('rgb/' + cmap.name + '-rgb.txt', cmap(np.linspace(0, 1, 256))[np.newaxis, :, :3][0])
+        rgb = cmap(np.linspace(0, 1, 256))[np.newaxis, :, :3][0]
+        np.savetxt('rgb/' + cmap.name + '-rgb.txt', rgb)
+
+    if returnrgb:
+        return rgb
 
 
 def get_dict(cmap, N=256):
@@ -65,7 +71,7 @@ def cmap(rgbin, N=10):
     :param rgbin: An [mx3] array, where m is the number of input color triplets which
          are interpolated between to make the colormap that is returned. hex values
          can be input instead, as [mx1] in single quotes with a #.
-    :param N: The number of levels to be interpolated to.
+    :param N=10: The number of levels to be interpolated to.
 
     '''
 
