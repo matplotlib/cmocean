@@ -44,7 +44,7 @@ datadir = os.path.join(os.path.split(__file__)[0], 'rgb')
 
 
 def make_salinity_cmap():
-    rgb = np.load(os.path.join(datadir, 'Salinity.npy'))
+    rgb = np.loadtxt(os.path.join(datadir, 'Salinity-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Salinity'
     cmap.units = 'g/kg'
@@ -53,7 +53,7 @@ def make_salinity_cmap():
 
 
 def make_temperature_cmap():
-    rgb = np.load(os.path.join(datadir, 'Temperature.npy'))
+    rgb = np.loadtxt(os.path.join(datadir, 'Temperature-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Temperature'
     cmap.units = 'C'
@@ -62,7 +62,7 @@ def make_temperature_cmap():
 
 
 def make_oxygen_cmap():
-    rgb = np.load(os.path.join(datadir, 'Oxygen.npy'))
+    rgb = np.loadtxt(os.path.join(datadir, 'Oxygen-rgb.txt'))
     # convert middle .2 to .8 of colormap to grayscale
     l = rgb.shape[0]
     num = l/5.
@@ -77,8 +77,9 @@ def make_oxygen_cmap():
 
 
 def make_chlorophyll_cmap():
-    rgb = np.load(os.path.join(datadir, 'Chlorophyll.npy'))
-    cmap = tools.cmap(rgb[::-1], N=256)
+    rgb = np.loadtxt(os.path.join(datadir, 'Chlorophyll-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    # cmap = tools.cmap(rgb[::-1], N=256)
     cmap.name = 'Chlorophyll'
     cmap.units = 'mg/m^3'
     cmap.author = 'kmt'
@@ -86,8 +87,9 @@ def make_chlorophyll_cmap():
 
 
 def make_CDOM_cmap():
-    rgb = np.load(os.path.join(datadir, 'CDOM.npy'))
-    cmap = tools.cmap(rgb[::-1], N=256)
+    rgb = np.loadtxt(os.path.join(datadir, 'CDOM-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    # cmap = tools.cmap(rgb[::-1], N=256)
     cmap.name = 'CDOM'
     cmap.units = 'mg/m^3'
     cmap.author = 'kmt'
@@ -95,7 +97,7 @@ def make_CDOM_cmap():
 
 
 def make_turbidity_cmap():
-    rgb = np.load(os.path.join(datadir, 'Turbidity.npy'))
+    rgb = np.loadtxt(os.path.join(datadir, 'Turbidity-rgb.txt'))
     cmap = tools.cmap(rgb[::-1], N=256)
     cmap.name = 'Turbidity'
     cmap.units = 'NTU'
@@ -104,7 +106,7 @@ def make_turbidity_cmap():
 
 
 def make_PAR_cmap():
-    rgb = np.load(os.path.join(datadir, 'PAR.npy'))
+    rgb = np.loadtxt(os.path.join(datadir, 'PAR-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'PAR'
     cmap.units = 'W/m^2'
@@ -113,7 +115,7 @@ def make_PAR_cmap():
 
 
 def make_density_cmap():
-    rgb = np.load(os.path.join(datadir, 'Density.npy'))
+    rgb = np.loadtxt(os.path.join(datadir, 'Density-rgb.txt'))
     cmap = tools.cmap(rgb[::-1], N=256)
     cmap.name = 'Density'
     cmap.units = 'kg/m^3'
@@ -151,20 +153,21 @@ def make_speed_cmap():
 #     cmap.author = 'kmt'
 #     return cmap
 
-# def make_seasurface_cmap():
-#     cmap = cm.RdBu
-#     cmap.name = 'Sea surface'
-#     cmap.units = 'm'
-#     cmap.author = 'kmt'
-#     return cmap
-
-def make_option_d_cmap():
-    rgb = np.load(os.path.join(datadir, 'option_d.npy'))
+def make_freesurface_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'Freesurface-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'matplotlib option_d'
-    cmap.units = '[]'
-    cmap.author = 'eric firing'
-    return cmap    
+    cmap.name = 'Free surface'
+    cmap.units = 'm'
+    cmap.author = 'kmt'
+    return cmap
+
+# def make_option_d_cmap():
+#     rgb = np.load(os.path.join(datadir, 'option_d.npy'))
+#     cmap = tools.cmap(rgb, N=256)
+#     cmap.name = 'matplotlib option_d'
+#     cmap.units = '[]'
+#     cmap.author = 'eric firing'
+#     return cmap    
 
 
 salinity = make_salinity_cmap()
@@ -194,12 +197,12 @@ rho = make_density_cmap()
 # v = make_velocity_cmap()
 # vorticity = make_vorticity_cmap()
 # vort = make_vorticity_cmap()
-# seasurface = make_seasurface_cmap()
-# freesurface = make_seasurface_cmap()
-# zeta = make_seasurface_cmap()
-# eta = make_seasurface_cmap()
-option_d = make_option_d_cmap()
-optiond = make_option_d_cmap()
+seasurface = make_freesurface_cmap()
+freesurface = make_freesurface_cmap()
+zeta = make_freesurface_cmap()
+eta = make_freesurface_cmap()
+# option_d = make_option_d_cmap()
+# optiond = make_option_d_cmap()
 
 
 def all_colormap_names(methods):
