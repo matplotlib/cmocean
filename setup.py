@@ -27,7 +27,7 @@ setup(
     #             "Topic :: Utilities",
                  ],
     package_data={
-        'cmocean': ['rgb/*.npy'],
+        'cmocean': ['rgb/*.npy', 'rgb/*.txt'],
     },    
     packages = ["cmocean"],
     # py_modules = cmocean_mod,
