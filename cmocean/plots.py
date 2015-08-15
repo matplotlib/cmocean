@@ -76,6 +76,8 @@ def plot_gallery(saveplot=False):
     '''Make plot of colormaps and labels, like in the matplotlib
     gallery.
 
+    :param saveplot=False: Whether to save the plot or not.
+
     '''
 
     gradient = np.linspace(0, 1, 256)
@@ -123,6 +125,7 @@ def wrap_viscm(cmap, dpi=100, saveplot=False):
 
     :param cmap: Colormap instance.
     :param dpi=100: dpi for saved image.
+    :param saveplot=False: Whether to save the plot or not.
 
     '''
 
