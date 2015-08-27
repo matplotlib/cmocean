@@ -2,3 +2,7 @@
 .DS_STORE
 *.egg-info
 *old*
+*.npy
+figures/eval*
+figures/gallery*
+figures/lightness*

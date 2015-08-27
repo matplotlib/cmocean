@@ -63,12 +63,31 @@ def make_temperature_cmap():
 
 def make_oxygen_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Oxygen-rgb.txt'))
-    # convert middle .2 to .8 of colormap to grayscale
-    l = rgb.shape[0]
-    num = l/5.
-    rgb[num:l-num,0] = 0.2989*rgb[num:l-num,0] + 0.5870*rgb[num:l-num,1] + 0.1140*rgb[num:l-num,2]
-    rgb[num:l-num,1] = rgb[num:l-num,0]
-    rgb[num:l-num,2] = rgb[num:l-num,0]
+    # # Did the following originally to set up the text file, but now it has already been done.
+    # l = rgb.shape[0]
+    # num = int(l/5.)
+    # # Take last 1/5 of colormap and save since I want it, flipped, at the end, keeping the full lightness range in the middle 3/5
+    # yellow = rgb[l-num:, :].copy()
+    # # convert .2 to 1.0 of colormap to grayscale
+    # # from skimage import color
+    # from colorspacious import cspace_converter
+    # cam = cspace_converter("sRGB1", "CAM02-UCS")(rgb)
+    # # lab = color.rgb2lab(rgb[np.newaxis, :])
+    # # gray[:, 0] = 0.2989*rgb[num:, 0] + 0.5870*rgb[num:, 1] + 0.1140*rgb[num:, 2]
+    # # gray[:, 1] = gray[:, 0]
+    # # gray[:, 2] = gray[:, 0]
+    # # Interpolate the gray part to be just the middle 3/5
+    # newx = np.linspace(0, 1, rgb[num:l-num, :].shape[0])
+    # oldx = np.linspace(0, 1, rgb[num:, :].shape[0])
+    # oldgray = cam[num:, 0]/100.
+    # # oldgray = lab[0, num:, 0]
+    # rgb[num:l-num, 0] = np.interp(newx, oldx, oldgray)
+    # rgb[num:l-num, 1] = np.interp(newx, oldx, oldgray)
+    # rgb[num:l-num, 2] = np.interp(newx, oldx, oldgray)
+    # # Add back in flipped yellow part to be divergent super saturated state
+    # rgb[l-num:, :] = yellow[::-1, :]
+    # cam[:num, 0] += (cam[:num, 0] - cam[0, 0])*0.3
+    # rgb[:num] = cspace_converter("CAM02-UCS", "sRGB1")(cam[:num, :])
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Oxygen'
     cmap.units = 'm/l'
@@ -79,7 +98,6 @@ def make_oxygen_cmap():
 def make_chlorophyll_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Chlorophyll-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    # cmap = tools.cmap(rgb[::-1], N=256)
     cmap.name = 'Chlorophyll'
     cmap.units = 'mg/m^3'
     cmap.author = 'kmt'
@@ -89,7 +107,6 @@ def make_chlorophyll_cmap():
 def make_CDOM_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'CDOM-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    # cmap = tools.cmap(rgb[::-1], N=256)
     cmap.name = 'CDOM'
     cmap.units = 'mg/m^3'
     cmap.author = 'kmt'
@@ -98,7 +115,7 @@ def make_CDOM_cmap():
 
 def make_turbidity_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Turbidity-rgb.txt'))
-    cmap = tools.cmap(rgb[::-1], N=256)
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Turbidity'
     cmap.units = 'NTU'
     cmap.author = 'kmt'
@@ -116,28 +133,28 @@ def make_PAR_cmap():
 
 def make_density_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Density-rgb.txt'))
-    cmap = tools.cmap(rgb[::-1], N=256)
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Density'
     cmap.units = 'kg/m^3'
     cmap.author = 'kmt'
     return cmap
 
 
-def make_bathymetry_cmap():  
-    rgb = np.load(os.path.join(datadir, 'Bathymetry.npy'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Bathymetry' 
-    cmap.units = 'm'
-    cmap.author = 'kmt'
-    return cmap
+# def make_bathymetry_cmap():  
+#     rgb = np.load(os.path.join(datadir, 'Bathymetry.npy'))
+#     cmap = tools.cmap(rgb, N=256)
+#     cmap.name = 'Bathymetry' 
+#     cmap.units = 'm'
+#     cmap.author = 'kmt'
+#     return cmap
 
-def make_speed_cmap():
-    rgb = np.load(os.path.join(datadir, 'Speed.npy'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Speed'
-    cmap.units = 'm/s'
-    cmap.author = 'kmt'
-    return cmap
+# def make_speed_cmap():
+#     rgb = np.load(os.path.join(datadir, 'Speed.npy'))
+#     cmap = tools.cmap(rgb, N=256)
+#     cmap.name = 'Speed'
+#     cmap.units = 'm/s'
+#     cmap.author = 'kmt'
+#     return cmap
 
 # def make_velocity_cmap():
 #     cmap = cm.BrBG #cm.PuOr
@@ -206,7 +223,7 @@ eta = make_freesurface_cmap()
 
 
 def all_colormap_names(methods):
-    '''Return all names available to refer to colormaps. 
+    '''Return all names available to refer to colormaps.
     This includes duplicates.
 
     '''

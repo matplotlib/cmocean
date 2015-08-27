@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
 from skimage import color
+from colorspacious import cspace_converter
 
 
 mpl.rcParams.update({'font.size': 14})
@@ -39,6 +40,7 @@ def plot_lightness(saveplot=False):
     x = np.linspace(0.0, 1.0, 256)
     locs = []  # locations for text labels
 
+
     fig = plt.figure(figsize=(16, 6))
     ax = fig.add_subplot(111)
     ax.set_xlim(-0.1, len(cmaps) + 0.1)
@@ -47,8 +49,11 @@ def plot_lightness(saveplot=False):
 
     for j, cmap in enumerate(cmaps):
         rgb = cmap(x)[np.newaxis, :, :3]
-        lab = color.rgb2lab(rgb)
+        lab = cspace_converter("sRGB1", "CAM02-UCS")(rgb)
+        # lab = color.rgb2lab(rgb)
         L = lab[0, :, 0]
+        # import pdb; pdb.set_trace()
+        # L = lab[0, :, 0]
         if L[-1] > L[0]:
             ax.scatter(x+j*dc, L, c=x, cmap=cmap, s=300, linewidths=0.)
         else:
@@ -154,7 +159,8 @@ def test(cmap, fig=None, ax=None):
     # will plot colormap and lightness
     rgb = cmap(x)[np.newaxis, :, :3]
     # rgb = cm.get_cmap(cmap)(x)[np.newaxis,:,:3]
-    lab = color.rgb2lab(rgb)
+    lab = cspace_converter("sRGB1", "CAM02-UCS")(rgb)
+    # lab = color.rgb2lab(rgb)
 
     if ax is None:
         fig = plt.figure()
