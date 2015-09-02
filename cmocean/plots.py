@@ -6,8 +6,7 @@ import cm
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
-from skimage import color
-from colorspacious import cspace_converter
+# from skimage import color
 
 
 mpl.rcParams.update({'font.size': 14})
@@ -35,6 +34,8 @@ def plot_lightness(saveplot=False):
     '''Plot lightness of colormaps together.
 
     '''
+
+    from colorspacious import cspace_converter
 
     dc = 1.
     x = np.linspace(0.0, 1.0, 256)
@@ -85,6 +86,8 @@ def plot_gallery(saveplot=False):
 
     '''
 
+    from colorspacious import cspace_converter
+
     gradient = np.linspace(0, 1, 256)
     gradient = np.vstack((gradient, gradient))
     x = np.linspace(0.0, 1.0, 256)
@@ -96,9 +99,13 @@ def plot_gallery(saveplot=False):
     for ax, cmap in zip(axes, cmaps):
 
         rgb = cmap(x)[np.newaxis, :, :3]
-        # Get colormap in CIE LAB. We want the L here.
-        lab = color.rgb2lab(rgb)
-        L = lab[0, :, 0]
+
+        # Find a good conversion to grayscale
+        jch = cspace_converter("sRGB1", "JCh")(rgb)
+        L = jch[0, :, 0]
+        # # Get colormap in CIE LAB. We want the L here.
+        # lab = color.rgb2lab(rgb)
+        # L = lab[0, :, 0]
         L = np.float32(np.vstack((L, L, L)))
 
         ax.imshow(gradient, aspect='auto', cmap=cmap)
@@ -152,6 +159,8 @@ def test(cmap, fig=None, ax=None):
     :param cmap: A colormap instance. Use a named one with cm.get_cmap(colormap)
 
     '''
+
+    from colorspacious import cspace_converter
 
     # indices to step through colormap
     x = np.linspace(0.0, 1.0, 100)
