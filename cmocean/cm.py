@@ -160,6 +160,7 @@ def make_speed_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Velocity-rgb.txt'))
     cmap = tools.cmap(rgb[128:, :], N=128)  # use positive part of velocity colormap
     cmap.name = 'Speed'
+    cmap.long_name = 'Speed'
     cmap.units = 'm/s'
     cmap.author = 'kmt'
     return cmap
