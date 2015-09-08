@@ -156,13 +156,13 @@ def make_density_cmap():
 #     cmap.author = 'kmt'
 #     return cmap
 
-# def make_speed_cmap():
-#     rgb = np.load(os.path.join(datadir, 'Speed.npy'))
-#     cmap = tools.cmap(rgb, N=256)
-#     cmap.name = 'Speed'
-#     cmap.units = 'm/s'
-#     cmap.author = 'kmt'
-#     return cmap
+def make_speed_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'Velocity-rgb.txt'))
+    cmap = tools.cmap(rgb[128:, :], N=128)  # use positive part of velocity colormap
+    cmap.name = 'Speed'
+    cmap.units = 'm/s'
+    cmap.author = 'kmt'
+    return cmap
 
 
 def make_velocity_cmap():
@@ -219,8 +219,8 @@ density = make_density_cmap()
 rho = make_density_cmap()
 # bathymetry = make_bathymetry_cmap()
 # bathy = make_bathymetry_cmap()
-# speed = make_speed_cmap()
-# s = make_speed_cmap()
+speed = make_speed_cmap()
+s = make_speed_cmap()
 velocity = make_velocity_cmap()
 vel = make_velocity_cmap()
 u = make_velocity_cmap()
