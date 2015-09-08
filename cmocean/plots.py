@@ -41,7 +41,6 @@ def plot_lightness(saveplot=False):
     x = np.linspace(0.0, 1.0, 256)
     locs = []  # locations for text labels
 
-
     fig = plt.figure(figsize=(16, 6))
     ax = fig.add_subplot(111)
     ax.set_xlim(-0.1, len(cmaps) + 0.1)
