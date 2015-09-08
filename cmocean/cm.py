@@ -47,6 +47,7 @@ def make_salinity_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Salinity-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Salinity'
+    cmap.long_name = 'Salinity'
     cmap.units = 'g/kg'
     cmap.author = 'kmt'
     return cmap
@@ -56,6 +57,7 @@ def make_temperature_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Temperature-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Temperature'
+    cmap.long_name = 'Temperature'
     cmap.units = 'C'
     cmap.author = 'kmt'
     return cmap
@@ -90,6 +92,7 @@ def make_oxygen_cmap():
     # rgb[:num] = cspace_converter("CAM02-UCS", "sRGB1")(cam[:num, :])
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Oxygen'
+    cmap.long_name = 'Oxygen'
     cmap.units = 'm/l'
     cmap.author = 'kmt'
     return cmap
@@ -99,6 +102,7 @@ def make_chlorophyll_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Chlorophyll-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Chlorophyll'
+    cmap.long_name = 'Chlorophyll'
     cmap.units = 'mg/m^3'
     cmap.author = 'kmt'
     return cmap
@@ -108,6 +112,7 @@ def make_CDOM_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'CDOM-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'CDOM'
+    cmap.long_name = 'Colored Dissolved Organic Matter'
     cmap.units = 'mg/m^3'
     cmap.author = 'kmt'
     return cmap
@@ -117,6 +122,7 @@ def make_turbidity_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Turbidity-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Turbidity'
+    cmap.long_name = 'Turbidity'
     cmap.units = 'NTU'
     cmap.author = 'kmt'
     return cmap
@@ -126,6 +132,7 @@ def make_PAR_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'PAR-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'PAR'
+    cmap.long_name = 'Photosynthetically Available Radiation'
     cmap.units = 'W/m^2'
     cmap.author = 'kmt'
     return cmap
@@ -135,6 +142,7 @@ def make_density_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Density-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Density'
+    cmap.long_name = 'Density'
     cmap.units = 'kg/m^3'
     cmap.author = 'kmt'
     return cmap
@@ -148,20 +156,24 @@ def make_density_cmap():
 #     cmap.author = 'kmt'
 #     return cmap
 
-# def make_speed_cmap():
-#     rgb = np.load(os.path.join(datadir, 'Speed.npy'))
-#     cmap = tools.cmap(rgb, N=256)
-#     cmap.name = 'Speed'
-#     cmap.units = 'm/s'
-#     cmap.author = 'kmt'
-#     return cmap
+def make_speed_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'Velocity-rgb.txt'))
+    cmap = tools.cmap(rgb[128:, :], N=128)  # use positive part of velocity colormap
+    cmap.name = 'Speed'
+    cmap.long_name = 'Speed'
+    cmap.units = 'm/s'
+    cmap.author = 'kmt'
+    return cmap
 
-# def make_velocity_cmap():
-#     cmap = cm.BrBG #cm.PuOr
-#     cmap.name = 'Velocity'
-#     cmap.units = 'm/s'
-#     cmap.author = 'kmt'
-#     return cmap
+
+def make_velocity_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'Velocity-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'Velocity'
+    cmap.long_name = 'Velocity'
+    cmap.units = 'm/s'
+    cmap.author = 'kmt'
+    return cmap
 
 # def make_vorticity_cmap():
 #     cmap = cm.PiYG  # BrBG
@@ -170,10 +182,12 @@ def make_density_cmap():
 #     cmap.author = 'kmt'
 #     return cmap
 
+
 def make_freesurface_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Freesurface-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Free surface'
+    cmap.name = 'Freesurface'
+    cmap.long_name = 'Freesurface'
     cmap.units = 'm'
     cmap.author = 'kmt'
     return cmap
@@ -206,12 +220,12 @@ density = make_density_cmap()
 rho = make_density_cmap()
 # bathymetry = make_bathymetry_cmap()
 # bathy = make_bathymetry_cmap()
-# speed = make_speed_cmap()
-# s = make_speed_cmap()
-# velocity = make_velocity_cmap()
-# vel = make_velocity_cmap()
-# u = make_velocity_cmap()
-# v = make_velocity_cmap()
+speed = make_speed_cmap()
+s = make_speed_cmap()
+velocity = make_velocity_cmap()
+vel = make_velocity_cmap()
+u = make_velocity_cmap()
+v = make_velocity_cmap()
 # vorticity = make_vorticity_cmap()
 # vort = make_vorticity_cmap()
 seasurface = make_freesurface_cmap()
