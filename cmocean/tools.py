@@ -17,13 +17,10 @@ def print_colormaps(cmaps, returnrgb=False):
 
     '''
 
-    if not os.path.exists('rgb'):
-        os.makedirs('rgb')
-
     for cmap in cmaps:
 
         rgb = cmap(np.linspace(0, 1, 256))[np.newaxis, :, :3][0]
-        np.savetxt('rgb/' + cmap.name + '-rgb.txt', rgb)
+        np.savetxt(cmap.name + '-rgb.txt', rgb)
 
     if returnrgb:
         return rgb

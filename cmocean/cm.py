@@ -175,12 +175,15 @@ def make_velocity_cmap():
     cmap.author = 'kmt'
     return cmap
 
-# def make_vorticity_cmap():
-#     cmap = cm.PiYG  # BrBG
-#     cmap.name = 'Vorticity'
-#     cmap.units = '1/s'
-#     cmap.author = 'kmt'
-#     return cmap
+
+def make_vorticity_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'Vorticity-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'Vorticity'
+    cmap.long_name = 'Vertical Vorticity'
+    cmap.units = '1/s'
+    cmap.author = 'kmt'
+    return cmap
 
 
 def make_freesurface_cmap():
@@ -226,8 +229,8 @@ velocity = make_velocity_cmap()
 vel = make_velocity_cmap()
 u = make_velocity_cmap()
 v = make_velocity_cmap()
-# vorticity = make_vorticity_cmap()
-# vort = make_vorticity_cmap()
+vorticity = make_vorticity_cmap()
+vort = make_vorticity_cmap()
 seasurface = make_freesurface_cmap()
 freesurface = make_freesurface_cmap()
 zeta = make_freesurface_cmap()
