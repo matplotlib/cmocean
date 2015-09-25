@@ -28,16 +28,6 @@ import matplotlib
 import numpy as np
 import os
 
-# __all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
-#             'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
-#             'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
-#             'option_d', 'optiond', 'cmall', 'cmall_unique']
-# __all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
-#             'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
-#             'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
-#             'bathymetry', 'bathy', 'speed', 's', 'velocity', 'vel', 
-#             'u', 'v', 'vorticity', 'vort', 'seasurface', 'freesurface', 
-#             'zeta', 'eta', 'option_d', 'optiond']
 
 # Location of rgb files
 datadir = os.path.join(os.path.split(__file__)[0], 'rgb')
@@ -195,13 +185,15 @@ def make_freesurface_cmap():
     cmap.author = 'kmt'
     return cmap
 
-# def make_option_d_cmap():
-#     rgb = np.load(os.path.join(datadir, 'option_d.npy'))
-#     cmap = tools.cmap(rgb, N=256)
-#     cmap.name = 'matplotlib option_d'
-#     cmap.units = '[]'
-#     cmap.author = 'eric firing'
-#     return cmap    
+
+def make_phase_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'Phase-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'Phase'
+    cmap.long_name = 'Phase'
+    cmap.units = 'degrees'
+    cmap.author = 'kmt'
+    return cmap
 
 
 salinity = make_salinity_cmap()
@@ -235,8 +227,9 @@ seasurface = make_freesurface_cmap()
 freesurface = make_freesurface_cmap()
 zeta = make_freesurface_cmap()
 eta = make_freesurface_cmap()
-# option_d = make_option_d_cmap()
-# optiond = make_option_d_cmap()
+phase = make_phase_cmap()
+direction = make_phase_cmap()
+direct = make_phase_cmap()
 
 
 def all_colormap_names(methods):
