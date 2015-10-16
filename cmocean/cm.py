@@ -147,8 +147,9 @@ def make_density_cmap():
 #     return cmap
 
 def make_speed_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Velocity-rgb.txt'))
-    cmap = tools.cmap(rgb[128:, :], N=128)  # use positive part of velocity colormap
+    # Uses positive part of velocity colormap
+    rgb = np.loadtxt(os.path.join(datadir, 'Speed-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Speed'
     cmap.long_name = 'Speed'
     cmap.units = 'm/s'
@@ -177,10 +178,10 @@ def make_vorticity_cmap():
 
 
 def make_freesurface_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Freesurface-rgb.txt'))
+    rgb = np.loadtxt(os.path.join(datadir, 'FreeSurface-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Freesurface'
-    cmap.long_name = 'Freesurface'
+    cmap.name = 'FreeSurface'
+    cmap.long_name = 'Free Surface'
     cmap.units = 'm'
     cmap.author = 'kmt'
     return cmap
@@ -192,6 +193,28 @@ def make_phase_cmap():
     cmap.name = 'Phase'
     cmap.long_name = 'Phase'
     cmap.units = 'degrees'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_waveheight_cmap():
+    # Uses positive part of free surface colormap
+    rgb = np.loadtxt(os.path.join(datadir, 'WaveHeight-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'WaveHeight'
+    cmap.long_name = 'Wave Height'
+    cmap.units = 'meters'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_waveperiod_cmap():
+    # Uses negative part of vorticity colormap
+    rgb = np.loadtxt(os.path.join(datadir, 'WavePeriod-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'WavePeriod'
+    cmap.long_name = 'Wave Period'
+    cmap.units = 'seconds'
     cmap.author = 'kmt'
     return cmap
 
@@ -230,6 +253,12 @@ eta = make_freesurface_cmap()
 phase = make_phase_cmap()
 direction = make_phase_cmap()
 direct = make_phase_cmap()
+waveheight = make_waveheight_cmap()
+swh = make_waveheight_cmap()
+waveheights = make_waveheight_cmap()
+height = make_waveheight_cmap()
+waveperiod = make_waveperiod_cmap()
+period = make_waveperiod_cmap()
 
 
 def all_colormap_names(methods):
