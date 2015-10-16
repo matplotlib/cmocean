@@ -28,16 +28,6 @@ import matplotlib
 import numpy as np
 import os
 
-# __all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
-#             'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
-#             'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
-#             'option_d', 'optiond', 'cmall', 'cmall_unique']
-# __all__ = ['salinity', 'salt', 'temperature', 'temp', 'oxygen', 
-#             'o2', 'chl', 'chloro', 'chlorophyll', 'cdom', 'CDOM', 
-#             'turbidity', 'turb', 'PAR', 'par', 'density', 'rho', 
-#             'bathymetry', 'bathy', 'speed', 's', 'velocity', 'vel', 
-#             'u', 'v', 'vorticity', 'vort', 'seasurface', 'freesurface', 
-#             'zeta', 'eta', 'option_d', 'optiond']
 
 # Location of rgb files
 datadir = os.path.join(os.path.split(__file__)[0], 'rgb')
@@ -157,8 +147,9 @@ def make_density_cmap():
 #     return cmap
 
 def make_speed_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Velocity-rgb.txt'))
-    cmap = tools.cmap(rgb[128:, :], N=128)  # use positive part of velocity colormap
+    # Uses positive part of velocity colormap
+    rgb = np.loadtxt(os.path.join(datadir, 'Speed-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Speed'
     cmap.long_name = 'Speed'
     cmap.units = 'm/s'
@@ -187,21 +178,45 @@ def make_vorticity_cmap():
 
 
 def make_freesurface_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Freesurface-rgb.txt'))
+    rgb = np.loadtxt(os.path.join(datadir, 'FreeSurface-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Freesurface'
-    cmap.long_name = 'Freesurface'
+    cmap.name = 'FreeSurface'
+    cmap.long_name = 'Free Surface'
     cmap.units = 'm'
     cmap.author = 'kmt'
     return cmap
 
-# def make_option_d_cmap():
-#     rgb = np.load(os.path.join(datadir, 'option_d.npy'))
-#     cmap = tools.cmap(rgb, N=256)
-#     cmap.name = 'matplotlib option_d'
-#     cmap.units = '[]'
-#     cmap.author = 'eric firing'
-#     return cmap    
+
+def make_phase_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'Phase-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'Phase'
+    cmap.long_name = 'Phase'
+    cmap.units = 'degrees'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_waveheight_cmap():
+    # Uses positive part of free surface colormap
+    rgb = np.loadtxt(os.path.join(datadir, 'WaveHeight-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'WaveHeight'
+    cmap.long_name = 'Wave Height'
+    cmap.units = 'meters'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_waveperiod_cmap():
+    # Uses negative part of vorticity colormap
+    rgb = np.loadtxt(os.path.join(datadir, 'WavePeriod-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'WavePeriod'
+    cmap.long_name = 'Wave Period'
+    cmap.units = 'seconds'
+    cmap.author = 'kmt'
+    return cmap
 
 
 salinity = make_salinity_cmap()
@@ -235,8 +250,15 @@ seasurface = make_freesurface_cmap()
 freesurface = make_freesurface_cmap()
 zeta = make_freesurface_cmap()
 eta = make_freesurface_cmap()
-# option_d = make_option_d_cmap()
-# optiond = make_option_d_cmap()
+phase = make_phase_cmap()
+direction = make_phase_cmap()
+direct = make_phase_cmap()
+waveheight = make_waveheight_cmap()
+swh = make_waveheight_cmap()
+waveheights = make_waveheight_cmap()
+height = make_waveheight_cmap()
+waveperiod = make_waveperiod_cmap()
+period = make_waveperiod_cmap()
 
 
 def all_colormap_names(methods):
