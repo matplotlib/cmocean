@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Beautiful colormaps for oceanography: **`cmocean <http://github.com/matplotlib/cmocean>`_**
+Beautiful colormaps for oceanography: `**cmocean** <http://github.com/matplotlib/cmocean>`_
 =================================================
 
 This package contains colormaps for standardizing commonly-plotting oceanographic variables. Most of the colormaps started from `matplotlib <http://matplotlib.org/>`_ colormaps, but have now been adjusted using the `viscm tool <https://github.com/BIDS/viscm>`_ to be `perceptually uniform <http://bids.github.io/colormap/>`_.
@@ -48,7 +48,7 @@ CDOM
 
 The Colored Dissolved Organic Matter (CDOM) colormap is white-pink for low values and increasing in pink with increasing value to represent an increase in material in the water. An example of this colormap in use is below.
 
-.. image:: sci_flbbcd_cdom_units.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
 
 
