@@ -56,7 +56,7 @@ The Colored Dissolved Organic Matter (CDOM) colormap is sequential with whitish-
 Chlorophyll
 ^^^^^^^^^^^
 
-The Chlorophyll colormap is sequential with whitish-green for low values and increasing in green with increasing value to represent an increase in this green material in the water. An example of this colormap in use, shown below, is from a glider from Texas A&M University. Nicknames for this colormap are 'chl', 'chloro', and 'chlorophyll', and the units are typically given as [mg/m^3].
+The Chlorophyll colormap is sequential with whitish-green for low values and increasing in green with increasing value to represent an increase in this green material in the water. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'chl', 'chloro', and 'chlorophyll', and the units are typically given as [mg/m^3].
 
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
@@ -66,7 +66,7 @@ The Chlorophyll colormap is sequential with whitish-green for low values and inc
 Density
 ^^^^^^^
 
-The Density colormap is sequential with whitish-blue for low values and increasing in purple with increasing value to represent an increase in water density. An example of this colormap in use, shown below, is from a glider from Texas A&M University. Nicknames for this colormap are 'density' and 'rho', and the units are typically given as [kg/m^3].
+The Density colormap is sequential with whitish-blue for low values and increasing in purple with increasing value to represent an increase in water density. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'density' and 'rho', and the units are typically given as [kg/m^3].
 
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
@@ -80,6 +80,16 @@ The Free Surface colormap is diverging with dark blue to off-white to dark red r
 
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010.mp4
+
+Oxygen
+^^^^^^
+
+The Oxygen colormap is sequential for most of the colormap, representing the normal range of oxygen saturation in ocean water, and diverging 80% of the way into the colormap to represent a state of supersaturation. The bottom 20% of the colormap is colored reddish to highlight hypoxic or low oxygen water, but to still print relatively seamlessly into grayscale in case the red hue is not important for an application. The top 20% of the colormap, after the divergence, is colored yellow to highlight the supersaturated water. The minimum and maximum values of this colormap are meant to be controlled in order to properly place the low oxygen and supersaturated oxygen states properly. This colormap was developed for the Mississippi river plume area where both low and supersaturated conditions are regularly seen and monitored. Examples of this colormap (without colorbar limits being controlled to set the values of the red and yellow regions) are shown from Texas A&M University gliders. Nicknames for this colormap are 'oxygen' and 'o2', and the units are typically given as [m/l].
+
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
 
 
 Capabilities
