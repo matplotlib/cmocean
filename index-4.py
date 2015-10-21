@@ -1,8 +1,9 @@
 import cmocean
 import matplotlib.pyplot as plt
+import numpy as np
 
-fig = plt.figure(figsize=(8, 3))
-ax = fig.add_subplot(1, 2, 1)
-cmocean.plots.test(cmocean.cm.temp, ax=ax)
-ax = fig.add_subplot(1, 2, 2)
-cmocean.plots.quick_plot(cmocean.cm.chl, ax=ax)
+azimuths = np.arange(0, 360, 1)
+zeniths = np.arange(40, 70, 1)
+values = azimuths * ones((30, 361))
+fig, ax = plt.subplots(subplot_kw=dict(projection='polar'))
+ax.pcolormesh(azimuths*pi/180.0, zeniths, values, cmap=cmocean.cm.phase)

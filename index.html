@@ -73,7 +73,7 @@
 <h2>Colormap details<a class="headerlink" href="#colormap-details" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="cdom">
 <h3>CDOM<a class="headerlink" href="#cdom" title="Permalink to this headline">¶</a></h3>
-<p>The Colored Dissolved Organic Matter (CDOM) colormap is sequential with whitish-yellow for low values and increasing in pink with increasing value to represent an increase in material in the water. Two examples of this colormap are shown below, from Texas A&amp;M University gliders. Nicknames for this colormap are &#8216;CDOM&#8217;, and &#8216;cdom&#8217;, and the units are typically given as [mg/m^3].</p>
+<p>The Colored Dissolved Organic Matter (CDOM) colormap is sequential with whitish-yellow for low values and increasing in pink with increasing value to represent an increase in material in the water. Two examples of this colormap are shown below, from Texas A&amp;M University gliders. Nicknames for this colormap are &#8216;CDOM&#8217; and &#8216;cdom&#8217;, and the units are typically given as [mg/m^3].</p>
 <a class="reference external image-reference" href="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png"><img alt="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png" src="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png" /></a>
 <a class="reference external image-reference" href="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png"><img alt="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png" src="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png" /></a>
 </div>
@@ -100,6 +100,26 @@
 <a class="reference external image-reference" href="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_oxy4_oxygen.png"><img alt="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_oxy4_oxygen.png" src="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_oxy4_oxygen.png" /></a>
 <a class="reference external image-reference" href="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_oxy4_oxygen.png"><img alt="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_oxy4_oxygen.png" src="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_oxy4_oxygen.png" /></a>
 </div>
+<div class="section" id="par">
+<h3>PAR<a class="headerlink" href="#par" title="Permalink to this headline">¶</a></h3>
+<p>The Photosynthetically Available Radiation (PAR) colormap is sequential from dark brown for low values to increasingly bright yellow to represent an increase in radiation in the water. Nicknames for this colormap are &#8216;PAR&#8217; and &#8216;par&#8217;, and the units are typically given as [W/m^2].</p>
+</div>
+<div class="section" id="phase">
+<h3>Phase<a class="headerlink" href="#phase" title="Permalink to this headline">¶</a></h3>
+<p>The Phase colormap is circular, spanning all hues at a set lightness value. This map is intended to be used for properties such as wave phase and tidal phase which wrap around from 0˚ to 360˚ to 0˚ and should be represented without major jumps in the colormap. Nicknames for this colormap are &#8216;phase&#8217;, &#8216;direction&#8217;, and &#8216;direct&#8217;, and the units are typically given as [˚]. An example for a circular plot is shown below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">cmocean</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">azimuths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">zeniths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">azimuths</span> <span class="o">*</span> <span class="n">ones</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span> <span class="mi">361</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">&#39;polar&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">azimuths</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span> <span class="n">zeniths</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">phase</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//index-4.py">Source code</a>)</p>
+</div>
 </div>
 <div class="section" id="capabilities">
 <h2>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this headline">¶</a></h2>
@@ -114,9 +134,9 @@
 <span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">quick_plot</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">chl</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//index-4.py">Source code</a>, <a class="reference external" href=".//index-4.png">png</a>, <a class="reference external" href=".//index-4.hires.png">hires.png</a>, <a class="reference external" href=".//index-4.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href=".//index-5.py">Source code</a>, <a class="reference external" href=".//index-5.png">png</a>, <a class="reference external" href=".//index-5.hires.png">hires.png</a>, <a class="reference external" href=".//index-5.pdf">pdf</a>)</p>
 <div class="figure">
-<img alt="_images/index-4.png" src="_images/index-4.png" />
+<img alt="_images/index-5.png" src="_images/index-5.png" />
 </div>
 <p>All available nicknames of the colormaps can be accessed with <code class="docutils literal"><span class="pre">cmocean.cm.cmnames</span></code>:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">cmocean</span>
@@ -200,6 +220,8 @@
 <li><a class="reference internal" href="#density">Density</a></li>
 <li><a class="reference internal" href="#free-surface">Free Surface</a></li>
 <li><a class="reference internal" href="#oxygen">Oxygen</a></li>
+<li><a class="reference internal" href="#par">PAR</a></li>
+<li><a class="reference internal" href="#phase">Phase</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#capabilities">Capabilities</a></li>

@@ -46,7 +46,7 @@ Colormap details
 CDOM
 ^^^^
 
-The Colored Dissolved Organic Matter (CDOM) colormap is sequential with whitish-yellow for low values and increasing in pink with increasing value to represent an increase in material in the water. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'CDOM', and 'cdom', and the units are typically given as [mg/m^3].
+The Colored Dissolved Organic Matter (CDOM) colormap is sequential with whitish-yellow for low values and increasing in pink with increasing value to represent an increase in material in the water. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'CDOM' and 'cdom', and the units are typically given as [mg/m^3].
 
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png
@@ -90,6 +90,29 @@ The Oxygen colormap is sequential for most of the colormap, representing the nor
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_oxy4_oxygen.png
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_oxy4_oxygen.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_oxy4_oxygen.png
+
+PAR
+^^^
+
+The Photosynthetically Available Radiation (PAR) colormap is sequential from dark brown for low values to increasingly bright yellow to represent an increase in radiation in the water. Nicknames for this colormap are 'PAR' and 'par', and the units are typically given as [W/m^2].
+
+Phase
+^^^^^
+
+The Phase colormap is circular, spanning all hues at a set lightness value. This map is intended to be used for properties such as wave phase and tidal phase which wrap around from 0˚ to 360˚ to 0˚ and should be represented without major jumps in the colormap. Nicknames for this colormap are 'phase', 'direction', and 'direct', and the units are typically given as [˚]. An example for a circular plot is shown below.
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+   import numpy as np
+
+   azimuths = np.arange(0, 360, 1)
+   zeniths = np.arange(40, 70, 1)
+   values = azimuths * ones((30, 361))
+   fig, ax = plt.subplots(subplot_kw=dict(projection='polar'))
+   ax.pcolormesh(azimuths*pi/180.0, zeniths, values, cmap=cmocean.cm.phase)
 
 
 Capabilities
