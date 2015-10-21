@@ -63,6 +63,16 @@ The Chlorophyll colormap is whitish-green for low values and increasing in green
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
 
+Density
+^^^^^^^
+
+The Density colormap is whitish-blue for low values and increasing in purple with increasing value to represent an increase in water density. An example of this colormap in use, shown below, is from a glider from Texas A&M University. Nicknames for this colormaps are 'density' and 'rho', and the units are typically given as kg/m^3.
+
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
+
 
 Capabilities
 ------------
