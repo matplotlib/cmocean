@@ -134,6 +134,18 @@ The Speed colormap is sequential from light greenish yellow representing low val
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/speed/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/speed/2010.mp4
 
+Temperature
+^^^^^^^^^^^
+
+The Temperature colormap is sequential with dark blue representing lower temperature, transitioning through reds to yellow representing increased temperature. This colormap is meant to appeal to intuition of cooler colors representing cooler temperature and warmer colors as warmer temperature, but to be a sequential colormap to represent data between two temperatures (instead of a diverging, blue to white to red diverging colormap, for example). Several examples of this colormap are shown below, from Texas A&M University gliders and a simulation of the Texas and Louisiana shelf region. Nicknames for this colormap are 'temp' and 'temperature', and the units are typically given as [˚ Celsius]. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
+
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_water_temp.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_water_temp.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_water_temp.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_water_temp.png
+.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2010-07-30T00.png
+   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2010.mp4
+
 
 Capabilities
 ------------
