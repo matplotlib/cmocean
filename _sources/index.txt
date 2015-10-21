@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Beautiful colormaps for oceanography: `cmocean <http://github.com/matplotlib/cmocean>`_
-=================================================
+=======================================================================================
 
 This package contains colormaps for standardizing commonly-plotting oceanographic variables. Most of the colormaps started from `matplotlib <http://matplotlib.org/>`_ colormaps, but have now been adjusted using the `viscm tool <https://github.com/BIDS/viscm>`_ to be `perceptually uniform <http://bids.github.io/colormap/>`_.
 
@@ -108,11 +108,11 @@ The Phase colormap is circular, spanning all hues at a set lightness value. This
    import matplotlib.pyplot as plt
    import numpy as np
 
-   azimuths = np.arange(0, 360, 1)
+   azimuths = np.arange(0, 361, 1)
    zeniths = np.arange(40, 70, 1)
    values = azimuths * np.ones((30, 361))
    fig, ax = plt.subplots(subplot_kw=dict(projection='polar'))
-   ax.pcolormesh(azimuths*pi/180.0, zeniths, values, cmap=cmocean.cm.phase)
+   ax.pcolormesh(azimuths*np.pi/180.0, zeniths, values, cmap=cmocean.cm.phase)
 
 
 Capabilities
