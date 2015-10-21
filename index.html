@@ -79,19 +79,19 @@
 </div>
 <div class="section" id="chlorophyll">
 <h3>Chlorophyll<a class="headerlink" href="#chlorophyll" title="Permalink to this headline">¶</a></h3>
-<p>The Chlorophyll colormap is sequential with whitish-green for low values and increasing in green with increasing value to represent an increase in this green material in the water. Two examples of this colormap are shown below, from Texas A&amp;M University gliders. Nicknames for this colormap are &#8216;chl&#8217;, &#8216;chloro&#8217;, and &#8216;chlorophyll&#8217;, and the units are typically given as [mg/m^3].</p>
+<p>The Chlorophyll colormap is sequential with whitish-green for low values and increasing in green with increasing value to represent an increase in this green material in the water. Two examples of this colormap are shown below, from Texas A&amp;M University gliders. Nicknames for this colormap are &#8216;chl&#8217;, &#8216;chloro&#8217;, and &#8216;chlorophyll&#8217;, and the units are typically given as [mg/m^3]. This colormap is based on matplotlib&#8217;s Greens, but was recreated from scratch using the viscm tool.</p>
 <a class="reference external image-reference" href="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png"><img alt="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png" src="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png" /></a>
 <a class="reference external image-reference" href="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png"><img alt="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png" src="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png" /></a>
 </div>
 <div class="section" id="density">
 <h3>Density<a class="headerlink" href="#density" title="Permalink to this headline">¶</a></h3>
-<p>The Density colormap is sequential with whitish-blue for low values and increasing in purple with increasing value to represent an increase in water density. Two examples of this colormap are shown below, from Texas A&amp;M University gliders. Nicknames for this colormap are &#8216;density&#8217; and &#8216;rho&#8217;, and the units are typically given as [kg/m^3].</p>
+<p>The Density colormap is sequential with whitish-blue for low values and increasing in purple with increasing value to represent an increase in water density. Two examples of this colormap are shown below, from Texas A&amp;M University gliders. Nicknames for this colormap are &#8216;density&#8217; and &#8216;rho&#8217;, and the units are typically given as [kg/m^3]. This colormap is based on matplotlib&#8217;s Purples, but was recreated from scratch using the viscm tool.</p>
 <a class="reference external image-reference" href="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png"><img alt="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png" src="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png" /></a>
 <a class="reference external image-reference" href="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png"><img alt="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png" src="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png" /></a>
 </div>
 <div class="section" id="free-surface">
 <h3>Free Surface<a class="headerlink" href="#free-surface" title="Permalink to this headline">¶</a></h3>
-<p>The Free Surface colormap is diverging with dark blue to off-white to dark red representing negative to zero to positive sea surface elevation, with deviations in the surface elevations as shades of color away from neutral off-white. Shades of red have been chosen to represent sea surface elevation above the reference value (often mean sea level) to connect with warmer water typically being associated with an increase in the free surface, such as with the Loop Current in the Gulf of Mexico. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are &#8216;seasurface&#8217;, &#8216;freesurface&#8217;, &#8216;zeta&#8217;, and &#8216;eta&#8217;, and the units are typically given as [m].</p>
+<p>The Free Surface colormap is diverging with dark blue to off-white to dark red representing negative to zero to positive sea surface elevation, with deviations in the surface elevations as shades of color away from neutral off-white. Shades of red have been chosen to represent sea surface elevation above the reference value (often mean sea level) to connect with warmer water typically being associated with an increase in the free surface, such as with the Loop Current in the Gulf of Mexico. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are &#8216;seasurface&#8217;, &#8216;freesurface&#8217;, &#8216;zeta&#8217;, and &#8216;eta&#8217;, and the units are typically given as [m]. This colormap is based on matplotlib&#8217;s RdBu, but was recreated from scratch using the viscm tool.</p>
 <a class="reference external image-reference" href="http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010.mp4"><img alt="http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png" src="http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png" /></a>
 </div>
 <div class="section" id="oxygen">
@@ -122,6 +122,13 @@
 <div class="figure">
 <img alt="_images/index-4.png" src="_images/index-4.png" />
 </div>
+</div>
+<div class="section" id="salinity">
+<h3>Salinity<a class="headerlink" href="#salinity" title="Permalink to this headline">¶</a></h3>
+<p>The Salinity colormap is sequential with dark blue representing lower salinity or fresher water, transitioning through greens to light yellow representing increased salinity or saltier water. Several examples of this colormap are shown below, from Texas A&amp;M University gliders and a simulation of the Texas and Louisiana shelf region. Nicknames for this colormap are &#8216;salt&#8217; and &#8216;salinity&#8217;, and the units are typically given as [g/kg]. This colormap is based on matplotlib&#8217;s YlGnBu, but was recreated from scratch using the viscm tool.</p>
+<a class="reference external image-reference" href="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png"><img alt="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png" src="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png" /></a>
+<a class="reference external image-reference" href="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png"><img alt="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png" src="http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png" /></a>
+<a class="reference external image-reference" href="http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010.mp4"><img alt="http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010-07-30T00.png" src="http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010-07-30T00.png" /></a>
 </div>
 </div>
 <div class="section" id="capabilities">
@@ -225,6 +232,7 @@
 <li><a class="reference internal" href="#oxygen">Oxygen</a></li>
 <li><a class="reference internal" href="#par">PAR</a></li>
 <li><a class="reference internal" href="#phase">Phase</a></li>
+<li><a class="reference internal" href="#salinity">Salinity</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#capabilities">Capabilities</a></li>

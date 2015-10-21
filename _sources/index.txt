@@ -56,7 +56,7 @@ The Colored Dissolved Organic Matter (CDOM) colormap is sequential with whitish-
 Chlorophyll
 ^^^^^^^^^^^
 
-The Chlorophyll colormap is sequential with whitish-green for low values and increasing in green with increasing value to represent an increase in this green material in the water. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'chl', 'chloro', and 'chlorophyll', and the units are typically given as [mg/m^3].
+The Chlorophyll colormap is sequential with whitish-green for low values and increasing in green with increasing value to represent an increase in this green material in the water. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'chl', 'chloro', and 'chlorophyll', and the units are typically given as [mg/m^3]. This colormap is based on matplotlib's Greens, but was recreated from scratch using the viscm tool.
 
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
@@ -66,7 +66,7 @@ The Chlorophyll colormap is sequential with whitish-green for low values and inc
 Density
 ^^^^^^^
 
-The Density colormap is sequential with whitish-blue for low values and increasing in purple with increasing value to represent an increase in water density. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'density' and 'rho', and the units are typically given as [kg/m^3].
+The Density colormap is sequential with whitish-blue for low values and increasing in purple with increasing value to represent an increase in water density. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'density' and 'rho', and the units are typically given as [kg/m^3]. This colormap is based on matplotlib's Purples, but was recreated from scratch using the viscm tool.
 
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
@@ -76,7 +76,7 @@ The Density colormap is sequential with whitish-blue for low values and increasi
 Free Surface
 ^^^^^^^^^^^^
 
-The Free Surface colormap is diverging with dark blue to off-white to dark red representing negative to zero to positive sea surface elevation, with deviations in the surface elevations as shades of color away from neutral off-white. Shades of red have been chosen to represent sea surface elevation above the reference value (often mean sea level) to connect with warmer water typically being associated with an increase in the free surface, such as with the Loop Current in the Gulf of Mexico. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'seasurface', 'freesurface', 'zeta', and 'eta', and the units are typically given as [m].
+The Free Surface colormap is diverging with dark blue to off-white to dark red representing negative to zero to positive sea surface elevation, with deviations in the surface elevations as shades of color away from neutral off-white. Shades of red have been chosen to represent sea surface elevation above the reference value (often mean sea level) to connect with warmer water typically being associated with an increase in the free surface, such as with the Loop Current in the Gulf of Mexico. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'seasurface', 'freesurface', 'zeta', and 'eta', and the units are typically given as [m]. This colormap is based on matplotlib's RdBu, but was recreated from scratch using the viscm tool.
 
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010.mp4
@@ -113,6 +113,18 @@ The Phase colormap is circular, spanning all hues at a set lightness value. This
    values = azimuths * np.ones((30, 361))
    fig, ax = plt.subplots(subplot_kw=dict(projection='polar'))
    ax.pcolormesh(azimuths*np.pi/180.0, zeniths, values, cmap=cmocean.cm.phase)
+
+Salinity
+^^^^^^^^
+
+The Salinity colormap is sequential with dark blue representing lower salinity or fresher water, transitioning through greens to light yellow representing increased salinity or saltier water. Several examples of this colormap are shown below, from Texas A&M University gliders and a simulation of the Texas and Louisiana shelf region. Nicknames for this colormap are 'salt' and 'salinity', and the units are typically given as [g/kg]. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
+
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
+.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010-07-30T00.png
+   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010.mp4
 
 
 Capabilities
