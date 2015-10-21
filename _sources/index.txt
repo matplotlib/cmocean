@@ -46,9 +46,10 @@ Colormap details
 CDOM
 ^^^^
 
-The Colored Dissolved Organic Matter (CDOM) colormap is white-pink for low values and increasing in pink with increasing value to represent an increase in material in the water. An example of this colormap in use is from a |glider|_
+The Colored Dissolved Organic Matter (CDOM) colormap is white-pink for low values and increasing in pink with increasing value to represent an increase in material in the water. An example of this colormap in use is below.
 
-.. _glider: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
+.. image:: sci_flbbcd_cdom_units.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
 
 
 Capabilities
