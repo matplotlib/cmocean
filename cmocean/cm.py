@@ -296,7 +296,14 @@ def all_colormaps(cmnames):
             cmall.append(eval(cmname))
             cmallname.append(thisname)
 
-    return cmall
+    # To sort both names and colormaps alphabetically
+    # http://stackoverflow.com/questions/7851077/how-to-return-index-of-a-sorted-list/7851186#7851186
+    inds = sorted(range(len(cmallname)), key=lambda k: cmallname[k])
+    cmallname.sort()
+    # sort the colormap objects using the indices just found
+    cmall2 = []
+    [cmall2.append(cmall[ind]) for ind in inds]
+    return cmall2
 
 
 cmall = all_colormaps(cmnames)

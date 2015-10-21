@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Beautiful colormaps for oceanography: **cmocean**
+Beautiful colormaps for oceanography: `cmocean <http://github.com/matplotlib/cmocean>`_
 =================================================
 
 This package contains colormaps for standardizing commonly-plotting oceanographic variables. Most of the colormaps started from `matplotlib <http://matplotlib.org/>`_ colormaps, but have now been adjusted using the `viscm tool <https://github.com/BIDS/viscm>`_ to be `perceptually uniform <http://bids.github.io/colormap/>`_.
@@ -39,6 +39,47 @@ Here are some properties from the Salinity colormap. We can see that the colorma
 
 
 All of the evaluations of the colormaps using the viscm tool are shown in the page :ref:`colormaps_viscm`.
+
+Colormap details
+----------------
+
+CDOM
+^^^^
+
+The Colored Dissolved Organic Matter (CDOM) colormap is sequential with whitish-yellow for low values and increasing in pink with increasing value to represent an increase in material in the water. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'CDOM', and 'cdom', and the units are typically given as [mg/m^3].
+
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
+
+Chlorophyll
+^^^^^^^^^^^
+
+The Chlorophyll colormap is sequential with whitish-green for low values and increasing in green with increasing value to represent an increase in this green material in the water. An example of this colormap in use, shown below, is from a glider from Texas A&M University. Nicknames for this colormap are 'chl', 'chloro', and 'chlorophyll', and the units are typically given as [mg/m^3].
+
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
+
+Density
+^^^^^^^
+
+The Density colormap is sequential with whitish-blue for low values and increasing in purple with increasing value to represent an increase in water density. An example of this colormap in use, shown below, is from a glider from Texas A&M University. Nicknames for this colormap are 'density' and 'rho', and the units are typically given as [kg/m^3].
+
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
+
+Free Surface
+^^^^^^^^^^^^
+
+The Free Surface colormap is diverging with dark blue to off-white to dark red representing negative to zero to positive sea surface elevation, with deviations in the surface elevations as shades of color away from neutral off-white. Shades of red have been chosen to represent sea surface elevation above the reference value (often mean sea level) to connect with warmer water typically being associated with an increase in the free surface, such as with the Loop Current in the Gulf of Mexico. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'seasurface', 'freesurface', 'zeta', and 'eta', and the units are typically given as [m].
+
+.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png
+   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010.mp4
 
 
 Capabilities
@@ -93,10 +134,10 @@ Output a dictionary to define a colormap with:
 Make a colormap instance with ``cmap = cmocean.tools.cmap(rgbin, N=10)`` given the rgb input array.
 
 
-Indices and tables
-==================
+.. Indices and tables
+.. ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
 
