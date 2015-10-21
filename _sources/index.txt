@@ -117,7 +117,7 @@ The Phase colormap is circular, spanning all hues at a set lightness value. This
 Salinity
 ^^^^^^^^
 
-The Salinity colormap is sequential with dark blue representing lower salinity or fresher water, transitioning through greens to light yellow representing increased salinity or saltier water. Several examples of this colormap are shown below, from Texas A&M University gliders and a simulation of the Texas and Louisiana shelf region. Nicknames for this colormap are 'salt' and 'salinity', and the units are typically given as [g/kg]. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
+The Salinity colormap is sequential with dark blue representing lower salinity or fresher water, transitioning through greens to light yellow representing increased salinity or saltier water. Several examples of this colormap are shown below, from Texas A&M University gliders and a simulation of the Texas and Louisiana shelf region. Nicknames for this colormap are 'salt' and 'salinity', and the units are typically given as [g/kg] or [ppt]. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
 
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
@@ -125,6 +125,14 @@ The Salinity colormap is sequential with dark blue representing lower salinity o
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010.mp4
+
+Speed
+^^^^^
+
+The Speed colormap is sequential from light greenish yellow representing low values to  with dark yellowish green representing large values. This colormap is the positive half of the velocity colormap, for consistency. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'speed' and 's', and the units are typically given as [m/s].
+
+.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/speed/2010-07-30T00.png
+   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/speed/2010.mp4
 
 
 Capabilities
