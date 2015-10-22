@@ -163,6 +163,18 @@ Turbidity
 
 The Turbidity colormap is sequential from light to dark brown to represent an increase in sediment in the water. Nicknames for this colormap are 'turbidity' and 'turb', and the units are typically given as [NTU].
 
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.turb, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.turb, ax=ax)
+
 Velocity
 ^^^^^^^^
 
@@ -174,11 +186,44 @@ The Velocity colormap is diverging from darker blues to just off-white through s
 Vorticity
 ^^^^^^^^^
 
-The Vorticity colormap is diverging from darker teal to just off-white through shades of magenta representing diverging vorticity values around a critical value (usually zero). The WavePeriod colormap is the negative half of this colormap (with inverse units). An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'vorticity' and 'vort', and the units are typically given as [1/s].
+The Vorticity colormap is diverging from darker teal to just off-white through shades of magenta representing diverging vorticity values around a critical value (usually zero). The Wave Period colormap is the negative half of this colormap (with inverse units). An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'vorticity' and 'vort', and the units are typically given as [1/s].
 
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010.mp4
 
+Wave Height
+^^^^^^^^^^^
+
+The Wave Height colormap is sequential from whitish to dark red representing an increase in wave height values. The Wave Height colormap is the positive half of the Free Surface colormap to be consistent with units. Nicknames for this colormaps are 'waveheight', 'waveheight', 'swh', and 'height', and the units are typically given as [m].
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.swh, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.swh, ax=ax)
+
+Wave Period
+^^^^^^^^^^^
+
+The Wave Period colormap is sequential from whitish to dark teal representing an increase in wave period values. This colormap is the negative half of the Vorticity colormap, with inverse units. Nicknames for this colormaps are 'waveperiod' and 'period', and the units are typically given as [s].
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.period, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.period, ax=ax)
 
 
 Capabilities
