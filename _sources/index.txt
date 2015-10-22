@@ -146,6 +146,19 @@ The Temperature colormap is sequential with dark blue representing lower tempera
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2010.mp4
 
+Turbidity
+^^^^^^^^^
+
+The Turbidity colormap is sequential from light to dark brown to represent an increase in sediment in the water. Nicknames for this colormap are 'turbidity' and 'turb', and the units are typically given as [NTU].
+
+Velocity
+^^^^^^^^
+
+The Velocity colormap is diverging from darker blues to just off-white through shades of yellow green representing diverging velocity values around a critical value (usually zero). The speed colormap is the positive half of this colormap, for consistency. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'velocity', 'vel', 'u', and 'v', and the units are typically given as [m/s]. This colormap was inspired by `Francesca Samsel's <http://www.francescasamsel.com/>`_ similar colormap, but generated from scratch using the viscm tool.
+
+.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010-07-30T00.png
+   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010.mp4
+
 
 Capabilities
 ------------
