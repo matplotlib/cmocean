@@ -303,6 +303,56 @@
 </div>
 <p>Make a colormap instance with <code class="docutils literal"><span class="pre">cmap</span> <span class="pre">=</span> <span class="pre">cmocean.tools.cmap(rgbin,</span> <span class="pre">N=10)</span></code> given the rgb input array.</p>
 </div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Here are some of my favorite resources.</p>
+<div class="section" id="examples-of-beautiful-visualizations">
+<h3>Examples of beautiful visualizations:<a class="headerlink" href="#examples-of-beautiful-visualizations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Earth wind/currents/temperature/everything <a class="reference external" href="http://earth.nullschool.net/">visualization</a>: This is a wonderful visualization of worldwide wind and ocean dynamics and properties. It is also great for teaching, and seems to be continually under development and getting new fields as plotting options.</li>
+<li>This <a class="reference external" href="http://smokymountains.com/fall-foliage-map/">fall foliage map</a> is easy to use, clear, and eye-catching. It is what we all aspire to!</li>
+<li>A clever <a class="reference external" href="http://www.nytimes.com/interactive/2014/07/08/upshot/how-the-year-you-were-born-influences-your-politics.html">visualization</a> from The Upshot of political leaning depending on birth year. This is a perfect use of the diverging red to blue colormap.</li>
+</ul>
+</div>
+<div class="section" id="why-jet-is-a-bad-colormap-and-how-to-choose-better">
+<h3>Why jet is a bad colormap, and how to choose better:<a class="headerlink" href="#why-jet-is-a-bad-colormap-and-how-to-choose-better" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>This is the article that started it all for me: <a class="reference external" href="http://www.research.ibm.com/people/l/lloydt/color/color.HTM">Why Should Engineers and Scientists Be Worried About Color?</a></li>
+<li>An excellent series on jet and choosing colormaps that will really teach you what you need to know, by <a class="reference external" href="https://mycarta.wordpress.com/2012/05/29/the-rainbow-is-dead-long-live-the-rainbow-series-outline/">Matteo Niccoli</a></li>
+<li>Nice summary of arguments against jet by <a class="reference external" href="https://jakevdp.github.io/blog/2014/10/16/how-bad-is-your-colormap/">Jake Vanderplas</a></li>
+<li>A good <a class="reference external" href="http://journals.ametsoc.org/doi/abs/10.1175/BAMS-D-13-00155.1">summary</a> in the Bulletin of the American Meteorological Society (BAMS) of visualization research and presentation of a tool for choosing good colormaps, aimed at atmospheric research but widely applicable.</li>
+<li>This <a class="reference external" href="http://www.etre.com/tools/colourblindsimulator/">tool</a> will convert your (small file size) image to how it would look to someone with various kinds of color blindness so that you can make better decisions about the colors you use.</li>
+<li><a class="reference external" href="http://matplotlib.org/users/colormaps.html">Documentation</a> from the matplotlib plotting package site for choosing colormaps.</li>
+<li>Tips for choosing a good <a class="reference external" href="http://betterfigures.org/2015/06/23/picking-a-colour-scale-for-scientific-graphics/">scientific colormap</a></li>
+<li><a class="reference external" href="http://www.climate-lab-book.ac.uk/2014/end-of-the-rainbow/">The end of the rainbow</a>, a plea to stop using jet.</li>
+<li>Research shows that <a class="reference external" href="http://phys.org/news/2011-10-heart-disease-visualization-experts-simpler.html">jet is bad for your health!</a></li>
+</ul>
+<p>There is a series of talks from the SciPy conference from 2014 and 2015 talking about colormaps:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.youtube.com/watch?v=Alnc9E1RnD8">Damon McDougall</a> introducing the problem with jet for representing data.</li>
+<li><a class="reference external" href="https://www.youtube.com/watch?v=rkDgBvT-giw">Kristen Thyng</a> following up with how to choose better colormaps, including using perceptually uniform colormaps and considering whether the information being represented is sequential or diverging in nature.</li>
+<li><a class="reference external" href="https://www.youtube.com/watch?v=xAoljeRJ3lU&amp;list=PLYx7XA2nY5Gcpabmu61kKcToLz0FapmHu&amp;index=1">Nathaniel Smith and Stéfan van der Walt</a> explaining more about the jet colormap being bad, even bad for your health! They follow this up by proposing a new colormap for matplotlib, a Python plotting library.</li>
+<li><a class="reference external" href="https://www.youtube.com/watch?v=XjHzLUnHeM0&amp;list=PLYx7XA2nY5Gcpabmu61kKcToLz0FapmHu&amp;index=35">Kristen Thyng</a> building off the work done by Nathaniel and Stéfan, a proposal of colormaps to plot typical oceanographic quantities (which led to cmocean!).</li>
+</ul>
+</div>
+<div class="section" id="other-tips-for-making-good-figures">
+<h3>Other tips for making good figures:<a class="headerlink" href="#other-tips-for-making-good-figures" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>This <a class="reference external" href="http://figuredesign.blogspot.com/2012/04/meeting-recap-colors-in-figures.html">link</a> has a number of tips for choosing line color, colormaps, and using discrete vs. continuous colormaps.</li>
+<li><a class="reference external" href="http://www-personal.umich.edu/~jpboyd/sciviz_1_graphbadly.pdf">How to graph badly or what not to do</a> has tips especially for line and bar plots and includes a summary of some of design guru <a class="reference external" href="http://www.edwardtufte.com/tufte/">Edward Tufte&#8217;s</a> tips.</li>
+</ul>
+</div>
+<div class="section" id="tools-for-making-nice-figures">
+<h3>Tools for making nice figures:<a class="headerlink" href="#tools-for-making-nice-figures" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/">Seaborn</a> will help you make very nice looking statistical plots.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://kristenthyng.com">Kristen Thyng</a> is the main developer of cmocean. Please email with questions, comments, and ideas. I&#8217;m collecting examples of the colormaps being used in action (see above) and also users of the colormaps, so I&#8217;d love to hear from you if you are using cmocean. kthyng at gmail.com</p>
+</div>
 </div>
 
 
@@ -333,6 +383,14 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#capabilities">Capabilities</a></li>
+<li><a class="reference internal" href="#resources">Resources</a><ul>
+<li><a class="reference internal" href="#examples-of-beautiful-visualizations">Examples of beautiful visualizations:</a></li>
+<li><a class="reference internal" href="#why-jet-is-a-bad-colormap-and-how-to-choose-better">Why jet is a bad colormap, and how to choose better:</a></li>
+<li><a class="reference internal" href="#other-tips-for-making-good-figures">Other tips for making good figures:</a></li>
+<li><a class="reference internal" href="#tools-for-making-nice-figures">Tools for making nice figures:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contact">Contact</a></li>
 </ul>
 </li>
 </ul>
