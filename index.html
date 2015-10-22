@@ -103,6 +103,20 @@
 <div class="section" id="par">
 <h3>PAR<a class="headerlink" href="#par" title="Permalink to this headline">¶</a></h3>
 <p>The Photosynthetically Available Radiation (PAR) colormap is sequential from dark brown for low values to increasingly bright yellow to represent an increase in radiation in the water. Nicknames for this colormap are &#8216;PAR&#8217; and &#8216;par&#8217;, and the units are typically given as [W/m^2].</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">cmocean</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">par</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">quick_plot</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">par</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//index-4.py">Source code</a>, <a class="reference external" href=".//index-4.png">png</a>, <a class="reference external" href=".//index-4.hires.png">hires.png</a>, <a class="reference external" href=".//index-4.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/index-4.png" src="_images/index-4.png" />
+</div>
 </div>
 <div class="section" id="phase">
 <h3>Phase<a class="headerlink" href="#phase" title="Permalink to this headline">¶</a></h3>
@@ -118,9 +132,9 @@
 <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">azimuths</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span> <span class="n">zeniths</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">phase</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//index-4.py">Source code</a>, <a class="reference external" href=".//index-4.png">png</a>, <a class="reference external" href=".//index-4.hires.png">hires.png</a>, <a class="reference external" href=".//index-4.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href=".//index-5.py">Source code</a>, <a class="reference external" href=".//index-5.png">png</a>, <a class="reference external" href=".//index-5.hires.png">hires.png</a>, <a class="reference external" href=".//index-5.pdf">pdf</a>)</p>
 <div class="figure">
-<img alt="_images/index-4.png" src="_images/index-4.png" />
+<img alt="_images/index-5.png" src="_images/index-5.png" />
 </div>
 </div>
 <div class="section" id="salinity">
@@ -151,6 +165,11 @@
 <p>The Velocity colormap is diverging from darker blues to just off-white through shades of yellow green representing diverging velocity values around a critical value (usually zero). The speed colormap is the positive half of this colormap, for consistency. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are &#8216;velocity&#8217;, &#8216;vel&#8217;, &#8216;u&#8217;, and &#8216;v&#8217;, and the units are typically given as [m/s]. This colormap was inspired by <a class="reference external" href="http://www.francescasamsel.com/">Francesca Samsel&#8217;s</a> similar colormap, but generated from scratch using the viscm tool.</p>
 <a class="reference external image-reference" href="http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010.mp4"><img alt="http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010-07-30T00.png" src="http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010-07-30T00.png" /></a>
 </div>
+<div class="section" id="vorticity">
+<h3>Vorticity<a class="headerlink" href="#vorticity" title="Permalink to this headline">¶</a></h3>
+<p>The Vorticity colormap is diverging from darker teal to just off-white through shades of magenta representing diverging vorticity values around a critical value (usually zero). The WavePeriod colormap is the negative half of this colormap (with inverse units). An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are &#8216;vorticity&#8217; and &#8216;vort&#8217;, and the units are typically given as [1/s].</p>
+<a class="reference external image-reference" href="http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010.mp4"><img alt="http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010-07-30T00.png" src="http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010-07-30T00.png" /></a>
+</div>
 </div>
 <div class="section" id="capabilities">
 <h2>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this headline">¶</a></h2>
@@ -165,9 +184,9 @@
 <span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">quick_plot</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">chl</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//index-5.py">Source code</a>, <a class="reference external" href=".//index-5.png">png</a>, <a class="reference external" href=".//index-5.hires.png">hires.png</a>, <a class="reference external" href=".//index-5.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href=".//index-6.py">Source code</a>, <a class="reference external" href=".//index-6.png">png</a>, <a class="reference external" href=".//index-6.hires.png">hires.png</a>, <a class="reference external" href=".//index-6.pdf">pdf</a>)</p>
 <div class="figure">
-<img alt="_images/index-5.png" src="_images/index-5.png" />
+<img alt="_images/index-6.png" src="_images/index-6.png" />
 </div>
 <p>All available nicknames of the colormaps can be accessed with <code class="docutils literal"><span class="pre">cmocean.cm.cmnames</span></code>:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">cmocean</span>
@@ -258,6 +277,7 @@
 <li><a class="reference internal" href="#temperature">Temperature</a></li>
 <li><a class="reference internal" href="#turbidity">Turbidity</a></li>
 <li><a class="reference internal" href="#velocity">Velocity</a></li>
+<li><a class="reference internal" href="#vorticity">Vorticity</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#capabilities">Capabilities</a></li>

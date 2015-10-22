@@ -96,6 +96,18 @@ PAR
 
 The Photosynthetically Available Radiation (PAR) colormap is sequential from dark brown for low values to increasingly bright yellow to represent an increase in radiation in the water. Nicknames for this colormap are 'PAR' and 'par', and the units are typically given as [W/m^2].
 
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.par, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.par, ax=ax)
+
 Phase
 ^^^^^
 
@@ -158,6 +170,15 @@ The Velocity colormap is diverging from darker blues to just off-white through s
 
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010.mp4
+
+Vorticity
+^^^^^^^^^
+
+The Vorticity colormap is diverging from darker teal to just off-white through shades of magenta representing diverging vorticity values around a critical value (usually zero). The WavePeriod colormap is the negative half of this colormap (with inverse units). An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'vorticity' and 'vort', and the units are typically given as [1/s].
+
+.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010-07-30T00.png
+   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010.mp4
+
 
 
 Capabilities
