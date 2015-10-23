@@ -179,12 +179,12 @@ def test(cmap, fig=None, ax=None):
     ax.set_xticks([])
 
 
-def quick_plot(cmap, fname=None, fig=None, ax=None):
+def quick_plot(cmap, fname=None, fig=None, ax=None, N=10):
     '''Show quick test of a colormap.
 
     '''
 
-    x = np.linspace(0, 10)
+    x = np.linspace(0, 10, N)
     X, _ = np.meshgrid(x, x)
 
     if ax is None:
