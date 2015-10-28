@@ -10,7 +10,6 @@ Colormaps are available for:
     turbidity, turb
     PAR, par
     density, rho
-    # the following haven't been vetted well yet:
     bathymetry, bathy
     speed, s
     velocity, vel, u, v
@@ -138,13 +137,14 @@ def make_density_cmap():
     return cmap
 
 
-# def make_bathymetry_cmap():  
-#     rgb = np.load(os.path.join(datadir, 'Bathymetry.npy'))
-#     cmap = tools.cmap(rgb, N=256)
-#     cmap.name = 'Bathymetry' 
-#     cmap.units = 'm'
-#     cmap.author = 'kmt'
-#     return cmap
+def make_bathymetry_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'Bathymetry-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'Bathymetry'
+    cmap.units = 'm'
+    cmap.author = 'kmt'
+    return cmap
+
 
 def make_speed_cmap():
     # Uses positive part of velocity colormap
@@ -219,6 +219,16 @@ def make_waveperiod_cmap():
     return cmap
 
 
+def make_gray_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'Gray-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'Gray'
+    cmap.long_name = 'Gray'
+    cmap.units = ''
+    cmap.author = 'kmt'
+    return cmap
+
+
 salinity = make_salinity_cmap()
 salt = make_salinity_cmap()
 temperature = make_temperature_cmap()
@@ -236,8 +246,8 @@ PAR = make_PAR_cmap()
 par = make_PAR_cmap()
 density = make_density_cmap()
 rho = make_density_cmap()
-# bathymetry = make_bathymetry_cmap()
-# bathy = make_bathymetry_cmap()
+bathymetry = make_bathymetry_cmap()
+bathy = make_bathymetry_cmap()
 speed = make_speed_cmap()
 s = make_speed_cmap()
 velocity = make_velocity_cmap()
@@ -259,6 +269,14 @@ waveheights = make_waveheight_cmap()
 height = make_waveheight_cmap()
 waveperiod = make_waveperiod_cmap()
 period = make_waveperiod_cmap()
+gray = make_gray_cmap()
+Gray = make_gray_cmap()
+grey = make_gray_cmap()
+Grey = make_gray_cmap()
+grays = make_gray_cmap()
+Grays = make_gray_cmap()
+greys = make_gray_cmap()
+Greys = make_gray_cmap()
 
 
 def all_colormap_names(methods):

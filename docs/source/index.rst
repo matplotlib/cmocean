@@ -43,6 +43,23 @@ All of the evaluations of the colormaps using the viscm tool are shown in the pa
 Colormap details
 ----------------
 
+Bathymetry
+^^^^^^^^^^
+
+The Bathymetry colormap is sequential from light yellow for shallower water through pale green to increasingly dark blue and purple to represent increasing depth. Nicknames for this colormap are 'bathymetry' and 'bathy', and the units are typically given as [m].
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.bathy, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.bathy, ax=ax)
+
 CDOM
 ^^^^
 
@@ -80,6 +97,23 @@ The Free Surface colormap is diverging with dark blue to off-white to dark red r
 
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010.mp4
+
+Gray
+^^^^
+
+The Gray colormap is sequential from white to black, with uniform steps through perceptual colorspace. This colormap is generic to be used for any sequential dataset. Nicknames for this colormap are 'Gray', 'Grays', 'Grey', 'Greys', 'gray', 'grays', 'grey', and 'greys'.
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.grey, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.grey, ax=ax)
 
 Oxygen
 ^^^^^^
@@ -125,6 +159,7 @@ The Phase colormap is circular, spanning all hues at a set lightness value. This
    values = azimuths * np.ones((30, 361))
    fig, ax = plt.subplots(subplot_kw=dict(projection='polar'))
    ax.pcolormesh(azimuths*np.pi/180.0, zeniths, values, cmap=cmocean.cm.phase)
+   ax.set_yticks([])
 
 Salinity
 ^^^^^^^^
