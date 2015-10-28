@@ -71,6 +71,24 @@
 <p>All of the evaluations of the colormaps using the viscm tool are shown in the page <a class="reference internal" href="colormaps_viscm.html#colormaps-viscm"><span>cmocean colormaps in viscm tool</span></a>.</p>
 <div class="section" id="colormap-details">
 <h2>Colormap details<a class="headerlink" href="#colormap-details" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bathymetry">
+<h3>Bathymetry<a class="headerlink" href="#bathymetry" title="Permalink to this headline">¶</a></h3>
+<p>The Bathymetry colormap is sequential from light yellow for shallower water through pale green to increasingly dark blue and purple to represent increasing depth. Nicknames for this colormap are &#8216;bathymetry&#8217; and &#8216;bathy&#8217;, and the units are typically given as [m].</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">cmocean</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bathy</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">quick_plot</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bathy</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//index-4.py">Source code</a>, <a class="reference external" href=".//index-4.png">png</a>, <a class="reference external" href=".//index-4.hires.png">hires.png</a>, <a class="reference external" href=".//index-4.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/index-4.png" src="_images/index-4.png" />
+</div>
+</div>
 <div class="section" id="cdom">
 <h3>CDOM<a class="headerlink" href="#cdom" title="Permalink to this headline">¶</a></h3>
 <p>The Colored Dissolved Organic Matter (CDOM) colormap is sequential with whitish-yellow for low values and increasing in pink with increasing value to represent an increase in material in the water. Two examples of this colormap are shown below, from Texas A&amp;M University gliders. Nicknames for this colormap are &#8216;CDOM&#8217; and &#8216;cdom&#8217;, and the units are typically given as [mg/m^3].</p>
@@ -94,6 +112,24 @@
 <p>The Free Surface colormap is diverging with dark blue to off-white to dark red representing negative to zero to positive sea surface elevation, with deviations in the surface elevations as shades of color away from neutral off-white. Shades of red have been chosen to represent sea surface elevation above the reference value (often mean sea level) to connect with warmer water typically being associated with an increase in the free surface, such as with the Loop Current in the Gulf of Mexico. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are &#8216;seasurface&#8217;, &#8216;freesurface&#8217;, &#8216;zeta&#8217;, and &#8216;eta&#8217;, and the units are typically given as [m]. This colormap is based on matplotlib&#8217;s RdBu, but was recreated from scratch using the viscm tool.</p>
 <a class="reference external image-reference" href="http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010.mp4"><img alt="http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png" src="http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png" /></a>
 </div>
+<div class="section" id="gray">
+<h3>Gray<a class="headerlink" href="#gray" title="Permalink to this headline">¶</a></h3>
+<p>The Gray colormap is sequential from white to black, with uniform steps through perceptual colorspace. This colormap is generic to be used for any sequential dataset. Nicknames for this colormap are &#8216;Gray&#8217;, &#8216;Grays&#8217;, &#8216;Grey&#8217;, &#8216;Greys&#8217;, &#8216;gray&#8217;, &#8216;grays&#8217;, &#8216;grey&#8217;, and &#8216;greys&#8217;.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">cmocean</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">grey</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">quick_plot</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">grey</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//index-5.py">Source code</a>, <a class="reference external" href=".//index-5.png">png</a>, <a class="reference external" href=".//index-5.hires.png">hires.png</a>, <a class="reference external" href=".//index-5.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/index-5.png" src="_images/index-5.png" />
+</div>
+</div>
 <div class="section" id="oxygen">
 <h3>Oxygen<a class="headerlink" href="#oxygen" title="Permalink to this headline">¶</a></h3>
 <p>The Oxygen colormap is sequential for most of the colormap, representing the normal range of oxygen saturation in ocean water, and diverging 80% of the way into the colormap to represent a state of supersaturation. The bottom 20% of the colormap is colored reddish to highlight hypoxic or low oxygen water, but to still print relatively seamlessly into grayscale in case the red hue is not important for an application. The top 20% of the colormap, after the divergence, is colored yellow to highlight the supersaturated water. The minimum and maximum values of this colormap are meant to be controlled in order to properly place the low oxygen and supersaturated oxygen states properly. This colormap was developed for the Mississippi river plume area where both low and supersaturated conditions are regularly seen and monitored. Examples of this colormap (without colorbar limits being controlled to set the values of the red and yellow regions) are shown from Texas A&amp;M University gliders. Nicknames for this colormap are &#8216;oxygen&#8217; and &#8216;o2&#8217;, and the units are typically given as [m/l].</p>
@@ -113,9 +149,9 @@
 <span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">quick_plot</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">par</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//index-4.py">Source code</a>, <a class="reference external" href=".//index-4.png">png</a>, <a class="reference external" href=".//index-4.hires.png">hires.png</a>, <a class="reference external" href=".//index-4.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href=".//index-6.py">Source code</a>, <a class="reference external" href=".//index-6.png">png</a>, <a class="reference external" href=".//index-6.hires.png">hires.png</a>, <a class="reference external" href=".//index-6.pdf">pdf</a>)</p>
 <div class="figure">
-<img alt="_images/index-4.png" src="_images/index-4.png" />
+<img alt="_images/index-6.png" src="_images/index-6.png" />
 </div>
 </div>
 <div class="section" id="phase">
@@ -130,11 +166,12 @@
 <span class="n">values</span> <span class="o">=</span> <span class="n">azimuths</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span> <span class="mi">361</span><span class="p">))</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">&#39;polar&#39;</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">azimuths</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span> <span class="n">zeniths</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">phase</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//index-5.py">Source code</a>, <a class="reference external" href=".//index-5.png">png</a>, <a class="reference external" href=".//index-5.hires.png">hires.png</a>, <a class="reference external" href=".//index-5.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href=".//index-7.py">Source code</a>, <a class="reference external" href=".//index-7.png">png</a>, <a class="reference external" href=".//index-7.hires.png">hires.png</a>, <a class="reference external" href=".//index-7.pdf">pdf</a>)</p>
 <div class="figure">
-<img alt="_images/index-5.png" src="_images/index-5.png" />
+<img alt="_images/index-7.png" src="_images/index-7.png" />
 </div>
 </div>
 <div class="section" id="salinity">
@@ -169,9 +206,9 @@
 <span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">quick_plot</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">turb</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//index-6.py">Source code</a>, <a class="reference external" href=".//index-6.png">png</a>, <a class="reference external" href=".//index-6.hires.png">hires.png</a>, <a class="reference external" href=".//index-6.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href=".//index-8.py">Source code</a>, <a class="reference external" href=".//index-8.png">png</a>, <a class="reference external" href=".//index-8.hires.png">hires.png</a>, <a class="reference external" href=".//index-8.pdf">pdf</a>)</p>
 <div class="figure">
-<img alt="_images/index-6.png" src="_images/index-6.png" />
+<img alt="_images/index-8.png" src="_images/index-8.png" />
 </div>
 </div>
 <div class="section" id="velocity">
@@ -197,9 +234,9 @@
 <span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">quick_plot</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">swh</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//index-7.py">Source code</a>, <a class="reference external" href=".//index-7.png">png</a>, <a class="reference external" href=".//index-7.hires.png">hires.png</a>, <a class="reference external" href=".//index-7.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href=".//index-9.py">Source code</a>, <a class="reference external" href=".//index-9.png">png</a>, <a class="reference external" href=".//index-9.hires.png">hires.png</a>, <a class="reference external" href=".//index-9.pdf">pdf</a>)</p>
 <div class="figure">
-<img alt="_images/index-7.png" src="_images/index-7.png" />
+<img alt="_images/index-9.png" src="_images/index-9.png" />
 </div>
 </div>
 <div class="section" id="wave-period">
@@ -215,9 +252,9 @@
 <span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">quick_plot</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">period</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//index-8.py">Source code</a>, <a class="reference external" href=".//index-8.png">png</a>, <a class="reference external" href=".//index-8.hires.png">hires.png</a>, <a class="reference external" href=".//index-8.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href=".//index-10.py">Source code</a>, <a class="reference external" href=".//index-10.png">png</a>, <a class="reference external" href=".//index-10.hires.png">hires.png</a>, <a class="reference external" href=".//index-10.pdf">pdf</a>)</p>
 <div class="figure">
-<img alt="_images/index-8.png" src="_images/index-8.png" />
+<img alt="_images/index-10.png" src="_images/index-10.png" />
 </div>
 </div>
 </div>
@@ -234,9 +271,9 @@
 <span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">quick_plot</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">chl</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//index-9.py">Source code</a>, <a class="reference external" href=".//index-9.png">png</a>, <a class="reference external" href=".//index-9.hires.png">hires.png</a>, <a class="reference external" href=".//index-9.pdf">pdf</a>)</p>
+<p>(<a class="reference external" href=".//index-11.py">Source code</a>, <a class="reference external" href=".//index-11.png">png</a>, <a class="reference external" href=".//index-11.hires.png">hires.png</a>, <a class="reference external" href=".//index-11.pdf">pdf</a>)</p>
 <div class="figure">
-<img alt="_images/index-9.png" src="_images/index-9.png" />
+<img alt="_images/index-11.png" src="_images/index-11.png" />
 </div>
 <p>All available nicknames of the colormaps can be accessed with <code class="docutils literal"><span class="pre">cmocean.cm.cmnames</span></code>:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">cmocean</span>
@@ -244,7 +281,13 @@
 <span class="gp">In [2]: </span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">cmnames</span>
 <span class="gh">Out[2]: </span><span class="go"></span>
 <span class="go">[&#39;CDOM&#39;,</span>
+<span class="go"> &#39;Gray&#39;,</span>
+<span class="go"> &#39;Grays&#39;,</span>
+<span class="go"> &#39;Grey&#39;,</span>
+<span class="go"> &#39;Greys&#39;,</span>
 <span class="go"> &#39;PAR&#39;,</span>
+<span class="go"> &#39;bathy&#39;,</span>
+<span class="go"> &#39;bathymetry&#39;,</span>
 <span class="go"> &#39;cdom&#39;,</span>
 <span class="go"> &#39;chl&#39;,</span>
 <span class="go"> &#39;chloro&#39;,</span>
@@ -254,6 +297,10 @@
 <span class="go"> &#39;direction&#39;,</span>
 <span class="go"> &#39;eta&#39;,</span>
 <span class="go"> &#39;freesurface&#39;,</span>
+<span class="go"> &#39;gray&#39;,</span>
+<span class="go"> &#39;grays&#39;,</span>
+<span class="go"> &#39;grey&#39;,</span>
+<span class="go"> &#39;greys&#39;,</span>
 <span class="go"> &#39;height&#39;,</span>
 <span class="go"> &#39;o2&#39;,</span>
 <span class="go"> &#39;oxygen&#39;,</span>
@@ -365,10 +412,12 @@
   <ul>
 <li><a class="reference internal" href="#">Beautiful colormaps for oceanography: cmocean</a><ul>
 <li><a class="reference internal" href="#colormap-details">Colormap details</a><ul>
+<li><a class="reference internal" href="#bathymetry">Bathymetry</a></li>
 <li><a class="reference internal" href="#cdom">CDOM</a></li>
 <li><a class="reference internal" href="#chlorophyll">Chlorophyll</a></li>
 <li><a class="reference internal" href="#density">Density</a></li>
 <li><a class="reference internal" href="#free-surface">Free Surface</a></li>
+<li><a class="reference internal" href="#gray">Gray</a></li>
 <li><a class="reference internal" href="#oxygen">Oxygen</a></li>
 <li><a class="reference internal" href="#par">PAR</a></li>
 <li><a class="reference internal" href="#phase">Phase</a></li>
