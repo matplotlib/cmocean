@@ -10,7 +10,6 @@ Colormaps are available for:
     turbidity, turb
     PAR, par
     density, rho
-    # the following haven't been vetted well yet:
     bathymetry, bathy
     speed, s
     velocity, vel, u, v
