@@ -82,7 +82,7 @@ def make_oxygen_cmap():
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Oxygen'
     cmap.long_name = 'Oxygen'
-    cmap.units = 'm/l'
+    cmap.units = 'ml/l'
     cmap.author = 'kmt'
     return cmap
 
