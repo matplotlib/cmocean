@@ -6,6 +6,7 @@ import cm
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
+import tools
 # from skimage import color
 
 
@@ -87,13 +88,17 @@ def plot_gallery(saveplot=False):
 
     from colorspacious import cspace_converter
 
+    # don't have reverse colormaps built in yet
+    rgb = tools.print_colormaps([cm.gray], returnrgb=True)
+    gcmap = tools.cmap(rgb[::-1, :])
+
     gradient = np.linspace(0, 1, 256)
     gradient = np.vstack((gradient, gradient))
     x = np.linspace(0.0, 1.0, 256)
 
-    fig, axes = plt.subplots(nrows=len(cmaps), ncols=1)
-    fig.subplots_adjust(top=0.95, bottom=0.01, left=0.2, right=0.99, wspace=0.05)
-    fig.suptitle('Oceanography colormaps', fontsize=16, y=1.0, x=0.6)
+    fig, axes = plt.subplots(nrows=len(cmaps), ncols=1, figsize=(6, 12))
+    fig.subplots_adjust(top=0.99, bottom=0.01, left=0.2, right=0.99, wspace=0.05)
+    # fig.suptitle('Oceanography colormaps', fontsize=16, y=1.0, x=0.6)
 
     for ax, cmap in zip(axes, cmaps):
 
@@ -110,11 +115,10 @@ def plot_gallery(saveplot=False):
         ax.imshow(gradient, aspect='auto', cmap=cmap)
 
         pos1 = ax.get_position()  # get the original position
-        pos2 = [pos1.x0, pos1.y0,  pos1.width, pos1.height / 4.0]
+        pos2 = [pos1.x0, pos1.y0,  pos1.width, pos1.height / 3.0]
         axbw = fig.add_axes(pos2)  # colorbar axes
         axbw.set_axis_off()
-        axbw.imshow(L, aspect='auto', cmap='binary_r', vmin=0, vmax=100.)
-        # ax[1].imshow(L, aspect='auto', cmap='binary_r', vmin=0., vmax=100.)
+        axbw.imshow(L, aspect='auto', cmap=gcmap, vmin=0, vmax=100.)
         pos = list(ax.get_position().bounds)
         x_text = pos[0] - 0.01
         y_text = pos[1] + pos[3]/2.
