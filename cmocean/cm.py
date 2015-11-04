@@ -178,7 +178,7 @@ def make_vorticity_cmap():
 
 
 def make_freesurface_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'FreeSurface-rgb.txt'))
+    rgb = np.loadtxt(os.path.join(datadir, 'Freesurface-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'FreeSurface'
     cmap.long_name = 'Free Surface'
