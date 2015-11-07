@@ -16,7 +16,7 @@ Here is our gallery:
    import cmocean
    cmocean.plots.plot_gallery()
 
-These colormaps were chosen to be perceptually uniform and to reflect the data they are representing in terms of being sequential or divergent, and to be intuitive. For example, chlorophyll is represented by shades of green, turbidity is shades of brown, and temperature goes from cool blues to warm yellows.
+These colormaps were chosen to be perceptually uniform and to reflect the data they are representing in terms of being sequential, divergent, or cyclic (Phase colormap), and to be intuitive. For example, chlorophyll is represented by shades of green, turbidity is shades of brown, and temperature goes from cool blues to warm yellows.
 
 Here is the lightness of the colormaps:
 
@@ -311,6 +311,21 @@ Output a dictionary to define a colormap with:
    print cmdict
 
 Make a colormap instance with ``cmap = cmocean.tools.cmap(rgbin, N=10)`` given the rgb input array.
+
+Reversed versions of all colormaps are available by appending "_r" to the colormap name, just as in matplotlib:
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.gray, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.test(cmocean.cm.gray_r, ax=ax)
+   fig.tight_layout()
 
 
 Resources
