@@ -340,7 +340,6 @@ def reverse_colormaps():
     for cmnickname in cmnames:
         if '_r' in cmnickname:
             continue
-        print cmnickname
         cmap = eval(cmnickname)
         rcmapnickname = cmnickname + '_r'
         cmapdict[rcmapnickname] = tools.cmap(cmap(x), N=256)
