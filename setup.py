@@ -20,6 +20,8 @@ setup(
     version = "0.03",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
+    url = 'https://github.com/matplotlib/cmocean',
+    download_url = 'https://github.com/matplotlib/cmocean/tarball/0.03',
     description = ("Colormaps for Oceanography"),
     long_description=open('README.md').read(),
     classifiers=[
@@ -34,4 +36,5 @@ setup(
     ext_package='cmocean', 
     # ext_modules = [cmocean_mod],
     scripts = [],
+    keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
     )
