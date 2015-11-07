@@ -48,7 +48,7 @@
 <div class="figure">
 <img alt="_images/index-1.png" src="_images/index-1.png" />
 </div>
-<p>These colormaps were chosen to be perceptually uniform and to reflect the data they are representing in terms of being sequential or divergent, and to be intuitive. For example, chlorophyll is represented by shades of green, turbidity is shades of brown, and temperature goes from cool blues to warm yellows.</p>
+<p>These colormaps were chosen to be perceptually uniform and to reflect the data they are representing in terms of being sequential, divergent, or cyclic (Phase colormap), and to be intuitive. For example, chlorophyll is represented by shades of green, turbidity is shades of brown, and temperature goes from cool blues to warm yellows.</p>
 <p>Here is the lightness of the colormaps:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">cmocean</span>
 <span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_lightness</span><span class="p">()</span>
@@ -281,53 +281,101 @@
 <span class="gp">In [2]: </span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">cmnames</span>
 <span class="gh">Out[2]: </span><span class="go"></span>
 <span class="go">[&#39;CDOM&#39;,</span>
+<span class="go"> &#39;CDOM_r&#39;,</span>
 <span class="go"> &#39;Gray&#39;,</span>
+<span class="go"> &#39;Gray_r&#39;,</span>
 <span class="go"> &#39;Grays&#39;,</span>
+<span class="go"> &#39;Grays_r&#39;,</span>
 <span class="go"> &#39;Grey&#39;,</span>
+<span class="go"> &#39;Grey_r&#39;,</span>
 <span class="go"> &#39;Greys&#39;,</span>
+<span class="go"> &#39;Greys_r&#39;,</span>
 <span class="go"> &#39;PAR&#39;,</span>
+<span class="go"> &#39;PAR_r&#39;,</span>
 <span class="go"> &#39;bathy&#39;,</span>
+<span class="go"> &#39;bathy_r&#39;,</span>
 <span class="go"> &#39;bathymetry&#39;,</span>
+<span class="go"> &#39;bathymetry_r&#39;,</span>
 <span class="go"> &#39;cdom&#39;,</span>
+<span class="go"> &#39;cdom_r&#39;,</span>
 <span class="go"> &#39;chl&#39;,</span>
+<span class="go"> &#39;chl_r&#39;,</span>
 <span class="go"> &#39;chloro&#39;,</span>
+<span class="go"> &#39;chloro_r&#39;,</span>
 <span class="go"> &#39;chlorophyll&#39;,</span>
+<span class="go"> &#39;chlorophyll_r&#39;,</span>
 <span class="go"> &#39;density&#39;,</span>
+<span class="go"> &#39;density_r&#39;,</span>
 <span class="go"> &#39;direct&#39;,</span>
+<span class="go"> &#39;direct_r&#39;,</span>
 <span class="go"> &#39;direction&#39;,</span>
+<span class="go"> &#39;direction_r&#39;,</span>
 <span class="go"> &#39;eta&#39;,</span>
+<span class="go"> &#39;eta_r&#39;,</span>
 <span class="go"> &#39;freesurface&#39;,</span>
+<span class="go"> &#39;freesurface_r&#39;,</span>
 <span class="go"> &#39;gray&#39;,</span>
+<span class="go"> &#39;gray_r&#39;,</span>
 <span class="go"> &#39;grays&#39;,</span>
+<span class="go"> &#39;grays_r&#39;,</span>
 <span class="go"> &#39;grey&#39;,</span>
+<span class="go"> &#39;grey_r&#39;,</span>
 <span class="go"> &#39;greys&#39;,</span>
+<span class="go"> &#39;greys_r&#39;,</span>
 <span class="go"> &#39;height&#39;,</span>
+<span class="go"> &#39;height_r&#39;,</span>
 <span class="go"> &#39;o2&#39;,</span>
+<span class="go"> &#39;o2_r&#39;,</span>
 <span class="go"> &#39;oxygen&#39;,</span>
+<span class="go"> &#39;oxygen_r&#39;,</span>
 <span class="go"> &#39;par&#39;,</span>
+<span class="go"> &#39;par_r&#39;,</span>
 <span class="go"> &#39;period&#39;,</span>
+<span class="go"> &#39;period_r&#39;,</span>
 <span class="go"> &#39;phase&#39;,</span>
+<span class="go"> &#39;phase_r&#39;,</span>
 <span class="go"> &#39;rho&#39;,</span>
+<span class="go"> &#39;rho_r&#39;,</span>
 <span class="go"> &#39;s&#39;,</span>
+<span class="go"> &#39;s_r&#39;,</span>
 <span class="go"> &#39;salinity&#39;,</span>
+<span class="go"> &#39;salinity_r&#39;,</span>
 <span class="go"> &#39;salt&#39;,</span>
+<span class="go"> &#39;salt_r&#39;,</span>
 <span class="go"> &#39;seasurface&#39;,</span>
+<span class="go"> &#39;seasurface_r&#39;,</span>
 <span class="go"> &#39;speed&#39;,</span>
+<span class="go"> &#39;speed_r&#39;,</span>
 <span class="go"> &#39;swh&#39;,</span>
+<span class="go"> &#39;swh_r&#39;,</span>
 <span class="go"> &#39;temp&#39;,</span>
+<span class="go"> &#39;temp_r&#39;,</span>
 <span class="go"> &#39;temperature&#39;,</span>
+<span class="go"> &#39;temperature_r&#39;,</span>
 <span class="go"> &#39;turb&#39;,</span>
+<span class="go"> &#39;turb_r&#39;,</span>
 <span class="go"> &#39;turbidity&#39;,</span>
+<span class="go"> &#39;turbidity_r&#39;,</span>
 <span class="go"> &#39;u&#39;,</span>
+<span class="go"> &#39;u_r&#39;,</span>
 <span class="go"> &#39;v&#39;,</span>
+<span class="go"> &#39;v_r&#39;,</span>
 <span class="go"> &#39;vel&#39;,</span>
+<span class="go"> &#39;vel_r&#39;,</span>
 <span class="go"> &#39;velocity&#39;,</span>
+<span class="go"> &#39;velocity_r&#39;,</span>
 <span class="go"> &#39;vort&#39;,</span>
+<span class="go"> &#39;vort_r&#39;,</span>
 <span class="go"> &#39;vorticity&#39;,</span>
+<span class="go"> &#39;vorticity_r&#39;,</span>
 <span class="go"> &#39;waveheight&#39;,</span>
+<span class="go"> &#39;waveheight_r&#39;,</span>
 <span class="go"> &#39;waveheights&#39;,</span>
+<span class="go"> &#39;waveheights_r&#39;,</span>
 <span class="go"> &#39;waveperiod&#39;,</span>
-<span class="go"> &#39;zeta&#39;]</span>
+<span class="go"> &#39;waveperiod_r&#39;,</span>
+<span class="go"> &#39;zeta&#39;,</span>
+<span class="go"> &#39;zeta_r&#39;]</span>
 </pre></div>
 </div>
 <p>The distinct colormap instances can be accessed with:</p>
@@ -345,10 +393,25 @@
 <span class="gp">In [6]: </span><span class="n">cmdict</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">get_dict</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">cdom</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
 
 <span class="gp">In [7]: </span><span class="k">print</span> <span class="n">cmdict</span>
-<span class="go">{&#39;blue&#39;: [(0.0, 0.75272708464559868, 0.75272708464559868), (0.125, 0.5941343950054353, 0.5941343950054353), (0.25, 0.46216509104361486, 0.46216509104361486), (0.375, 0.36899681584601962, 0.36899681584601962), (0.5, 0.34014354167951627, 0.34014354167951627), (0.625, 0.36185268519273678, 0.36185268519273678), (0.75, 0.37074429821959559, 0.37074429821959559), (0.875, 0.3243536725668773, 0.3243536725668773), (1.0, 0.23176441493961719, 0.23176441493961719)], &#39;green&#39;: [(0.0, 0.9328856543257027, 0.9328856543257027), (0.125, 0.76474521503218063, 0.76474521503218063), (0.25, 0.6002780938040696, 0.6002780938040696), (0.375, 0.43606623553178614, 0.43606623553178614), (0.5, 0.27666482628126182, 0.27666482628126182), (0.625, 0.1479817059481392, 0.1479817059481392), (0.75, 0.075192911526595463, 0.075192911526595463), (0.875, 0.059899201797138237, 0.059899201797138237), (1.0, 0.038259864736298103, 0.038259864736298103)], &#39;red&#39;: [(0.0, 0.97331775760793537, 0.97331775760793537), (0.125, 0.94370212326840286, 0.94370212326840286), (0.25, 0.9106803156014629, 0.9106803156014629), (0.375, 0.86574687710651199, 0.86574687710651199), (0.5, 0.79200466056298713, 0.79200466056298713), (0.625, 0.67333360201675962, 0.67333360201675962), (0.75, 0.52179353890897973, 0.52179353890897973), (0.875, 0.35634663010214768, 0.35634663010214768), (1.0, 0.20054622990914156, 0.20054622990914156)]}</span>
+<span class="go">{&#39;blue&#39;: [(0.0, 0.69109690224984077, 0.69109690224984077), (0.125, 0.53031307900834646, 0.53031307900834646), (0.25, 0.40291681995676154, 0.40291681995676154), (0.375, 0.32938102171259315, 0.32938102171259315), (0.5, 0.33885361881305626, 0.33885361881305626), (0.625, 0.37820659039971588, 0.37820659039971588), (0.75, 0.38729596513525039, 0.38729596513525039), (0.875, 0.33739313395770171, 0.33739313395770171), (1.0, 0.24304267442183591, 0.24304267442183591)], &#39;green&#39;: [(0.0, 0.93032779532320797, 0.93032779532320797), (0.125, 0.75576791099973906, 0.75576791099973906), (0.25, 0.58413112562241909, 0.58413112562241909), (0.375, 0.41389524263548055, 0.41389524263548055), (0.5, 0.26372603126828165, 0.26372603126828165), (0.625, 0.16249519232276352, 0.16249519232276352), (0.75, 0.10922326738769267, 0.10922326738769267), (0.875, 0.089677516287552023, 0.089677516287552023), (1.0, 0.05913348735199072, 0.05913348735199072)], &#39;red&#39;: [(0.0, 0.99429361496112023, 0.99429361496112023), (0.125, 0.97669801635856757, 0.97669801635856757), (0.25, 0.94873479766923496, 0.94873479766923496), (0.375, 0.90045567698531204, 0.90045567698531204), (0.5, 0.80852468744463613, 0.80852468744463613), (0.625, 0.67108411902889908, 0.67108411902889908), (0.75, 0.51122751026810531, 0.51122751026810531), (0.875, 0.34246319725680402, 0.34246319725680402), (1.0, 0.18517171283533682, 0.18517171283533682)]}</span>
 </pre></div>
 </div>
 <p>Make a colormap instance with <code class="docutils literal"><span class="pre">cmap</span> <span class="pre">=</span> <span class="pre">cmocean.tools.cmap(rgbin,</span> <span class="pre">N=10)</span></code> given the rgb input array.</p>
+<p>Reversed versions of all colormaps are available by appending &#8220;_r&#8221; to the colormap name, just as in matplotlib:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">cmocean</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">cmocean</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//index-12.py">Source code</a>, <a class="reference external" href=".//index-12.png">png</a>, <a class="reference external" href=".//index-12.hires.png">hires.png</a>, <a class="reference external" href=".//index-12.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/index-12.png" src="_images/index-12.png" />
+</div>
 </div>
 <div class="section" id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
