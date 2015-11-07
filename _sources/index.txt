@@ -325,6 +325,7 @@ Reversed versions of all colormaps are available by appending "_r" to the colorm
    cmocean.plots.test(cmocean.cm.gray, ax=ax)
    ax = fig.add_subplot(1, 2, 2)
    cmocean.plots.test(cmocean.cm.gray_r, ax=ax)
+   fig.tight_layout()
 
 
 Resources
