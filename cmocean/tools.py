@@ -62,7 +62,7 @@ def get_dict(cmap, N=256):
     return LinearL
 
 
-def cmap(rgbin, N=10):
+def cmap(rgbin, N=256):
     '''Input an array of rgb values to generate a colormap.
 
     :param rgbin: An [mx3] array, where m is the number of input color triplets which
@@ -78,6 +78,6 @@ def cmap(rgbin, N=10):
         if rgbin.max() > 1:
             rgbin = rgbin/256.
 
-    cmap = mpl.colors.LinearSegmentedColormap.from_list('mycmap', rgbin)
+    cmap = mpl.colors.LinearSegmentedColormap.from_list('mycmap', rgbin, N=N)
 
     return cmap

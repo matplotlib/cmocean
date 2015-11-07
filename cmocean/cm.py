@@ -55,31 +55,21 @@ def make_temperature_cmap():
 def make_oxygen_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Oxygen-rgb.txt'))
     # # Did the following originally to set up the text file, but now it has already been done.
-    # l = rgb.shape[0]
-    # num = int(l/5.)
+    # l = rgb.shape[0]*(5./4)  # total number of entries in final colormap
+    # num = int(l/5.)  # 20% of colormap
     # # Take last 1/5 of colormap and save since I want it, flipped, at the end, keeping the full lightness range in the middle 3/5
-    # yellow = rgb[l-num:, :].copy()
-    # # convert .2 to 1.0 of colormap to grayscale
-    # # from skimage import color
+    # yellow = rgb[-num:, :].copy()
     # from colorspacious import cspace_converter
     # cam = cspace_converter("sRGB1", "CAM02-UCS")(rgb)
-    # # lab = color.rgb2lab(rgb[np.newaxis, :])
-    # # gray[:, 0] = 0.2989*rgb[num:, 0] + 0.5870*rgb[num:, 1] + 0.1140*rgb[num:, 2]
-    # # gray[:, 1] = gray[:, 0]
-    # # gray[:, 2] = gray[:, 0]
-    # # Interpolate the gray part to be just the middle 3/5
-    # newx = np.linspace(0, 1, rgb[num:l-num, :].shape[0])
-    # oldx = np.linspace(0, 1, rgb[num:, :].shape[0])
-    # oldgray = cam[num:, 0]/100.
-    # # oldgray = lab[0, num:, 0]
-    # rgb[num:l-num, 0] = np.interp(newx, oldx, oldgray)
-    # rgb[num:l-num, 1] = np.interp(newx, oldx, oldgray)
-    # rgb[num:l-num, 2] = np.interp(newx, oldx, oldgray)
+    # rgb_gray = cmocean.cm.gray(np.linspace(1,0,256))
+    # cam_gray = cspace_converter("sRGB1", "CAM02-UCS")(rgb_gray[np.newaxis, :, :3])[0,:]
+    # # Use gray colormap to interpolate and find the best rgb values for the lightness values in the middle of the colormap
+    # rgb[num:num+num*3, 0] = np.interp(cam[num:num+num*3,0], cam_gray[:,0], rgb_gray[:,0])
+    # rgb[num:num+num*3, 1] = np.interp(cam[num:num+num*3,0], cam_gray[:,0], rgb_gray[:,1])
+    # rgb[num:num+num*3, 2] = np.interp(cam[num:num+num*3,0], cam_gray[:,0], rgb_gray[:,2])
     # # Add back in flipped yellow part to be divergent super saturated state
-    # rgb[l-num:, :] = yellow[::-1, :]
-    # cam[:num, 0] += (cam[:num, 0] - cam[0, 0])*0.3
-    # rgb[:num] = cspace_converter("CAM02-UCS", "sRGB1")(cam[:num, :])
-    cmap = tools.cmap(rgb, N=256)
+    # rgb = np.vstack((rgb, yellow[::-1, :]))  # yellow part flipped and added on the end of colormap
+    cmap = tools.cmap(rgb, N=320)  # the 320 keeps the interpolation correct
     cmap.name = 'Oxygen'
     cmap.long_name = 'Oxygen'
     cmap.units = 'ml/l'
@@ -141,6 +131,7 @@ def make_bathymetry_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Bathymetry-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Bathymetry'
+    cmap.long_name = 'Bathymetry'
     cmap.units = 'm'
     cmap.author = 'kmt'
     return cmap
@@ -302,7 +293,7 @@ cmnames = all_colormap_names(dir())
 
 
 def all_colormaps(cmnames):
-    '''All available colormaps with names
+    '''All available unique colormaps with names. Excludes reversed versions.
 
     '''
 
@@ -325,6 +316,35 @@ def all_colormaps(cmnames):
 
 
 cmall = all_colormaps(cmnames)
+
+
+def reverse_colormaps():
+    '''Provide reversed versions of all colormaps, accessible by appending '_r'
+
+    '''
+
+    x = np.linspace(1, 0, 256)  # to reverse the order of the colormap
+    cmapdict = dict()
+
+    # loop through all colormap nicknames
+    for cmnickname in cmnames:
+        if '_r' in cmnickname:
+            continue
+        cmap = eval(cmnickname)
+        rcmapnickname = cmnickname + '_r'
+        cmapdict[rcmapnickname] = tools.cmap(cmap(x), N=256)
+        cmapdict[rcmapnickname].name = cmap.name + ' reversed'
+        cmapdict[rcmapnickname].long_name = cmap.long_name + ' reversed'
+        cmapdict[rcmapnickname].units = cmap.units
+        cmapdict[rcmapnickname].author = cmap.author
+
+    return cmapdict
+
+
+reversed_cmaps = reverse_colormaps()
+locals().update(reversed_cmaps)  # this makes the new colormaps from the dict available to call
+
+cmnames = all_colormap_names(dir())  # update nickname list with reversed colormaps
 
 
 if __name__ == '__main__':
