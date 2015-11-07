@@ -17,7 +17,7 @@ from setuptools import setup # to support "develop" mode
 
 setup(
     name = "cmocean",
-    version = "0.02",
+    version = "0.03",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
     description = ("Colormaps for Oceanography"),
