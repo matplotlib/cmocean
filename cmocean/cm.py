@@ -141,6 +141,7 @@ def make_bathymetry_cmap():
     rgb = np.loadtxt(os.path.join(datadir, 'Bathymetry-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
     cmap.name = 'Bathymetry'
+    cmap.long_name = 'Bathymetry'
     cmap.units = 'm'
     cmap.author = 'kmt'
     return cmap
@@ -302,7 +303,7 @@ cmnames = all_colormap_names(dir())
 
 
 def all_colormaps(cmnames):
-    '''All available colormaps with names
+    '''All available unique colormaps with names
 
     '''
 
@@ -325,6 +326,36 @@ def all_colormaps(cmnames):
 
 
 cmall = all_colormaps(cmnames)
+
+
+def reverse_colormaps():
+    '''Provide reversed versions of all colormaps, accessible by appending '_r'
+
+    '''
+
+    x = np.linspace(1, 0, 256)  # to reverse the order of the colormap
+    cmapdict = dict()
+
+    # loop through all colormap nicknames
+    for cmnickname in cmnames:
+        if '_r' in cmnickname:
+            continue
+        print cmnickname
+        cmap = eval(cmnickname)
+        rcmapnickname = cmnickname + '_r'
+        cmapdict[rcmapnickname] = tools.cmap(cmap(x), N=256)
+        cmapdict[rcmapnickname].name = cmap.name + ' reversed'
+        cmapdict[rcmapnickname].long_name = cmap.long_name + ' reversed'
+        cmapdict[rcmapnickname].units = cmap.units
+        cmapdict[rcmapnickname].author = cmap.author
+
+    return cmapdict
+
+
+reversed_cmaps = reverse_colormaps()
+locals().update(reversed_cmaps)  # this makes the new colormaps from the dict available to call
+
+cmnames = all_colormap_names(dir())  # update nickname list with reversed colormaps
 
 
 if __name__ == '__main__':
