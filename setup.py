@@ -23,7 +23,7 @@ setup(
     url = 'https://github.com/matplotlib/cmocean',
     download_url = 'https://github.com/matplotlib/cmocean/tarball/0.03',
     description = ("Colormaps for Oceanography"),
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
     classifiers=[
                  "Development Status :: 3 - Alpha",
     #             "Topic :: Utilities",
