@@ -2,11 +2,11 @@
 Plots with colormaps.
 '''
 
-import cm
+from cmocean import cm
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
-import tools
+from cmocean import tools
 # from skimage import color
 
 
