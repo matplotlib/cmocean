@@ -20,7 +20,7 @@ Used tool from http://bids.github.io/colormap/ to redo colormaps to be more perc
 '''
 
 # from matplotlib import cm, colors
-import tools
+from cmocean import tools
 import matplotlib
 # import plotting
 # import data
