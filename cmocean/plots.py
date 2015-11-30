@@ -105,7 +105,8 @@ def plot_gallery(saveplot=False):
         rgb = cmap(x)[np.newaxis, :, :3]
 
         # Find a good conversion to grayscale
-        jch = cspace_converter("sRGB1", "JCh")(rgb)
+        jch = cspace_converter("sRGB1", "CAM02-UCS")(rgb)  # Not sure why to use JCh instead so using this.
+        # jch = cspace_converter("sRGB1", "JCh")(rgb)
         L = jch[0, :, 0]
         # # Get colormap in CIE LAB. We want the L here.
         # lab = color.rgb2lab(rgb)
