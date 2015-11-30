@@ -6,9 +6,9 @@ See README.md for an overview on instructions.
 '''
 
 # from cmocean import *
-import cm
-import tools
-import plots
-import data
+from cmocean import cm
+from cmocean import tools
+from cmocean import plots
+from cmocean import data
 
 __authors__ = ['Kristen Thyng <kthyng@tamu.edu>']
