@@ -19,14 +19,16 @@ Colormaps are available for:
 Used tool from http://bids.github.io/colormap/ to redo colormaps to be more perceptually correct.
 '''
 
+from __future__ import absolute_import
+
 # from matplotlib import cm, colors
-from cmocean import tools
 import matplotlib
 # import plotting
 # import data
 import numpy as np
 import os
 
+from . import tools
 
 # Location of rgb files
 datadir = os.path.join(os.path.split(__file__)[0], 'rgb')

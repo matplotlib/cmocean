@@ -5,7 +5,9 @@ setup.py for cmocean
 
 """
 # import shutil
+import sys
 from setuptools import setup # to support "develop" mode
+from setuptools.command.test import test as TestCommand
 # from numpy.distutils.core import setup, Extension
 
 # cmocean_mod = Extension(name = "cmocean",
@@ -14,6 +16,20 @@ from setuptools import setup # to support "develop" mode
 #                       )
 
 # print cmocean_mod
+
+class PyTest(TestCommand):
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.verbose = True
+
+    def run_tests(self):
+        import pytest
+        errno = pytest.main(self.test_args)
+        sys.exit(errno)
+
+with open('requirements.txt') as f:
+    require = f.readlines()
+install_requires = [r.strip() for r in require]
 
 setup(
     name = "cmocean",
@@ -30,11 +46,14 @@ setup(
                  ],
     package_data={
         'cmocean': ['rgb/*.txt'],
-    },    
+    },
     packages = ["cmocean"],
     # py_modules = cmocean_mod,
-    ext_package='cmocean', 
+    ext_package='cmocean',
     # ext_modules = [cmocean_mod],
     scripts = [],
     keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
+    tests_require=['pytest'],
+    cmdclass=dict(test=PyTest),
+    install_requires=install_requires,
     )

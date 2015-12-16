@@ -51,9 +51,9 @@ def get_dict(cmap, N=256):
     r2 = rgb[:, 0]
 
     # Creating tuples
-    R = zip(x, r2, r3)
-    G = zip(x, g2, g3)
-    B = zip(x, b2, b3)
+    R = list(zip(x, r2, r3))
+    G = list(zip(x, g2, g3))
+    B = list(zip(x, b2, b3))
 
     # Creating dictionary
     k = ['red', 'green', 'blue']
