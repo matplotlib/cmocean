@@ -1,0 +1,18 @@
+language: python
+
+env:
+    - CONDA="python=2.7"
+    - CONDA="python=3.4"
+    - CONDA="python=3.5"
+
+before_install:
+    - wget http://bit.ly/miniconda -O miniconda.sh
+    - bash miniconda.sh -b -p $HOME/miniconda
+    - export PATH="$HOME/miniconda/bin:$PATH"
+    - conda update --yes conda
+    - travis_retry conda create --yes -n TEST $CONDA --file requirements.txt
+    - source activate TEST
+    - travis_retry conda install --yes pytest
+
+script:
+    - python setup.py test
