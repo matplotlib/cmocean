@@ -17,11 +17,11 @@ from setuptools import setup # to support "develop" mode
 
 setup(
     name = "cmocean",
-    version = "0.1",
+    version = "0.2",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
     url = 'https://github.com/matplotlib/cmocean',
-    download_url = 'https://github.com/matplotlib/cmocean/tarball/0.1',
+    download_url = 'https://github.com/matplotlib/cmocean/tarball/0.2',
     description = ("Colormaps for Oceanography"),
     long_description=open('README.rst').read(),
     classifiers=[
