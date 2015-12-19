@@ -12,17 +12,14 @@ def test_cmap_import():
 
     '''
 
-    import cmocean
-
-    # find all methods in cmocean
-    methods = dir(cmocean)
-
-    # loop through all methods in cmocean
-    for method in methods:
-
-        # see if method is a colormap
-        if type(eval('cmocean.' + method)) == matplotlib.colors.LinearSegmentedColormap:
+    from cmocean import cm
+    # Loop through all methods in cmocean.
+    for name, cmap in vars(cm).items():
+        # See if it is a colormap.
+        if isinstance(cmap, matplotlib.colors.LinearSegmentedColormap):
+            print(name)
             x = np.linspace(0, 10)
             X, _ = np.meshgrid(x, x)
             plt.figure()
-            plt.pcolor(X, cmap=eval('cmocean.' + method))
+            plt.pcolor(X, cmap=cmap)
+            plt.title(name)
