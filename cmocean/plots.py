@@ -2,12 +2,15 @@
 Plots with colormaps.
 '''
 
-from cmocean import cm
+from __future__ import absolute_import
+
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
-from cmocean import tools
 # from skimage import color
+
+from . import cm
+from . import tools
 
 
 mpl.rcParams.update({'font.size': 14})

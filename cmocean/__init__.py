@@ -5,10 +5,14 @@ oceanographic properties.
 See README.md for an overview on instructions.
 '''
 
+from __future__ import absolute_import
+
 # from cmocean import *
-from cmocean import cm
-from cmocean import tools
-from cmocean import plots
-from cmocean import data
+from . import cm, tools, plots, data
+
+__all__ = ['cm',
+           'tools',
+           'plots',
+           'data']
 
 __authors__ = ['Kristen Thyng <kthyng@tamu.edu>']
