@@ -33,11 +33,11 @@ install_requires = [r.strip() for r in require]
 
 setup(
     name = "cmocean",
-    version = "0.2",
+    version = "0.2.1",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
     url = 'https://github.com/matplotlib/cmocean',
-    download_url = 'https://github.com/matplotlib/cmocean/tarball/0.2',
+    download_url = 'https://github.com/matplotlib/cmocean/tarball/0.2.1',
     description = ("Colormaps for Oceanography"),
     long_description=open('README.rst').read(),
     classifiers=[
