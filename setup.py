@@ -8,6 +8,7 @@ setup.py for cmocean
 import sys
 from setuptools import setup # to support "develop" mode
 from setuptools.command.test import test as TestCommand
+import versioneer
 # from numpy.distutils.core import setup, Extension
 
 # cmocean_mod = Extension(name = "cmocean",
@@ -32,8 +33,9 @@ with open('requirements.txt') as f:
 install_requires = [r.strip() for r in require]
 
 setup(
+    version = versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     name = "cmocean",
-    version = "0.2.1",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
     url = 'https://github.com/matplotlib/cmocean',
@@ -54,6 +56,5 @@ setup(
     scripts = [],
     keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
     tests_require=['pytest'],
-    cmdclass=dict(test=PyTest),
     install_requires=install_requires,
     )

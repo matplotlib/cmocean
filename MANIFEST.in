@@ -1,0 +1,2 @@
+include versioneer.py
+include cmocean/_version.py

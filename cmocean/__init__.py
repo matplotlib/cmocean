@@ -16,3 +16,7 @@ __all__ = ['cm',
            'data']
 
 __authors__ = ['Kristen Thyng <kthyng@tamu.edu>']
+
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions
