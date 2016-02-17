@@ -28,10 +28,6 @@ class PyTest(TestCommand):
         errno = pytest.main(self.test_args)
         sys.exit(errno)
 
-with open('requirements.txt') as f:
-    require = f.readlines()
-install_requires = [r.strip() for r in require]
-
 setup(
     version = versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
@@ -56,5 +52,5 @@ setup(
     scripts = [],
     keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
     tests_require=['pytest'],
-    install_requires=install_requires,
+    install_requires=['numpy','matplotlib'],
     )
