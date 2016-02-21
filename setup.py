@@ -51,6 +51,5 @@ setup(
     # ext_modules = [cmocean_mod],
     scripts = [],
     keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
-    tests_require=['pytest'],
-    install_requires=['numpy','matplotlib'],
+    tests_require=['pytest']
     )
