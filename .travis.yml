@@ -13,6 +13,9 @@ before_install:
     - travis_retry conda create --yes -n TEST $CONDA --file requirements.txt
     - source activate TEST
     - travis_retry conda install --yes pytest
+    # GUI
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
 
 script:
     - python setup.py test
