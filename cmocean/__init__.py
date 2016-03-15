@@ -8,7 +8,7 @@ See README.md for an overview on instructions.
 from __future__ import absolute_import
 
 # from cmocean import *
-from . import cm, tools, plots, data
+from . import cm, tools, data
 
 __all__ = ['cm',
            'tools',
@@ -16,3 +16,7 @@ __all__ = ['cm',
            'data']
 
 __authors__ = ['Kristen Thyng <kthyng@tamu.edu>']
+
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions
