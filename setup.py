@@ -35,7 +35,7 @@ setup(
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
     url = 'https://github.com/matplotlib/cmocean',
-    download_url = 'https://github.com/matplotlib/cmocean/tarball/0.2.1',
+    download_url = 'https://github.com/matplotlib/cmocean/tarball/0.2.2',
     description = ("Colormaps for Oceanography"),
     long_description=open('README.rst').read(),
     classifiers=[
