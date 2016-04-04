@@ -377,10 +377,10 @@ Contact
 
 `Kristen Thyng <http://kristenthyng.com>`_ is the main developer of cmocean. Please email with questions, comments, and ideas. I'm collecting examples of the colormaps being used in action (see above) and also users of the colormaps, so I'd love to hear from you if you are using cmocean. kthyng at gmail.com
 
-.. Indices and tables
-.. ==================
+Indices and tables
+==================
 
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
