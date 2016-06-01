@@ -2,5 +2,3 @@ include README.rst
 include *.txt
 recursive-include cmocean *.txt
 recursive-include cmocean *.py
-include versioneer.py
-include cmocean/_version.py
