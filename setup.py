@@ -29,7 +29,7 @@ class PyTest(TestCommand):
 
 setup(
     name = "cmocean",
-    version = "0.2.2"
+    version = "0.2.2",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
     url = 'https://github.com/matplotlib/cmocean',
@@ -49,6 +49,6 @@ setup(
     # ext_modules = [cmocean_mod],
     scripts = [],
     keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
-    tests_require=['pytest']
-    cmdclass=dict(PyTest),
+    tests_require=['pytest'],
+    cmdclass=dict(PyTest)
     )
