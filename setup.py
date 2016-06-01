@@ -49,6 +49,5 @@ setup(
     # ext_modules = [cmocean_mod],
     scripts = [],
     keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
-    tests_require=['pytest'],
-    cmdclass=dict(PyTest)
+    tests_require=['pytest']
     )
