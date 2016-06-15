@@ -21,10 +21,7 @@ Used tool from http://bids.github.io/colormap/ to redo colormaps to be more perc
 
 from __future__ import absolute_import
 
-# from matplotlib import cm, colors
 import matplotlib
-# import plotting
-# import data
 import numpy as np
 import os
 
@@ -222,6 +219,16 @@ def make_gray_cmap():
     return cmap
 
 
+def make_seaice_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'SeaIce-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'SeaIce'
+    cmap.long_name = 'Sea Ice'
+    cmap.units = ''
+    cmap.author = 'kmt'
+    return cmap
+
+
 salinity = make_salinity_cmap()
 salt = make_salinity_cmap()
 temperature = make_temperature_cmap()
@@ -270,6 +277,7 @@ grays = make_gray_cmap()
 Grays = make_gray_cmap()
 greys = make_gray_cmap()
 Greys = make_gray_cmap()
+seaice = make_seaice_cmap()
 
 
 def all_colormap_names(methods):
