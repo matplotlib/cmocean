@@ -5,7 +5,8 @@
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
-BUILDDIR      = ../../cmocean-docs
+BUILDDIR      = build/
+# BUILDDIR      = ../../cmocean-docs
 PDFBUILDDIR   = /tmp
 PDF           = ../manual.pdf
 
