@@ -31,7 +31,7 @@ mpl.rcParams['mathtext.fallback_to_cm'] = 'True'
             # cmocean.bathy, cmocean.s, cmocean.v, cmocean.vort,
             # cmocean.eta]
 
-cmaps = cm.cmall
+cmaps = cm.cmap_d
 
 
 def plot_lightness(saveplot=False):
