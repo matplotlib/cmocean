@@ -1,22 +1,11 @@
 '''
 Standardized colormaps for oceanography plots.
 
-Colormaps are available for:
-    salinity, salt
-    temperature, temp
-    oxygen, o2
-    chlorophyll, chl, chloro
-    cdom, CDOM
-    turbidity, turb
-    PAR, par
-    density, rho
-    bathymetry, bathy
-    speed, s
-    velocity, vel, u, v
-    vorticity, vort
-    seasurface, freesurface, zeta, eta
+Used tool from http://bids.github.io/colormap/ to make perceptually correct
+colormaps.
 
-Used tool from http://bids.github.io/colormap/ to redo colormaps to be more perceptually correct.
+Created by Kristen Thyng
+2016-06-18
 '''
 
 from __future__ import absolute_import
@@ -31,253 +20,171 @@ from . import tools
 datadir = os.path.join(os.path.split(__file__)[0], 'rgb')
 
 
-def make_salinity_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Salinity-rgb.txt'))
+def make_thermal_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'thermal-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Salinity'
-    cmap.long_name = 'Salinity'
-    cmap.units = 'g/kg'
+    cmap.name = 'thermal'
     cmap.author = 'kmt'
     return cmap
 
 
-def make_temperature_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Temperature-rgb.txt'))
+def make_haline_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'haline-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Temperature'
-    cmap.long_name = 'Temperature'
-    cmap.units = 'C'
+    cmap.name = 'haline'
     cmap.author = 'kmt'
     return cmap
 
 
-def make_oxygen_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Oxygen-rgb.txt'))
-    # # Did the following originally to set up the text file, but now it has already been done.
-    # l = rgb.shape[0]*(5./4)  # total number of entries in final colormap
-    # num = int(l/5.)  # 20% of colormap
-    # # Take last 1/5 of colormap and save since I want it, flipped, at the end, keeping the full lightness range in the middle 3/5
-    # yellow = rgb[-num:, :].copy()
-    # from colorspacious import cspace_converter
-    # cam = cspace_converter("sRGB1", "CAM02-UCS")(rgb)
-    # rgb_gray = cmocean.cm.gray(np.linspace(1,0,256))
-    # cam_gray = cspace_converter("sRGB1", "CAM02-UCS")(rgb_gray[np.newaxis, :, :3])[0,:]
-    # # Use gray colormap to interpolate and find the best rgb values for the lightness values in the middle of the colormap
-    # rgb[num:num+num*3, 0] = np.interp(cam[num:num+num*3,0], cam_gray[:,0], rgb_gray[:,0])
-    # rgb[num:num+num*3, 1] = np.interp(cam[num:num+num*3,0], cam_gray[:,0], rgb_gray[:,1])
-    # rgb[num:num+num*3, 2] = np.interp(cam[num:num+num*3,0], cam_gray[:,0], rgb_gray[:,2])
-    # # Add back in flipped yellow part to be divergent super saturated state
-    # rgb = np.vstack((rgb, yellow[::-1, :]))  # yellow part flipped and added on the end of colormap
-    cmap = tools.cmap(rgb, N=320)  # the 320 keeps the interpolation correct
-    cmap.name = 'Oxygen'
-    cmap.long_name = 'Oxygen'
-    cmap.units = 'ml/l'
+def make_solar_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'solar-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'solar'
     cmap.author = 'kmt'
     return cmap
 
 
-def make_chlorophyll_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Chlorophyll-rgb.txt'))
+def make_ice_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'ice-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Chlorophyll'
-    cmap.long_name = 'Chlorophyll'
-    cmap.units = 'mg/m^3'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_CDOM_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'CDOM-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'CDOM'
-    cmap.long_name = 'Colored Dissolved Organic Matter'
-    cmap.units = 'mg/m^3'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_turbidity_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Turbidity-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Turbidity'
-    cmap.long_name = 'Turbidity'
-    cmap.units = 'NTU'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_PAR_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'PAR-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'PAR'
-    cmap.long_name = 'Photosynthetically Available Radiation'
-    cmap.units = 'W/m^2'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_density_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Density-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Density'
-    cmap.long_name = 'Density'
-    cmap.units = 'kg/m^3'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_bathymetry_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Bathymetry-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Bathymetry'
-    cmap.long_name = 'Bathymetry'
-    cmap.units = 'm'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_speed_cmap():
-    # Uses positive part of velocity colormap
-    rgb = np.loadtxt(os.path.join(datadir, 'Speed-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Speed'
-    cmap.long_name = 'Speed'
-    cmap.units = 'm/s'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_velocity_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Velocity-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Velocity'
-    cmap.long_name = 'Velocity'
-    cmap.units = 'm/s'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_vorticity_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Vorticity-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Vorticity'
-    cmap.long_name = 'Vertical Vorticity'
-    cmap.units = '1/s'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_freesurface_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'FreeSurface-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'FreeSurface'
-    cmap.long_name = 'Free Surface'
-    cmap.units = 'm'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_phase_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Phase-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Phase'
-    cmap.long_name = 'Phase'
-    cmap.units = 'degrees'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_waveheight_cmap():
-    # Uses positive part of free surface colormap
-    rgb = np.loadtxt(os.path.join(datadir, 'WaveHeight-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'WaveHeight'
-    cmap.long_name = 'Wave Height'
-    cmap.units = 'meters'
-    cmap.author = 'kmt'
-    return cmap
-
-
-def make_waveperiod_cmap():
-    # Uses negative part of vorticity colormap
-    rgb = np.loadtxt(os.path.join(datadir, 'WavePeriod-rgb.txt'))
-    cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'WavePeriod'
-    cmap.long_name = 'Wave Period'
-    cmap.units = 'seconds'
+    cmap.name = 'ice'
     cmap.author = 'kmt'
     return cmap
 
 
 def make_gray_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'Gray-rgb.txt'))
+    rgb = np.loadtxt(os.path.join(datadir, 'gray-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'Gray'
-    cmap.long_name = 'Gray'
-    cmap.units = ''
+    cmap.name = 'gray'
     cmap.author = 'kmt'
     return cmap
 
 
-def make_seaice_cmap():
-    rgb = np.loadtxt(os.path.join(datadir, 'SeaIce-rgb.txt'))
+def make_oxy_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'oxy-rgb.txt'))
     cmap = tools.cmap(rgb, N=256)
-    cmap.name = 'SeaIce'
-    cmap.long_name = 'Sea Ice'
-    cmap.units = ''
+    cmap.name = 'oxy'
     cmap.author = 'kmt'
     return cmap
 
 
-salinity = make_salinity_cmap()
-salt = make_salinity_cmap()
-temperature = make_temperature_cmap()
-temp = make_temperature_cmap()
-oxygen = make_oxygen_cmap()
-o2 = make_oxygen_cmap()
-chl = make_chlorophyll_cmap()
-chloro = make_chlorophyll_cmap()
-chlorophyll = make_chlorophyll_cmap()
-cdom = make_CDOM_cmap()
-CDOM = make_CDOM_cmap()
-turbidity = make_turbidity_cmap()
-turb = make_turbidity_cmap()
-PAR = make_PAR_cmap()
-par = make_PAR_cmap()
-density = make_density_cmap()
-rho = make_density_cmap()
-bathymetry = make_bathymetry_cmap()
-bathy = make_bathymetry_cmap()
-speed = make_speed_cmap()
-s = make_speed_cmap()
-velocity = make_velocity_cmap()
-vel = make_velocity_cmap()
-u = make_velocity_cmap()
-v = make_velocity_cmap()
-vorticity = make_vorticity_cmap()
-vort = make_vorticity_cmap()
-seasurface = make_freesurface_cmap()
-freesurface = make_freesurface_cmap()
-zeta = make_freesurface_cmap()
-eta = make_freesurface_cmap()
-phase = make_phase_cmap()
-direction = make_phase_cmap()
-direct = make_phase_cmap()
-waveheight = make_waveheight_cmap()
-swh = make_waveheight_cmap()
-waveheights = make_waveheight_cmap()
-height = make_waveheight_cmap()
-waveperiod = make_waveperiod_cmap()
-period = make_waveperiod_cmap()
+def make_deep_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'deep-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'deep'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_dense_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'dense-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'dense'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_algae_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'algae-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'algae'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_matter_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'matter-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'matter'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_turbid_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'turbid-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'turbid'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_speed_cmap():
+    # Uses positive part of delta colormap
+    rgb = np.loadtxt(os.path.join(datadir, 'speed-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'speed'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_amp_cmap():
+    # Uses positive part of balance colormap
+    rgb = np.loadtxt(os.path.join(datadir, 'amp-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'amp'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_tempo_cmap():
+    # Uses negative part of curl colormap
+    rgb = np.loadtxt(os.path.join(datadir, 'tempo-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'tempo'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_phase_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'phase-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'phase'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_balance_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'balance-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'balance'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_delta_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'delta-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'delta'
+    cmap.author = 'kmt'
+    return cmap
+
+
+def make_curl_cmap():
+    rgb = np.loadtxt(os.path.join(datadir, 'curl-rgb.txt'))
+    cmap = tools.cmap(rgb, N=256)
+    cmap.name = 'curl'
+    cmap.author = 'kmt'
+    return cmap
+
+
+thermal = make_thermal_cmap()
+haline = make_haline_cmap()
+solar = make_solar_cmap()
+ice = make_ice_cmap()
 gray = make_gray_cmap()
-Gray = make_gray_cmap()
-grey = make_gray_cmap()
-Grey = make_gray_cmap()
-grays = make_gray_cmap()
-Grays = make_gray_cmap()
-greys = make_gray_cmap()
-Greys = make_gray_cmap()
-seaice = make_seaice_cmap()
+oxy = make_oxy_cmap()
+deep = make_deep_cmap()
+dense = make_dense_cmap()
+algae = make_algae_cmap()
+matter = make_matter_cmap()
+turbid = make_turbid_cmap()
+speed = make_speed_cmap()
+amp = make_amp_cmap()
+tempo = make_tempo_cmap()
+phase = make_phase_cmap()
+balance = make_balance_cmap()
+delta = make_delta_cmap()
+curl = make_curl_cmap()
 
 
 def all_colormap_names(methods):
@@ -344,8 +251,6 @@ def reverse_colormaps():
         rcmapnickname = cmnickname + '_r'
         cmapdict[rcmapnickname] = tools.cmap(cmap(x), N=256)
         cmapdict[rcmapnickname].name = cmap.name + ' reversed'
-        cmapdict[rcmapnickname].long_name = cmap.long_name + ' reversed'
-        cmapdict[rcmapnickname].units = cmap.units
         cmapdict[rcmapnickname].author = cmap.author
 
     return cmapdict
