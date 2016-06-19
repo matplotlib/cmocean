@@ -10,6 +10,7 @@ Created by Kristen Thyng
 
 from __future__ import absolute_import
 
+import matplotlib
 import numpy as np
 import os
 
@@ -31,7 +32,9 @@ for cmap in cmaps:
     # rgb = np.loadtxt(cmap + '-rgb.txt')
     rgb = np.loadtxt(os.path.join(datadir, cmap + '-rgb.txt'))
     cmap_d[cmap] = tools.cmap(rgb, N=256)
+    cmap_d[cmap].name = cmap
     cmap_d[cmap + '_r'] = tools.cmap(rgb[::-1, :], N=256)
+    cmap_d[cmap + '_r'].name = cmap + '_r'
 
 # make colormaps available to call
 locals().update(cmap_d)

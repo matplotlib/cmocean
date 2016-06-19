@@ -7,7 +7,6 @@ from __future__ import absolute_import
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
-# from skimage import color
 
 from . import cm
 from . import tools

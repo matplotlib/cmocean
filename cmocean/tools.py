@@ -1,26 +1,26 @@
 '''
-Plot up stuff with colormaps:
-colormap gallery
-lightness
-sample MCH data with each colormap.
+Plot up stuff with colormaps.
 '''
 
 import numpy as np
 import matplotlib as mpl
-import os
 
 
-def print_colormaps(cmaps, returnrgb=False):
+def print_colormaps(cmaps, returnrgb=True, savefiles=False):
     '''Print colormaps in 256 RGB colors to text files.
 
     :param returnrgb=False: Whether or not to return the rgb array. Only makes sense to do if print one colormaps' rgb.
 
     '''
 
+    rgb = []
+
     for cmap in cmaps:
 
-        rgb = cmap(np.linspace(0, 1, 256))[np.newaxis, :, :3][0]
-        np.savetxt(cmap.name + '-rgb.txt', rgb)
+        rgbtemp = cmap(np.linspace(0, 1, 256))[np.newaxis, :, :3][0]
+        if savefiles:
+            np.savetxt(cmap.name + '-rgb.txt', rgbtemp)
+        rgb.append(rgbtemp)
 
     if returnrgb:
         return rgb
