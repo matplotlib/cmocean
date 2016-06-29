@@ -6,7 +6,7 @@
 Beautiful colormaps for oceanography: `cmocean <http://github.com/matplotlib/cmocean>`_
 =======================================================================================
 
-This package contains colormaps for standardizing commonly-plotting oceanographic variables. Most of the colormaps started from `matplotlib <http://matplotlib.org/>`_ colormaps, but have now been adjusted using the `viscm tool <https://github.com/BIDS/viscm>`_ to be `perceptually uniform <http://bids.github.io/colormap/>`_.
+This package contains colormaps for commonly-used oceanographic variables. Most of the colormaps started from `matplotlib <http://matplotlib.org/>`_ colormaps, but have now been adjusted using the `viscm tool <https://github.com/BIDS/viscm>`_ to be `perceptually uniform <http://bids.github.io/colormap/>`_.
 
 Here is our gallery:
 
@@ -16,7 +16,7 @@ Here is our gallery:
    import cmocean
    cmocean.plots.plot_gallery()
 
-These colormaps were chosen to be perceptually uniform and to reflect the data they are representing in terms of being sequential, divergent, or cyclic (Phase colormap), and to be intuitive. For example, chlorophyll is represented by shades of green, turbidity is shades of brown, and temperature goes from cool blues to warm yellows.
+These colormaps were chosen to be perceptually uniform and to reflect the data they are representing in terms of being sequential, divergent, or cyclic (phase colormap), and to be intuitive. For example, the *algae* colormap is  shades of green which could represent chlorophyll.
 
 Here is the lightness of the colormaps:
 
@@ -29,13 +29,13 @@ Here is the lightness of the colormaps:
 
 It is probably better to think in cam02ucs colorspace, in which Euclidean distance is made to be equivalent to changes in human perception. Plots of these colormaps in this colorspace and with some other important properties are seen using the `viscm tool <https://github.com/BIDS/viscm>`_.
 
-Here are some properties from the Salinity colormap. We can see that the colormap prints nicely to grayscale, has consistent perceptual deltas across the colormap, and good viewability for people with color blindness. It has a smooth representation in its 3D colorspace, and detail in the images is clear.
+Here are some properties from the *haline* colormap. We can see that the colormap prints nicely to grayscale, has consistent perceptual deltas across the colormap, and good viewability for people with color blindness. It has a smooth representation in its 3D colorspace, and detail in the images is clear.
 
 .. plot::
    :include-source:
 
    import cmocean
-   cmocean.plots.wrap_viscm(cmocean.cm.salt)
+   cmocean.plots.wrap_viscm(cmocean.cm.haline)
 
 
 All of the evaluations of the colormaps using the viscm tool are shown in the page :ref:`colormaps_viscm`.
@@ -43,65 +43,34 @@ All of the evaluations of the colormaps using the viscm tool are shown in the pa
 Colormap details
 ----------------
 
-Bathymetry
-^^^^^^^^^^
-
-The Bathymetry colormap is sequential from light yellow for shallower water through pale green to increasingly dark blue and purple to represent increasing depth. Nicknames for this colormap are 'bathymetry' and 'bathy', and the units are typically given as [m].
-
-.. plot::
-   :include-source:
-
-   import cmocean
-   import matplotlib.pyplot as plt
-
-   fig = plt.figure(figsize=(8, 3))
-   ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.bathy, ax=ax)
-   ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.bathy, ax=ax)
-
-CDOM
-^^^^
-
-The Colored Dissolved Organic Matter (CDOM) colormap is sequential with whitish-yellow for low values and increasing in pink with increasing value to represent an increase in material in the water. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'CDOM' and 'cdom', and the units are typically given as [mg/m^3].
-
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
-
-Chlorophyll
-^^^^^^^^^^^
-
-The Chlorophyll colormap is sequential with whitish-green for low values and increasing in green with increasing value to represent an increase in this green material in the water. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'chl', 'chloro', and 'chlorophyll', and the units are typically given as [mg/m^3]. This colormap is based on matplotlib's Greens, but was recreated from scratch using the viscm tool.
-
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
-
-Density
+thermal
 ^^^^^^^
 
-The Density colormap is sequential with whitish-blue for low values and increasing in purple with increasing value to represent an increase in water density. Two examples of this colormap are shown below, from Texas A&M University gliders. Nicknames for this colormap are 'density' and 'rho', and the units are typically given as [kg/m^3]. This colormap is based on matplotlib's Purples, but was recreated from scratch using the viscm tool.
+The *thermal* colormap is sequential with dark blue potentially representing lower values, transitioning through reds to yellow representing increased values. This colormap is meant to appeal to intuition of cooler colors representing cooler temperature and warmer colors as warmer temperature, but to be a sequential colormap to represent data between two temperatures (instead of a diverging, blue to white to red diverging colormap, for example). Several examples of this colormap are shown below, from Texas A&M University gliders and a simulation of the Texas and Louisiana shelf region. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
 
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_water_temp.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_water_temp.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_water_temp.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_water_temp.png
+.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2004-07-30T00.png
+   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2004.mp4
 
-Free Surface
-^^^^^^^^^^^^
+haline
+^^^^^^
 
-The Free Surface colormap is diverging with dark blue to off-white to dark red representing negative to zero to positive sea surface elevation, with deviations in the surface elevations as shades of color away from neutral off-white. Shades of red have been chosen to represent sea surface elevation above the reference value (often mean sea level) to connect with warmer water typically being associated with an increase in the free surface, such as with the Loop Current in the Gulf of Mexico. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'seasurface', 'freesurface', 'zeta', and 'eta', and the units are typically given as [m]. This colormap is based on matplotlib's RdBu, but was recreated from scratch using the viscm tool.
+The *haline* colormap is sequential with dark blue potentially representing lower salinity or fresher water, transitioning through greens to light yellow representing increased salinity or saltier water. Several examples of this colormap are shown below, from Texas A&M University gliders and a simulation of the Texas and Louisiana shelf region. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
 
-.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png
-   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010.mp4
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
+.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010-07-30T00.png
+   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010.mp4
 
-Gray
-^^^^
+solar
+^^^^^
 
-The Gray colormap is sequential from white to black, with uniform steps through perceptual colorspace. This colormap is generic to be used for any sequential dataset. Nicknames for this colormap are 'Gray', 'Grays', 'Grey', 'Greys', 'gray', 'grays', 'grey', and 'greys'.
+The *solar* colormap is sequential from dark brown for low values to increasingly bright yellow to potentially represent an increase in radiation in the water.
 
 .. plot::
    :include-source:
@@ -111,24 +80,48 @@ The Gray colormap is sequential from white to black, with uniform steps through 
 
    fig = plt.figure(figsize=(8, 3))
    ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.grey, ax=ax)
+   cmocean.plots.test(cmocean.cm.solar, ax=ax)
    ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.grey, ax=ax)
+   cmocean.plots.quick_plot(cmocean.cm.solar, ax=ax)
 
-Oxygen
-^^^^^^
+ice
+^^^
 
-The Oxygen colormap is sequential for most of the colormap, representing the normal range of oxygen saturation in ocean water, and diverging 80% of the way into the colormap to represent a state of supersaturation. The bottom 20% of the colormap is colored reddish to highlight hypoxic or low oxygen water, but to still print relatively seamlessly into grayscale in case the red hue is not important for an application. The top 20% of the colormap, after the divergence, is colored yellow to highlight the supersaturated water. The minimum and maximum values of this colormap are meant to be controlled in order to properly place the low oxygen and supersaturated oxygen states properly. This colormap was developed for the Mississippi river plume area where both low and supersaturated conditions are regularly seen and monitored. Examples of this colormap (without colorbar limits being controlled to set the values of the red and yellow regions) are shown from Texas A&M University gliders. Nicknames for this colormap are 'oxygen' and 'o2', and the units are typically given as [m/l].
+The *ice* colormap is sequential from very dark blue (almost black) to very light blue (almost white). A use for this could be representations of sea ice. An example is provided by Chad Greene showing sea ice concentration around Antarctica.
+
+.. image:: http://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/50126/versions/4/previews/seaice/html/SeaIceTimeSeries_20160620.gif
+
+gray
+^^^^
+
+The *gray* colormap is sequential from black to white, with uniform steps through perceptual colorspace. This colormap is generic to be used for any sequential dataset.
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.gray, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.gray, ax=ax)
+
+oxy
+^^^
+
+The *oxy* colormap is sequential for most of the colormap, representing the normal range of oxygen saturation in ocean water, and diverging 80% of the way into the colormap to represent a state of supersaturation. The bottom 20% of the colormap is colored reddish to highlight hypoxic or low oxygen water, but to still print relatively seamlessly into grayscale in case the red hue is not important for an application. The top 20% of the colormap, after the divergence, is colored yellow to highlight the supersaturated water. The minimum and maximum values of this colormap are meant to be controlled in order to properly place the low oxygen and supersaturated oxygen states properly. This colormap was developed for the Mississippi river plume area where both low and supersaturated conditions are regularly seen and monitored. Examples of this colormap (without colorbar limits being controlled to set the values of the red and yellow regions) are shown from Texas A&M University gliders.
 
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_oxy4_oxygen.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_oxy4_oxygen.png
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_oxy4_oxygen.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_oxy4_oxygen.png
 
-PAR
-^^^
+deep
+^^^^
 
-The Photosynthetically Available Radiation (PAR) colormap is sequential from dark brown for low values to increasingly bright yellow to represent an increase in radiation in the water. Nicknames for this colormap are 'PAR' and 'par', and the units are typically given as [W/m^2].
+The *deep* colormap is sequential from light yellow to potentially represent shallower water through pale green to increasingly dark blue and purple to represent increasing depth.
 
 .. plot::
    :include-source:
@@ -138,14 +131,103 @@ The Photosynthetically Available Radiation (PAR) colormap is sequential from dar
 
    fig = plt.figure(figsize=(8, 3))
    ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.par, ax=ax)
+   cmocean.plots.test(cmocean.cm.deep, ax=ax)
    ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.par, ax=ax)
+   cmocean.plots.quick_plot(cmocean.cm.deep, ax=ax)
 
-Phase
+dense
 ^^^^^
 
-The Phase colormap is circular, spanning all hues at a set lightness value. This map is intended to be used for properties such as wave phase and tidal phase which wrap around from 0˚ to 360˚ to 0˚ and should be represented without major jumps in the colormap. Nicknames for this colormap are 'phase', 'direction', and 'direct', and the units are typically given as [˚]. An example for a circular plot is shown below.
+The *dense* colormap is sequential with whitish-blue for low values and increasing in purple with increasing value, which could be used to represent an increase in water density. Two examples of this colormap are shown below, from Texas A&M University gliders. This colormap is based on matplotlib's Purples, but was recreated from scratch using the viscm tool.
+
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_density.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
+
+algae
+^^^^^
+
+The *algae* colormap is sequential with whitish-green for low values and increasing in green with increasing value, which could be used to represent an increase in chlorophyll in the water. Two examples of this colormap are shown below, from Texas A&M University gliders. This colormap is based on matplotlib's Greens, but was recreated from scratch using the viscm tool.
+
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
+
+matter
+^^^^^^
+
+The *matter* colormap is sequential with whitish-yellow for low values and increasing in pink with increasing value, and could be used to represent an increase in material in the water. Two examples of this colormap are shown below, from Texas A&M University gliders.
+
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_cdom_units.png
+.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
+
+turbid
+^^^^^^
+
+The *turbid* colormap is sequential from light to dark brown and could be used to represent an increase in sediment in the water.
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.turbid, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.turbid, ax=ax)
+
+speed
+^^^^^
+
+The *speed* colormap is sequential from light greenish yellow representing low values to dark yellowish green representing large values. This colormap is the positive half of the *delta* colormap. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf.
+
+.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/speed/2010-07-30T00.png
+   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/speed/2010.mp4
+
+amp
+^^^
+
+The *amp* colormap is sequential from whitish to dark red and could be used to represent an increase in wave height values. This colormap is the positive half of the *balance* colormap.
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.amp, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.amp, ax=ax)
+
+tempo
+^^^^^
+
+The *tempo* colormap is sequential from whitish to dark teal and could be used to represent an increase in wave period values. This colormap is the negative half of the *curl* colormap.
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.tempo, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.quick_plot(cmocean.cm.tempo, ax=ax)
+
+phase
+^^^^^
+
+The *phase* colormap is circular, spanning all hues at a set lightness value. This map is intended to be used for properties such as wave phase and tidal phase which wrap around from 0˚ to 360˚ to 0˚ and should be represented without major perceptual jumps in the colormap. An example for a circular plot is shown below.
 
 .. plot::
    :include-source:
@@ -161,104 +243,29 @@ The Phase colormap is circular, spanning all hues at a set lightness value. This
    ax.pcolormesh(azimuths*np.pi/180.0, zeniths, values, cmap=cmocean.cm.phase)
    ax.set_yticks([])
 
-Salinity
-^^^^^^^^
+balance
+^^^^^^^
 
-The Salinity colormap is sequential with dark blue representing lower salinity or fresher water, transitioning through greens to light yellow representing increased salinity or saltier water. Several examples of this colormap are shown below, from Texas A&M University gliders and a simulation of the Texas and Louisiana shelf region. Nicknames for this colormap are 'salt' and 'salinity', and the units are typically given as [g/kg] or [ppt]. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
+The *balance* colormap is diverging with dark blue to off-white to dark red representing negative to zero to positive values; this could be used to represent sea surface elevation, with deviations in the surface elevations as shades of color away from neutral off-white. In this case, shades of red have been chosen to represent sea surface elevation above the reference value (often mean sea level) to connect with warmer water typically being associated with an increase in the free surface, such as with the Loop Current in the Gulf of Mexico. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. This colormap is based on matplotlib's RdBu, but was recreated from scratch using the viscm tool.
 
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
-.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010-07-30T00.png
-   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010.mp4
+.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png
+   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010.mp4
 
-Speed
+delta
 ^^^^^
 
-The Speed colormap is sequential from light greenish yellow representing low values to  with dark yellowish green representing large values. This colormap is the positive half of the velocity colormap, for consistency. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'speed' and 's', and the units are typically given as [m/s].
-
-.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/speed/2010-07-30T00.png
-   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/speed/2010.mp4
-
-Temperature
-^^^^^^^^^^^
-
-The Temperature colormap is sequential with dark blue representing lower temperature, transitioning through reds to yellow representing increased temperature. This colormap is meant to appeal to intuition of cooler colors representing cooler temperature and warmer colors as warmer temperature, but to be a sequential colormap to represent data between two temperatures (instead of a diverging, blue to white to red diverging colormap, for example). Several examples of this colormap are shown below, from Texas A&M University gliders and a simulation of the Texas and Louisiana shelf region. Nicknames for this colormap are 'temp' and 'temperature', and the units are typically given as [˚ Celsius]. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
-
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_water_temp.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_water_temp.png
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_water_temp.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_water_temp.png
-.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2010-07-30T00.png
-   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2010.mp4
-
-Turbidity
-^^^^^^^^^
-
-The Turbidity colormap is sequential from light to dark brown to represent an increase in sediment in the water. Nicknames for this colormap are 'turbidity' and 'turb', and the units are typically given as [NTU].
-
-.. plot::
-   :include-source:
-
-   import cmocean
-   import matplotlib.pyplot as plt
-
-   fig = plt.figure(figsize=(8, 3))
-   ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.turb, ax=ax)
-   ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.turb, ax=ax)
-
-Velocity
-^^^^^^^^
-
-The Velocity colormap is diverging from darker blues to just off-white through shades of yellow green representing diverging velocity values around a critical value (usually zero). The speed colormap is the positive half of this colormap, for consistency. An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'velocity', 'vel', 'u', and 'v', and the units are typically given as [m/s]. This colormap was inspired by `Francesca Samsel's <http://www.francescasamsel.com/>`_ similar colormap, but generated from scratch using the viscm tool.
+The *delta* colormap is diverging from darker blues to just off-white through shades of yellow green and could be used to represent diverging velocity values around a critical value (usually zero). An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. This colormap was inspired by `Francesca Samsel's <http://www.francescasamsel.com/>`_ similar colormap, but generated from scratch using the viscm tool.
 
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010.mp4
 
-Vorticity
-^^^^^^^^^
+curl
+^^^^
 
-The Vorticity colormap is diverging from darker teal to just off-white through shades of magenta representing diverging vorticity values around a critical value (usually zero). The Wave Period colormap is the negative half of this colormap (with inverse units). An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. Nicknames for this colormaps are 'vorticity' and 'vort', and the units are typically given as [1/s].
+The *curl* colormap is diverging from darker teal to just off-white through shades of magenta and could be used to represent diverging vorticity values around a critical value (usually zero). An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf.
 
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010.mp4
-
-Wave Height
-^^^^^^^^^^^
-
-The Wave Height colormap is sequential from whitish to dark red representing an increase in wave height values. The Wave Height colormap is the positive half of the Free Surface colormap to be consistent with units. Nicknames for this colormaps are 'waveheight', 'waveheight', 'swh', and 'height', and the units are typically given as [m].
-
-.. plot::
-   :include-source:
-
-   import cmocean
-   import matplotlib.pyplot as plt
-
-   fig = plt.figure(figsize=(8, 3))
-   ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.swh, ax=ax)
-   ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.swh, ax=ax)
-
-Wave Period
-^^^^^^^^^^^
-
-The Wave Period colormap is sequential from whitish to dark teal representing an increase in wave period values. This colormap is the negative half of the Vorticity colormap, with inverse units. Nicknames for this colormaps are 'waveperiod' and 'period', and the units are typically given as [s].
-
-.. plot::
-   :include-source:
-
-   import cmocean
-   import matplotlib.pyplot as plt
-
-   fig = plt.figure(figsize=(8, 3))
-   ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.period, ax=ax)
-   ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.period, ax=ax)
 
 
 Capabilities
@@ -274,30 +281,30 @@ The colormaps are all available in ``cmocean.cm``. They can be accessed, and sim
 
    fig = plt.figure(figsize=(8, 3))
    ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.temp, ax=ax)
+   cmocean.plots.test(cmocean.cm.thermal, ax=ax)
    ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.chl, ax=ax)
+   cmocean.plots.quick_plot(cmocean.cm.algae, ax=ax)
 
-All available nicknames of the colormaps can be accessed with ``cmocean.cm.cmnames``:
+All available colormap names can be accessed with ``cmocean.cm.cmapnames``:
 
 .. ipython:: python
 
    import cmocean
 
-   cmocean.cm.cmnames
+   cmocean.cm.cmapnames
 
 
-The distinct colormap instances can be accessed with:
+The colormap instances can be accessed with:
 
 .. ipython:: python
 
    import cmocean
    
-   cmaps = cmocean.cm.cmall;
+   cmaps = cmocean.cm.cmap_d;
 
 Print all of the available colormaps to text files with 256 rgb entries with:
 
-``cmaps = cmocean.cm.cmall``
+``cmaps = cmocean.cm.cmap_d``
 
 ``cmocean.tools.print_colormaps(cmaps)``
 
@@ -307,7 +314,7 @@ Output a dictionary to define a colormap with:
 
    import cmocean
 
-   cmdict = cmocean.tools.get_dict(cmocean.cm.cdom, N=9)
+   cmdict = cmocean.tools.get_dict(cmocean.cm.matter, N=9)
    print cmdict
 
 Make a colormap instance with ``cmap = cmocean.tools.cmap(rgbin, N=10)`` given the rgb input array.
@@ -333,6 +340,14 @@ Resources
 
 Here are some of my favorite resources.
 
+cmocean available elsewhere!
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* For `MATLAB <http://www.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps>`_ by `Chad Greene <http://www.chadagreene.com/>`_
+* For R: `Oce <http://dankelley.github.io/oce/>`_ oceanographic analysis package by `Dan Kelley <http://www.dal.ca/faculty/science/oceanography/people/faculty/daniel-e-kelley.html>`_ and `Clark Richards <http://clarkrichards.org/>`_
+* Chad Greene's `Antartic Mapping Tools <http://www.mathworks.com/matlabcentral/fileexchange/47638-antarctic-mapping-tools>`_ in Matlab uses cmocean
+* In PyNcView: coming soon!
+
 Examples of beautiful visualizations:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -352,6 +367,7 @@ Why jet is a bad colormap, and how to choose better:
 * Tips for choosing a good `scientific colormap <http://betterfigures.org/2015/06/23/picking-a-colour-scale-for-scientific-graphics/>`_
 * `The end of the rainbow <http://www.climate-lab-book.ac.uk/2014/end-of-the-rainbow/>`_, a plea to stop using jet.
 * Research shows that `jet is bad for your health! <http://phys.org/news/2011-10-heart-disease-visualization-experts-simpler.html>`_
+* Reexamination of a previous study seems to show visual evidence indicating a front is really just an `artifact of the jet colormap <http://www.climate-lab-book.ac.uk/2016/why-rainbow-colour-scales-can-be-misleading/>`_
 
 There is a series of talks from the SciPy conference from 2014 and 2015 talking about colormaps:
 
