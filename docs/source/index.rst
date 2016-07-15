@@ -46,50 +46,72 @@ Colormap details
 thermal
 ^^^^^^^
 
-The *thermal* colormap is sequential with dark blue potentially representing lower values, transitioning through reds to yellow representing increased values. This colormap is meant to appeal to intuition of cooler colors representing cooler temperature and warmer colors as warmer temperature, but to be a sequential colormap to represent data between two temperatures (instead of a diverging, blue to white to red diverging colormap, for example). Several examples of this colormap are shown below, from Texas A&M University gliders and a simulation of the Texas and Louisiana shelf region. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
+The *thermal* colormap is sequential with dark blue representing lower, cooler values and transitioning through reds to yellow representing increased warmer values.
 
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_water_temp.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_water_temp.png
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_water_temp.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_water_temp.png
-.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2004-07-30T00.png
-   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2004.mp4
+.. figure:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_water_temp.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/
+   :scale: 100 %
+
+.. figure:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_water_temp.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/
+
+   Glider data from Texas A&M's Geochemical and Environmental Research Group (`GERG <https://gerg.tamu.edu/>`_).
+
+
+.. figure:: http://pong.tamu.edu/~kthyng/movies/txla_plots/temp/2004-07-30T00.png
+   :target: http://kristenthyng.com/gallery/txla_temp.html
+
+   Model output in the northwest Gulf of Mexico from the Physical Oceanography Numerical Group (`PONG <http://pong.tamu.edu>`_) at Texas A&M.
+
 
 haline
 ^^^^^^
 
-The *haline* colormap is sequential with dark blue potentially representing lower salinity or fresher water, transitioning through greens to light yellow representing increased salinity or saltier water. Several examples of this colormap are shown below, from Texas A&M University gliders and a simulation of the Texas and Louisiana shelf region. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
+The *haline* colormap is sequential, and might be used with dark blue representing lower salinity or fresher water, transitioning through greens to light yellow representing increased salinity or saltier water. This colormap is based on matplotlib's YlGnBu, but was recreated from scratch using the viscm tool.
 
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
-.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010-07-30T00.png
-   :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010.mp4
+.. figure:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/
+   :scale: 100 %
+
+.. figure:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
+   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/
+   :scale: 100 %
+
+   Glider data from Texas A&M's Geochemical and Environmental Research Group (GERG).
+
+
+.. figure:: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010-07-30T00.png
+   :target: http://kristenthyng.com/gallery/txla_salinity.html
+   :scale: 100 %
+
+   Model output in the northwest Gulf of Mexico from the Physical Oceanography Numerical Group (PONG) at Texas A&M.
+
+
+.. figure:: http://clarkrichards.org/figure/source/2016-04-25-making-section-plots/plot2-1.png
+   :target: http://clarkrichards.org/r/oce/section/ctd/2016/04/25/making-section-plots/
+   :scale: 100 %
+
+   Plotting CTD data (temperature and salinity) with the R `oce` package, by `Clark Richards <http://clarkrichards.org/r/oce/section/ctd/2016/04/25/making-section-plots/>`_
 
 solar
 ^^^^^
 
 The *solar* colormap is sequential from dark brown for low values to increasingly bright yellow to potentially represent an increase in radiation in the water.
 
-.. plot::
-   :include-source:
+.. figure:: https://plot.ly/~empet/13620.png
+   :target: https://plot.ly/~empet/13620/_2d-histogram-and-associated-marginals/#plot
 
-   import cmocean
-   import matplotlib.pyplot as plt
-
-   fig = plt.figure(figsize=(8, 3))
-   ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.solar, ax=ax)
-   ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.solar, ax=ax)
+   Histogram from `plotly <https://plot.ly/>`_.
 
 ice
 ^^^
 
-The *ice* colormap is sequential from very dark blue (almost black) to very light blue (almost white). A use for this could be representations of sea ice. An example is provided by Chad Greene showing sea ice concentration around Antarctica.
+The *ice* colormap is sequential from very dark blue (almost black) to very light blue (almost white). A use for this could be representations of sea ice.
 
-.. image:: http://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/50126/versions/4/previews/seaice/html/SeaIceTimeSeries_20160620.gif
+.. figure:: http://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/50126/versions/4/previews/seaice/html/SeaIceTimeSeries_20160620.gif
+   :target: https://www.mathworks.com/matlabcentral/fileexchange/47638-antarctic-mapping-tools
+
+   An example is provided by `Chad Greene <http://www.chadagreene.com/>`_ showing sea ice concentration around Antarctica.
 
 gray
 ^^^^
@@ -254,10 +276,17 @@ The *balance* colormap is diverging with dark blue to off-white to dark red repr
 delta
 ^^^^^
 
-The *delta* colormap is diverging from darker blues to just off-white through shades of yellow green and could be used to represent diverging velocity values around a critical value (usually zero). An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf. This colormap was inspired by `Francesca Samsel's <http://www.francescasamsel.com/>`_ similar colormap, but generated from scratch using the viscm tool.
+The *delta* colormap is diverging from darker blues to just off-white through shades of yellow green and could be used to represent diverging velocity values around a critical value (usually zero). This colormap was inspired by `Francesca Samsel's <http://www.francescasamsel.com/>`_ similar colormap, but generated from scratch using the viscm tool.
 
-.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010-07-30T00.png
+.. figure:: https://pbs.twimg.com/media/CkIWDFRWkAEdArC.jpg
+   :target: https://www.instagram.com/p/BGPoO-0Ryg8/
+
+   From plotly.
+
+.. figure:: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010.mp4
+   
+   Model output in the northwest Gulf of Mexico from the Physical Oceanography Numerical Group (PONG) at Texas A&M.
 
 curl
 ^^^^
@@ -345,6 +374,10 @@ cmocean available elsewhere!
 
 * For `MATLAB <http://www.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps>`_ by `Chad Greene <http://www.chadagreene.com/>`_
 * For R: `Oce <http://dankelley.github.io/oce/>`_ oceanographic analysis package by `Dan Kelley <http://www.dal.ca/faculty/science/oceanography/people/faculty/daniel-e-kelley.html>`_ and `Clark Richards <http://clarkrichards.org/>`_
+* For `Ocean Data Viewer <https://github.com/kthyng/cmocean-odv>`_
+* For `Generic Mapping Tools (GMT)  <https://github.com/kthyng/cmocean-gmt>`_
+* For `Paraview <https://github.com/kthyng/cmocean-paraview>`_, inspired by `Phillip Wolfram <https://github.com/pwolfram>`_.
+* In `Plotly <https://plot.ly/python/cmocean-colorscales/>`_
 * Chad Greene's `Antartic Mapping Tools <http://www.mathworks.com/matlabcentral/fileexchange/47638-antarctic-mapping-tools>`_ in Matlab uses cmocean
 * In PyNcView: coming soon!
 
