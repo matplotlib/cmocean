@@ -29,11 +29,11 @@ class PyTest(TestCommand):
 
 setup(
     name = "cmocean",
-    version = "0.3",
+    version = "1.0",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
     url = 'https://github.com/matplotlib/cmocean',
-    download_url = 'https://github.com/matplotlib/cmocean/tarball/0.3',
+    download_url = 'https://github.com/matplotlib/cmocean/tarball/1.0',
     description = ("Colormaps for Oceanography"),
     long_description=open('README.rst').read(),
     classifiers=[
