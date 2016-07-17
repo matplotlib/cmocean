@@ -145,17 +145,10 @@ deep
 
 The *deep* colormap is sequential from light yellow to potentially represent shallower water through pale green to increasingly dark blue and purple to represent increasing depth.
 
-.. plot::
-   :include-source:
+.. figure:: https://cloud.githubusercontent.com/assets/3487237/16900541/4af66c4c-4bf5-11e6-92a9-82eaa39cb18b.png
+   :target: http://iuryt.github.io/tutorial/Como_fazer_um_mapa02.html
 
-   import cmocean
-   import matplotlib.pyplot as plt
-
-   fig = plt.figure(figsize=(8, 3))
-   ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.deep, ax=ax)
-   ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.deep, ax=ax)
+   Bathymetry plot, by `Iury Sousa <http://iuryt.github.io/>`_
 
 dense
 ^^^^^
@@ -344,7 +337,7 @@ Output a dictionary to define a colormap with:
    import cmocean
 
    cmdict = cmocean.tools.get_dict(cmocean.cm.matter, N=9)
-   print cmdict
+   print(cmdict)
 
 Make a colormap instance with ``cmap = cmocean.tools.cmap(rgbin, N=10)`` given the rgb input array.
 
@@ -379,7 +372,7 @@ cmocean available elsewhere!
 * For `Paraview <https://github.com/kthyng/cmocean-paraview>`_, inspired by `Phillip Wolfram <https://github.com/pwolfram>`_.
 * In `Plotly <https://plot.ly/python/cmocean-colorscales/>`_
 * Chad Greene's `Antartic Mapping Tools <http://www.mathworks.com/matlabcentral/fileexchange/47638-antarctic-mapping-tools>`_ in Matlab uses cmocean
-* In PyNcView: coming soon!
+.. * In PyNcView: coming soon!
 
 Examples of beautiful visualizations:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
