@@ -165,8 +165,6 @@ algae
 
 The *algae* colormap is sequential with whitish-green for low values and increasing in green with increasing value, which could be used to represent an increase in chlorophyll in the water. Two examples of this colormap are shown below, from Texas A&M University gliders. This colormap is based on matplotlib's Greens, but was recreated from scratch using the viscm tool.
 
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_flbbcd_chlor_units.png
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
 
@@ -210,17 +208,10 @@ amp
 
 The *amp* colormap is sequential from whitish to dark red and could be used to represent an increase in wave height values. This colormap is the positive half of the *balance* colormap.
 
-.. plot::
-   :include-source:
+.. figure:: https://cloud.githubusercontent.com/assets/3487237/16920916/840d91d4-4cdd-11e6-8db5-f93cd61b78c2.png
+   :target: http://soliton.vm.bytemark.co.uk/pub/cpt-city/
 
-   import cmocean
-   import matplotlib.pyplot as plt
-
-   fig = plt.figure(figsize=(8, 3))
-   ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.amp, ax=ax)
-   ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.amp, ax=ax)
+   Earthquake magnitude, by `Natalie Accardo <http://www.natalieaccardo.com/>`_ using GMT.
 
 tempo
 ^^^^^
@@ -368,7 +359,7 @@ cmocean available elsewhere!
 * For `MATLAB <http://www.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps>`_ by `Chad Greene <http://www.chadagreene.com/>`_
 * For R: `Oce <http://dankelley.github.io/oce/>`_ oceanographic analysis package by `Dan Kelley <http://www.dal.ca/faculty/science/oceanography/people/faculty/daniel-e-kelley.html>`_ and `Clark Richards <http://clarkrichards.org/>`_
 * For `Ocean Data Viewer <https://github.com/kthyng/cmocean-odv>`_
-* For `Generic Mapping Tools (GMT)  <https://github.com/kthyng/cmocean-gmt>`_
+* For Generic Mapping Tools (GMT)  at `cpt-city <http://soliton.vm.bytemark.co.uk/pub/cpt-city/cmocean/index.html>`_ and on `github <https://github.com/kthyng/cmocean-gmt>`_
 * For `Paraview <https://github.com/kthyng/cmocean-paraview>`_, inspired by `Phillip Wolfram <https://github.com/pwolfram>`_.
 * In `Plotly <https://plot.ly/python/cmocean-colorscales/>`_
 * Chad Greene's `Antartic Mapping Tools <http://www.mathworks.com/matlabcentral/fileexchange/47638-antarctic-mapping-tools>`_ in Matlab uses cmocean
