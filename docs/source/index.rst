@@ -133,12 +133,12 @@ The *gray* colormap is sequential from black to white, with uniform steps throug
 oxy
 ^^^
 
-The *oxy* colormap is sequential for most of the colormap, representing the normal range of oxygen saturation in ocean water, and diverging 80% of the way into the colormap to represent a state of supersaturation. The bottom 20% of the colormap is colored reddish to highlight hypoxic or low oxygen water, but to still print relatively seamlessly into grayscale in case the red hue is not important for an application. The top 20% of the colormap, after the divergence, is colored yellow to highlight the supersaturated water. The minimum and maximum values of this colormap are meant to be controlled in order to properly place the low oxygen and supersaturated oxygen states properly. This colormap was developed for the Mississippi river plume area where both low and supersaturated conditions are regularly seen and monitored. Examples of this colormap (without colorbar limits being controlled to set the values of the red and yellow regions) are shown from Texas A&M University gliders.
+The *oxy* colormap is sequential for most of the colormap, representing the normal range of oxygen saturation in ocean water, and diverging 80% of the way into the colormap to represent a state of supersaturation. The bottom 20% of the colormap is colored reddish to highlight hypoxic or low oxygen water, but to still print relatively seamlessly into grayscale in case the red hue is not important for an application. The top 20% of the colormap, after the divergence, is colored yellow to highlight the supersaturated water. The minimum and maximum values of this colormap are meant to be controlled in order to properly place the low oxygen and supersaturated oxygen states properly. This colormap was developed for the Mississippi river plume area where both low and supersaturated conditions are regularly seen and monitored.
 
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_oxy4_oxygen.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_oxy4_oxygen.png
-.. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_oxy4_oxygen.png
-   :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_oxy4_oxygen.png
+.. figure:: https://cloud.githubusercontent.com/assets/3487237/16996267/85ac01ea-4e7e-11e6-9801-ee97f7e65940.png
+   :target: https://cloud.githubusercontent.com/assets/3487237/16996267/85ac01ea-4e7e-11e6-9801-ee97f7e65940.png
+
+   Model output in the northwest Gulf of Mexico from the Physical Oceanography Numerical Group (PONG) at Texas A&M. A simulation of bottom oxygen using a simple parameterization of bottom oxygen utilization reveals the complex structure of bottom oxygen. While the area affected by hypoxia stretches nearly 400 km along the shelf, variability on much smaller scales, down to a few kilometers, is also evident. The position of the Mississippi/Atchafalaya river plume, and instabilities present within the plume, determine the extent and structure of the hypoxic bottom waters. By `Veronica Ruiz <http://pong.tamu.edu/people.html#veronica>`_ at Texas A&M.
 
 deep
 ^^^^
