@@ -2,8 +2,16 @@
 Plot up stuff with colormaps.
 '''
 
+import sys
+
 import numpy as np
 import matplotlib as mpl
+
+
+if sys.version_info > (3,):
+    _string_types = (str, np.str_, np.unicode_)
+else:
+    _string_types = (basestring, np.str_, np.unicode_)
 
 
 def print_colormaps(cmaps, N=256, returnrgb=True, savefiles=False):
@@ -73,7 +81,7 @@ def cmap(rgbin, N=256):
     '''
 
     # rgb inputs here
-    if not mpl.cbook.is_string_like(rgbin[0]):
+    if not isinstance(rgbin[0], _string_types):
         # normalize to be out of 1 if out of 256 instead
         if rgbin.max() > 1:
             rgbin = rgbin/256.
