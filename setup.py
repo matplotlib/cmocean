@@ -4,18 +4,9 @@
 setup.py for cmocean
 
 """
-# import shutil
 import sys
 from setuptools import setup # to support "develop" mode
 from setuptools.command.test import test as TestCommand
-# from numpy.distutils.core import setup, Extension
-
-# cmocean_mod = Extension(name = "cmocean",
-#                          sources=['rgb/*',
-#                                   ],
-#                       )
-
-# print cmocean_mod
 
 class PyTest(TestCommand):
     def finalize_options(self):
@@ -27,6 +18,12 @@ class PyTest(TestCommand):
         errno = pytest.main(self.test_args)
         sys.exit(errno)
 
+extras_require={
+    'plots':  ["colorspacious", "viscm"],
+}
+# # in case I add more later
+# extras_require['complete'] = sorted(set(sum(extras_require.values(), [])))
+
 setup(
     name = "cmocean",
     version = "1.1",
@@ -35,19 +32,18 @@ setup(
     url = 'https://github.com/matplotlib/cmocean',
     download_url = 'https://github.com/matplotlib/cmocean/tarball/1.1',
     description = ("Colormaps for Oceanography"),
-    long_description=open('README.rst').read(),
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     classifiers=[
                  "Development Status :: 3 - Alpha",
-    #             "Topic :: Utilities",
                  ],
     package_data={
         'cmocean': ['rgb/*.txt'],
     },
     packages = ["cmocean"],
-    # py_modules = cmocean_mod,
     ext_package='cmocean',
-    # ext_modules = [cmocean_mod],
     scripts = [],
     keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
-    tests_require=['pytest']
+    tests_require=['pytest'],
+    extras_require=extras_require
     )
