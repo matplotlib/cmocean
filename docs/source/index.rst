@@ -8,9 +8,12 @@ Beautiful colormaps for oceanography: `cmocean <http://github.com/matplotlib/cmo
 
 This package contains colormaps for commonly-used oceanographic variables. Most of the colormaps started from `matplotlib <http://matplotlib.org/>`_ colormaps, but have now been adjusted using the `viscm tool <https://github.com/BIDS/viscm>`_ to be `perceptually uniform <http://bids.github.io/colormap/>`_.
 
-We have a paper with guidelines to colormap selection for your application and a description of the `cmocean` colormaps:
-Thyng, K. M., Greene, C. A., Hetland, R. D., Zimmerle, H. M., & DiMarco, S. F. (2016). True colors of oceanography. Oceanography, 29(3), 10.
-link: `<http://tos.org/oceanography/assets/docs/29-3_thyng.pdf>`_
+
+.. note::  We have a paper with guidelines to colormap selection for your application and a description of the `cmocean` colormaps:
+
+    Thyng, K. M., Greene, C. A., Hetland, R. D., Zimmerle, H. M., & DiMarco, S. F. (2016). True colors of oceanography. Oceanography, 29(3), 10.
+
+    link: `<http://tos.org/oceanography/assets/docs/29-3_thyng.pdf>`_
 
 Here is our gallery:
 
@@ -68,18 +71,44 @@ The *thermal* colormap is sequential with dark blue representing lower, cooler v
    Model output in the northwest Gulf of Mexico from the Physical Oceanography Numerical Group (`PONG <http://pong.tamu.edu>`_) at Texas A&M.
 
 
-.. figure:: https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41598-017-16760-0/MediaObjects/41598_2017_16760_Fig5_HTML.jpg
-  :target: https://www.nature.com/articles/s41598-017-16760-0
-  :scale: 100 %
+.. figure::  https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41598-017-16760-0/MediaObjects/41598_2017_16760_Fig5_HTML.jpg
+   :target: https://www.nature.com/articles/s41598-017-16760-0
 
-    Data from publication: Kenel, C., et al. "In situ investigation of phase transformations in Ti-6Al-4V under additive manufacturing conditions combining laser melting and high-speed micro-X-ray diffraction." Scientific reports 7.1 (2017): 16358.
+   Data from publication: Kenel, C., Grolimund, D., Li, X., Panepucci, E., Samson, V. A., Sanchez, D. F., ... & Leinenbach, C. (2017). In situ investigation of phase transformations in Ti-6Al-4V under additive manufacturing conditions combining laser melting and high-speed micro-X-ray diffraction. Scientific reports, 7(1), 16358.
 
 
 .. figure:: http://www.mdpi.com/sensors/sensors-17-02679/article_deploy/html/images/sensors-17-02679-g002-550.jpg
-  :target: http://www.mdpi.com/1424-8220/17/11/2679/htm
-  :scale: 100 %
+   :target: http://www.mdpi.com/1424-8220/17/11/2679/htm
 
-  Usamentiaga, Rubén, et al. "Nondestructive evaluation of carbon fiber bicycle frames using infrared thermography." Sensors 17.11 (2017): 2679.
+   Usamentiaga, R., Ibarra-Castanedo, C., Klein, M., Maldague, X., Peeters, J., & Sanchez-Beato, A. (2017). Nondestructive evaluation of carbon fiber bicycle frames using infrared thermography. Sensors, 17(11), 2679.
+
+
+.. figure:: https://user-images.githubusercontent.com/3487237/42728531-d732b9ee-8781-11e8-90da-6f54007fe142.png
+
+   Temperature plot of CTD data for the upper ocean; made by Luz Zarate Jimenez.
+
+
+.. figure:: https://user-images.githubusercontent.com/3487237/42728546-16b3a448-8782-11e8-8971-f1e11631645d.png
+
+   pH plot of full water depth bottle data, where the dots represent the depths where bottle water was collected; made by Luz Zarate Jimenez.
+
+
+.. figure:: https://www.tandfonline.com/na101/home/literatum/publisher/tandf/journals/content/zela20/2018/zela20.v070.i01/16000870.2018.1471911/20180605/images/large/zela_a_1471911_f0001_c.jpeg
+  :target: https://www.tandfonline.com/doi/abs/10.1080/16000870.2018.1471911
+
+  WUNSCH, C. (2018). Towards determining uncertainties in global oceanic mean values of heat, salt, and surface elevation. Tellus A: Dynamic Meteorology and Oceanography, 70(1), 1-14.
+
+
+.. figure:: https://pbs.twimg.com/media/Cxjs6Z8WQAAc_uX.jpg
+   :target: https://twitter.com/mrtnrey/status/799651484686315524
+
+   Showing temperature in meteorology work, by Maarten Reyniers.
+
+
+.. figure:: https://pbs.twimg.com/media/CxtJS8eW8AEGmIm.jpg
+   :target: https://twitter.com/seb_steinke/status/800315004297838592
+
+   MODIS sea surface temperature from NASA OBPG, by Sebastian Steinke.
 
 
 haline
@@ -111,6 +140,17 @@ The *haline* colormap is sequential, and might be used with dark blue representi
 
    Plotting CTD data (temperature and salinity) with the R `oce` package, by `Clark Richards <http://clarkrichards.org/r/oce/section/ctd/2016/04/25/making-section-plots/>`_
 
+
+.. figure:: https://user-images.githubusercontent.com/3487237/42728526-cd276e68-8781-11e8-9d77-db486b479a6d.png
+
+   Alkalinity plot of full water depth bottle data, where the dots represent the depths where bottle water was collected; made by Luz Zarate Jimenez.
+
+
+.. figure:: https://user-images.githubusercontent.com/3487237/42728535-df605f5e-8781-11e8-973e-0f7385daef3c.png
+
+   Salinity plot of CTD data for the upper ocean; made by Luz Zarate Jimenez.
+
+
 solar
 ^^^^^
 
@@ -130,6 +170,12 @@ The *ice* colormap is sequential from very dark blue (almost black) to very ligh
    :target: https://www.mathworks.com/matlabcentral/fileexchange/47638-antarctic-mapping-tools
 
    An example is provided by `Chad Greene <http://www.chadagreene.com/>`_ showing sea ice concentration around Antarctica.
+
+.. figure:: https://media.giphy.com/media/26xBFRODTXDBKSmVa/giphy.gif
+  :target: https://www.youtube.com/watch?v=Im-v6w5_NFw
+
+  Arctic sea ice thickness by Nikolay Koldunov.
+
 
 gray
 ^^^^
@@ -158,6 +204,12 @@ The *oxy* colormap is sequential for most of the colormap, representing the norm
 
    Model output in the northwest Gulf of Mexico from the Physical Oceanography Numerical Group (PONG) at Texas A&M. A simulation of bottom oxygen using a simple parameterization of bottom oxygen utilization reveals the complex structure of bottom oxygen. While the area affected by hypoxia stretches nearly 400 km along the shelf, variability on much smaller scales, down to a few kilometers, is also evident. The position of the Mississippi/Atchafalaya river plume, and instabilities present within the plume, determine the extent and structure of the hypoxic bottom waters. By `Veronica Ruiz <http://pong.tamu.edu/people.html#veronica>`_ at Texas A&M.
 
+
+.. figure:: https://user-images.githubusercontent.com/3487237/42728540-0d24e28e-8782-11e8-8874-82e65d76ef34.png
+
+   Oxygen plot of CTD data for the upper ocean; made by Luz Zarate Jimenez.
+
+
 deep
 ^^^^
 
@@ -167,6 +219,12 @@ The *deep* colormap is sequential from light yellow to potentially represent sha
    :target: http://iuryt.github.io/tutorial/Como_fazer_um_mapa02.html
 
    Bathymetry plot, by `Iury Sousa <http://iuryt.github.io/>`_
+
+
+.. figure:: https://user-images.githubusercontent.com/3487237/42728981-de0d3ee4-878e-11e8-89ca-b124c49d5d0e.png
+
+   Somov Sea bathymetry, by Josué Martinez Moreno, in `blender <https://www.blender.org/>`_
+
 
 dense
 ^^^^^
@@ -178,6 +236,18 @@ The *dense* colormap is sequential with whitish-blue for low values and increasi
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_density.png
 
+
+.. figure:: https://user-images.githubusercontent.com/3487237/42728541-11ed4d7e-8782-11e8-945c-1e2dcdb61ace.png
+
+   Potential density plot of CTD data for the upper ocean; made by Luz Zarate Jimenez.
+
+
+.. figure:: http://www.sfestuary.org/wp-content/uploads/2012/09/nut-500model_nh4-landsatgray.jpg
+   :target: http://www.sfestuary.org/estuary-news-nutrient-nuances-modeled/
+
+   Estimated ammonium in San Francisco Bay by Rusty Holleman.
+
+
 algae
 ^^^^^
 
@@ -185,6 +255,20 @@ The *algae* colormap is sequential with whitish-green for low values and increas
 
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
+
+
+.. image:: https://rbr-global.com/wp-content/uploads/2016/09/WireWalker_data_wide_zoom.png
+   :target: https://rbr-global.com/products/systems/wirewalker
+
+   Example data from RBR's Del Mar Oceanographic (DMO) Wirewalker, a wave-powered profiling system.
+
+
+.. figure:: https://pbs.twimg.com/media/Cs_3GXbXgAAPwFQ.png
+   :target: https://twitter.com/FJPavia/status/779113245063933952
+
+   Satellite-derived Chl-a with sites indicated, by Frankie Pavia.
+
+
 
 matter
 ^^^^^^
@@ -196,22 +280,21 @@ The *matter* colormap is sequential with whitish-yellow for low values and incre
 .. image:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_cdom_units.png
 
+
+.. figure:: http://www.sfestuary.org/wp-content/uploads/2012/09/Nut-model_din-landsatgray-500.jpg
+   :target: http://www.sfestuary.org/estuary-news-nutrient-nuances-modeled/
+
+   Estimated dissolved nitrogen in San Francisco Bay by Rusty Holleman.
+
 turbid
 ^^^^^^
 
 The *turbid* colormap is sequential from light to dark brown and could be used to represent an increase in sediment in the water.
 
-.. plot::
-   :include-source:
+.. figure:: https://user-images.githubusercontent.com/3487237/42729003-c604db6c-878f-11e8-97e8-978d6c172f3e.png
 
-   import cmocean
-   import matplotlib.pyplot as plt
+   Data of Queensland, by Emilia P. (`@mathinpython <https://twitter.com/mathinpython>`_).
 
-   fig = plt.figure(figsize=(8, 3))
-   ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.turbid, ax=ax)
-   ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.turbid, ax=ax)
 
 speed
 ^^^^^
@@ -236,36 +319,22 @@ tempo
 
 The *tempo* colormap is sequential from whitish to dark teal and could be used to represent an increase in wave period values. This colormap is the negative half of the *curl* colormap.
 
-.. plot::
-   :include-source:
 
-   import cmocean
-   import matplotlib.pyplot as plt
+.. figure:: http://www.sfestuary.org/wp-content/uploads/2012/09/nut500-model_no3-landsatgray.png
+   :target: http://www.sfestuary.org/estuary-news-nutrient-nuances-modeled/
 
-   fig = plt.figure(figsize=(8, 3))
-   ax = fig.add_subplot(1, 2, 1)
-   cmocean.plots.test(cmocean.cm.tempo, ax=ax)
-   ax = fig.add_subplot(1, 2, 2)
-   cmocean.plots.quick_plot(cmocean.cm.tempo, ax=ax)
+   Estimated nitrate in San Francisco Bay by Rusty Holleman.
+
 
 phase
 ^^^^^
 
-The *phase* colormap is circular, spanning all hues at a set lightness value. This map is intended to be used for properties such as wave phase and tidal phase which wrap around from 0˚ to 360˚ to 0˚ and should be represented without major perceptual jumps in the colormap. An example for a circular plot is shown below.
+The *phase* colormap is circular, spanning all hues at a set lightness value. This map is intended to be used for properties such as wave phase and tidal phase which wrap around from 0˚ to 360˚ to 0˚ and should be represented without major perceptual jumps in the colormap.
 
-.. plot::
-   :include-source:
+.. figure:: https://user-images.githubusercontent.com/3487237/42728991-41ed6e0c-878f-11e8-80ad-4623b26de2cc.png
 
-   import cmocean
-   import matplotlib.pyplot as plt
-   import numpy as np
+   Tidal phase in the North Atlantic ocean, by Kristen Thyng.
 
-   azimuths = np.arange(0, 361, 1)
-   zeniths = np.arange(40, 70, 1)
-   values = azimuths * np.ones((30, 361))
-   fig, ax = plt.subplots(subplot_kw=dict(projection='polar'))
-   ax.pcolormesh(azimuths*np.pi/180.0, zeniths, values, cmap=cmocean.cm.phase)
-   ax.set_yticks([])
 
 balance
 ^^^^^^^
@@ -274,6 +343,12 @@ The *balance* colormap is diverging with dark blue to off-white to dark red repr
 
 .. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/ssh/2010.mp4
+
+
+.. figure:: https://pbs.twimg.com/media/CsWzox7UsAAeKwS.jpg
+   :target: http://stoqs.mbari.org:8000/stoqs_simz_oct2014/query/?permalink_id=N4IgDgNghgLgZgewE4FsD6BjCBLDBrAZxAC4BtEAYgFkBGNKhZbAOwHMACAIwFcYYFmAOgL8AjgQC0%2FVqwgBTYhgEwoLAgAoAOiFr1GSFq20BKEAF0ANCCy5CJcizC9SMAJ5g5AXm1IoAE2wEbTNSZigUL20CAAsEAHc%2FWCgoAmDSADcoCG5IkAIMWBg5JGCQK0dnNw9vEF8AoPNQ8NylCGQUKDBMWNw5NMzs3M4sqGYMPvMykAqYF3dcusC0sIiasChfCKKkAjRIBBh%2BrJyagCYaUvLmJ1mqhf8lxpXcgHkPZgAZKFdigkEAYWUSAQEEEXx%2BSAAynFsDAMNFimgAKwABjQwwIcnBvyOgxq7AAopCAEoASXYL3Go0u02ulXmNUWDRCzxq218LDQ6WwcjiuJO2mifDAxAA9KK%2FAg%2FH8UMMDIJkKxRezVMxRQAPADMflFDGY2zkrlOSLQNBR6t1ymKhuNpvNaHycmYckEWr8NJmc2q2nhcnwnAQ6uWzXxkKdBGQ7BgvnwqUaAwFIHYYeYEaQUZjhA9dNuDJ9CP9geDq20GagACs%2FfwDHI4yEE7ky5WMNWeXWpp67jVfYWg08Q6WRLBAqn%2BY2hzAR%2B2rjcvS0C3gA32WQOQGOagJs7Ou%2Fm%2FYui%2F2S2v48dcpvJjP6d7rAul8XcuvtOezB2c3Pu7eDyujyrOfCEL0j4gEKMAiuKkrSoIsobNgCpIEqv5qm6lr6taRommaFp6ga6F2uqDrjM6rraluV7znud6HrkUAttg3JuA6cjyC2mCcEBLyQvQdCnCiNAACwogA7DQABssTcEgECuGg%2FxUJCAAqABqghjKRubXj2%2B7Lk0R5Ac%2Br7bnmN4UV%2BOkPieeJPswanvruvZpNgfg1G8TrYjsAJAiCYLfMU0Kwr6SDImiMxoMm4aRtGNFZhetKGRpn7aY5znvG5fyAvqwKgm5flwgigWomgIVNlWTC1jZO7GfZjRJdoLmfD57npdGXnZTCuWIgVRUTlO5VGZplEhDVIAAF6MCg%2FByOqRT6gI3BgIkRS9fFJnaay2h6dZMWdn1CX3jUG1LeRVWDU561bW%2BFX9aZQ2HR%2BK0Oad4BgBIODOhsEhIHIrCfQQBAjrddlaQ9azPQQ4SQHIL0IAUk4CO2lggEUU1EGQ5AUBgKASBjLBTBIPHmBYaMY1jHTqlM%2BOWGjBDPdjzBTATVM06T9OU5QKBMzjVgM2zTNQGTXNmAjmLMTAKOkGjzDcOgrTIEQVjGiJ5gIzRShIPUzBoAg7xyH49jWCC0BgJi8lyOzyBZFMrSG5iEhQNw6SWwbnQ2yg%2BiGI7EDW5DMTYGAHte5C6yThbVhW87chNSCBCagAIlMC1QLH%2FvhxIugMEwbDJ0bkOSnUCAEyAKvIOrDqxHEdNkPrbSoJ0ttjLESAe%2B0tejP%2BjcIyonBi4zw5ZPJUBd2UKKsxQP0IBJ4z94PFjD4TlDUxICcq7WBCSuXbT%2BJ3cuz2j7OL0ky%2B%2FWvzAb34W9DyPRRm74EBT9vI8X3PFCFAYPBFAQd%2FaBfQsqEgMASKbFG%2FEaCalASJESKJIGQKsE6PwACUBAL4vxFEPEIFQJRFYIcf9F5yDADAaIJA8aCCRDA5gcC%2FC4PwSQVEGCQAdBpk6bYJBQBtBPrAZhIBWGEJAUiAAHHxTUfFeGCCEgIkSmorDQBgCQPiAkkTGmEZqESglTi8M1AATgAL5WFGggFAJAaC8O0XQ2u0AIRiyTESMkFIqR0ysGFVMEVMxyyTJFZsrZaxTHYN1OG5hNFAAAA%3D%3D
+
+   Spatial Temporal Oceanographic Query System `(STOQS) <http://www.stoqs.org/>`_
 
 delta
 ^^^^^
@@ -295,8 +370,14 @@ curl
 
 The *curl* colormap is diverging from darker teal to just off-white through shades of magenta and could be used to represent diverging vorticity values around a critical value (usually zero). An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf.
 
-.. image:: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010-07-30T00.png
+.. figure:: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010.mp4
+
+
+.. figure:: https://pbs.twimg.com/media/CuqlwdJWIAA1wT1.jpg
+   :target: https://plot.ly/~empet/13557/cmoceanvorticity-colorscale
+
+   Julia Set fractal in `plotly <https://plot.ly/>`_
 
 
 Capabilities
@@ -384,10 +465,15 @@ cmocean available elsewhere!
 * For `Tableau <https://www.tableau.com>`_ as a preferences file on `github <https://github.com/shaunwbell/cmocean_tableau>`_
 * For `ImageJ <https://imagej.nih.gov/ij/>`_ as a preferences file on `LUTs <https://github.com/mikeperrins/cmocean-LUT-ImageJ>`_
 * In `iGOTM <https://igotm.bolding-bruggeman.com/>`_, which simulates a water column anywhere in the world.
-* cmocean colormaps are included in the package `colormap <https://github.com/bpostlethwaite/colormap>`_
+* cmocean colormaps are included in the following packages:
+ * `colormap <https://github.com/bpostlethwaite/colormap>`_
+ * `julia <http://docs.juliaplots.org/latest/colors/>`_
+ * Spatial Temporal Oceanographic Query System `(STOQS) <http://www.stoqs.org/>`_ is a geospatial database software package designed for providing efficient access to in situ oceanographic measurement data.
 * cmocean colormaps are used in the following publications:
- * Kenel, C., et al. "In situ investigation of phase transformations in Ti-6Al-4V under additive manufacturing conditions combining laser melting and high-speed micro-X-ray diffraction." Scientific reports 7.1 (2017): 16358. `<https://www.nature.com/articles/s41598-017-16760-0>`_
- * Usamentiaga, Rubén, et al. "Nondestructive evaluation of carbon fiber bicycle frames using infrared thermography." Sensors 17.11 (2017): 2679. `<http://www.mdpi.com/1424-8220/17/11/2679/htm>`_
+ * Kenel, C., Grolimund, D., Li, X., Panepucci, E., Samson, V. A., Sanchez, D. F., ... & Leinenbach, C. (2017). In situ investigation of phase transformations in Ti-6Al-4V under additive manufacturing conditions combining laser melting and high-speed micro-X-ray diffraction. Scientific reports, 7(1), 16358.
+ `<https://www.nature.com/articles/s41598-017-16760-0>`_
+ * Usamentiaga, R., Ibarra-Castanedo, C., Klein, M., Maldague, X., Peeters, J., & Sanchez-Beato, A. (2017). Nondestructive evaluation of carbon fiber bicycle frames using infrared thermography. Sensors, 17(11), 2679. `<http://www.mdpi.com/1424-8220/17/11/2679/htm>`_
+ * WUNSCH, C. (2018). Towards determining uncertainties in global oceanic mean values of heat, salt, and surface elevation. Tellus A: Dynamic Meteorology and Oceanography, 70(1), 1-14. `<https://www.tandfonline.com/doi/full/10.1080/16000870.2018.1471911>`_
 
 
 Examples of beautiful visualizations:
@@ -433,7 +519,7 @@ Tools for making nice figures:
 Contact
 -------
 
-`Kristen Thyng <http://kristenthyng.com>`_ is the main developer of cmocean. Please email with questions, comments, and ideas. I'm collecting examples of the colormaps being used in action (see above) and also users of the colormaps, so I'd love to hear from you if you are using cmocean. kthyng at gmail.com
+`Kristen Thyng <http://kristenthyng.com>`_ is the main developer of cmocean. Please email with questions, comments, and ideas. I'm collecting examples of the colormaps being used in action (see above) and also users of the colormaps, so I'd love to hear from you if you are using cmocean. kthyng at gmail.com or on twitter @thyngkm.
 
 Indices and tables
 ==================
