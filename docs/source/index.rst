@@ -8,6 +8,10 @@ Beautiful colormaps for oceanography: `cmocean <http://github.com/matplotlib/cmo
 
 This package contains colormaps for commonly-used oceanographic variables. Most of the colormaps started from `matplotlib <http://matplotlib.org/>`_ colormaps, but have now been adjusted using the `viscm tool <https://github.com/BIDS/viscm>`_ to be `perceptually uniform <http://bids.github.io/colormap/>`_.
 
+We have a paper with guidelines to colormap selection for your application and a description of the `cmocean` colormaps:
+Thyng, K. M., Greene, C. A., Hetland, R. D., Zimmerle, H. M., & DiMarco, S. F. (2016). True colors of oceanography. Oceanography, 29(3), 10.
+link: `<http://tos.org/oceanography/assets/docs/29-3_thyng.pdf>`_
+
 Here is our gallery:
 
 .. plot::
@@ -62,6 +66,20 @@ The *thermal* colormap is sequential with dark blue representing lower, cooler v
    :target: http://kristenthyng.com/gallery/txla_temp.html
 
    Model output in the northwest Gulf of Mexico from the Physical Oceanography Numerical Group (`PONG <http://pong.tamu.edu>`_) at Texas A&M.
+
+
+.. figure:: https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41598-017-16760-0/MediaObjects/41598_2017_16760_Fig5_HTML.jpg
+  :target: https://www.nature.com/articles/s41598-017-16760-0
+  :scale: 100 %
+
+    Data from publication: Kenel, C., et al. "In situ investigation of phase transformations in Ti-6Al-4V under additive manufacturing conditions combining laser melting and high-speed micro-X-ray diffraction." Scientific reports 7.1 (2017): 16358.
+
+
+.. figure:: http://www.mdpi.com/sensors/sensors-17-02679/article_deploy/html/images/sensors-17-02679-g002-550.jpg
+  :target: http://www.mdpi.com/1424-8220/17/11/2679/htm
+  :scale: 100 %
+
+  Usamentiaga, Rubén, et al. "Nondestructive evaluation of carbon fiber bicycle frames using infrared thermography." Sensors 17.11 (2017): 2679.
 
 
 haline
@@ -269,7 +287,7 @@ The *delta* colormap is diverging from darker blues to just off-white through sh
 
 .. figure:: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/u/2010.mp4
-   
+
    Model output in the northwest Gulf of Mexico from the Physical Oceanography Numerical Group (PONG) at Texas A&M.
 
 curl
@@ -312,7 +330,7 @@ The colormap instances can be accessed with:
 .. ipython:: python
 
    import cmocean
-   
+
    cmaps = cmocean.cm.cmap_d;
 
 Print all of the available colormaps to text files with 256 rgb entries with:
@@ -364,7 +382,13 @@ cmocean available elsewhere!
 * In `Plotly <https://plot.ly/python/cmocean-colorscales/>`_
 * Chad Greene's `Antartic Mapping Tools <http://www.mathworks.com/matlabcentral/fileexchange/47638-antarctic-mapping-tools>`_ in Matlab uses cmocean
 * For `Tableau <https://www.tableau.com>`_ as a preferences file on `github <https://github.com/shaunwbell/cmocean_tableau>`_
-.. * In PyNcView: coming soon!
+* For `ImageJ <https://imagej.nih.gov/ij/>`_ as a preferences file on `LUTs <https://github.com/mikeperrins/cmocean-LUT-ImageJ>`_
+* In `iGOTM <https://igotm.bolding-bruggeman.com/>`_, which simulates a water column anywhere in the world.
+* cmocean colormaps are included in the package `colormap <https://github.com/bpostlethwaite/colormap>`_
+* cmocean colormaps are used in the following publications:
+ * Kenel, C., et al. "In situ investigation of phase transformations in Ti-6Al-4V under additive manufacturing conditions combining laser melting and high-speed micro-X-ray diffraction." Scientific reports 7.1 (2017): 16358. `<https://www.nature.com/articles/s41598-017-16760-0>`_
+ * Usamentiaga, Rubén, et al. "Nondestructive evaluation of carbon fiber bicycle frames using infrared thermography." Sensors 17.11 (2017): 2679. `<http://www.mdpi.com/1424-8220/17/11/2679/htm>`_
+
 
 Examples of beautiful visualizations:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -417,4 +441,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
