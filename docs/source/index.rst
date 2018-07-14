@@ -363,6 +363,7 @@ cmocean available elsewhere!
 * For `Paraview <https://github.com/kthyng/cmocean-paraview>`_, inspired by `Phillip Wolfram <https://github.com/pwolfram>`_.
 * In `Plotly <https://plot.ly/python/cmocean-colorscales/>`_
 * Chad Greene's `Antartic Mapping Tools <http://www.mathworks.com/matlabcentral/fileexchange/47638-antarctic-mapping-tools>`_ in Matlab uses cmocean
+* For `Tableau <https://www.tableau.com>`_ as a preferences file on `github <https://github.com/shaunwbell/cmocean_tableau>`_
 .. * In PyNcView: coming soon!
 
 Examples of beautiful visualizations:
