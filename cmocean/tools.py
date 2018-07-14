@@ -89,3 +89,21 @@ def cmap(rgbin, N=256):
     cmap = mpl.colors.LinearSegmentedColormap.from_list('mycmap', rgbin, N=N)
 
     return cmap
+
+
+def lighten(cmapin, alpha):
+    '''Lighten a colormap by adding alpha < 1.
+
+    :param cmap: A colormap object, like cmocean.cm.matter.
+    :param alpha: An alpha or transparency value to assign the colormap. Alpha
+        of 1 is opaque and of 1 is fully transparent.
+
+    Outputs resultant colormap object.
+
+    This will lighten the appearance of a plot you make using the output
+        colormap object. It is also possible to lighten many plots in the
+        plotting function itself (e.g. pcolormesh or contourf).
+    '''
+
+    # set the alpha value while retaining the number of rows in original cmap
+    return cmap(cmapin(np.linspace(0,1,cmapin.N), alpha))
