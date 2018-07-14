@@ -12,6 +12,7 @@ Besides Python, the cmocean colormaps are also available for:
 * For [Paraview](https://github.com/kthyng/cmocean-paraview) inspired by [Phillip Wolfram](https://github.com/pwolfram)
 * In [Plotly](https://plot.ly/python/cmocean-colorscales/)
 * Chad Greene's [Antartic Mapping Tools](http://www.mathworks.com/matlabcentral/fileexchange/47638-antarctic-mapping-tools) in Matlab uses `cmocean`
+* For [Tableau](https://www.tableau.com) as a preferences file on [github](https://github.com/shaunwbell/cmocean_tableau).
 
 
 To install:
