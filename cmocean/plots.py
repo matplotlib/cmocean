@@ -74,7 +74,7 @@ def plot_gallery(saveplot=False):
     gradient = np.vstack((gradient, gradient))
     x = np.linspace(0.0, 1.0, 256)
 
-    fig, axes = plt.subplots(nrows=len(cm.cmap_d)/2, ncols=1, figsize=(6, 12))
+    fig, axes = plt.subplots(nrows=int(len(cm.cmap_d)/2), ncols=1, figsize=(6, 12))
     fig.subplots_adjust(top=0.99, bottom=0.01, left=0.2, right=0.99, wspace=0.05)
 
     for ax, cmapname in zip(axes, cm.cmapnames):

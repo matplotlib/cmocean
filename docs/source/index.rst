@@ -42,7 +42,7 @@ Here are some properties from the *haline* colormap. We can see that the colorma
    :include-source:
 
    import cmocean
-   cmocean.plots.wrap_viscm(cmocean.cm.haline)
+   cmocean.plots.wrap_viscm(cmocean.cm.haline, saveplot=False)
 
 
 All of the evaluations of the colormaps using the viscm tool are shown in the page :ref:`colormaps_viscm`.
@@ -57,7 +57,6 @@ The *thermal* colormap is sequential with dark blue representing lower, cooler v
 
 .. figure:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/sci_water_temp.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/
-   :scale: 100 %
 
 .. figure:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_water_temp.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/
@@ -118,25 +117,21 @@ The *haline* colormap is sequential, and might be used with dark blue representi
 
 .. figure:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/calc_salinity.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_540/plots/
-   :scale: 100 %
 
 .. figure:: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/calc_salinity.png
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/
-   :scale: 100 %
 
    Glider data from Texas A&M's Geochemical and Environmental Research Group (GERG).
 
 
 .. figure:: http://pong.tamu.edu/~kthyng/movies/txla_plots/salt/2010-07-30T00.png
    :target: http://kristenthyng.com/gallery/txla_salinity.html
-   :scale: 100 %
 
    Model output in the northwest Gulf of Mexico from the Physical Oceanography Numerical Group (PONG) at Texas A&M.
 
 
 .. figure:: http://clarkrichards.org/figure/source/2016-04-25-making-section-plots/plot2-1.png
    :target: http://clarkrichards.org/r/oce/section/ctd/2016/04/25/making-section-plots/
-   :scale: 100 %
 
    Plotting CTD data (temperature and salinity) with the R `oce` package, by `Clark Richards <http://clarkrichards.org/r/oce/section/ctd/2016/04/25/making-section-plots/>`_
 
@@ -257,7 +252,7 @@ The *algae* colormap is sequential with whitish-green for low values and increas
    :target: http://gcoos2.tamu.edu/gandalf_data/deployments/tamu/unit_541/plots/sci_flbbcd_chlor_units.png
 
 
-.. image:: https://rbr-global.com/wp-content/uploads/2016/09/WireWalker_data_wide_zoom.png
+.. figure:: https://rbr-global.com/wp-content/uploads/2016/09/WireWalker_data_wide_zoom.png
    :target: https://rbr-global.com/products/systems/wirewalker
 
    Example data from RBR's Del Mar Oceanographic (DMO) Wirewalker, a wave-powered profiling system.
@@ -379,7 +374,6 @@ The *curl* colormap is diverging from darker teal to just off-white through shad
 
    Julia Set fractal in `plotly <https://plot.ly/>`_
 
-
 Capabilities
 ------------
 
@@ -447,6 +441,40 @@ Reversed versions of all colormaps are available by appending "_r" to the colorm
    fig.tight_layout()
 
 
+You can lighten a colormap using an alpha value below 1 with the `cmocean.tools.lighten()` function so that you can overlay contours and other lines that are more easily visible:
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import cmocean.cm as cmo
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   Z = np.random.randn(10,10)
+   ax.pcolormesh(Z, cmap=cmo.matter)
+
+   ax = fig.add_subplot(1, 2, 2)
+   lightcmap = cmocean.tools.lighten(cmo.matter, 0.5)
+   ax.pcolormesh(Z, cmap=lightcmap)
+   fig.tight_layout()
+
+
+`cmocean` will register its colormaps with `matplotlib` so you can call them with, for example, 'cmo.amp':
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(4, 3))
+   ax = fig.add_subplot(111)
+   Z = np.random.randn(10,10)
+   ax.pcolormesh(Z, cmap='cmo.amp')
+
+
 Resources
 ---------
 
@@ -470,8 +498,7 @@ cmocean available elsewhere!
  * `julia <http://docs.juliaplots.org/latest/colors/>`_
  * Spatial Temporal Oceanographic Query System `(STOQS) <http://www.stoqs.org/>`_ is a geospatial database software package designed for providing efficient access to in situ oceanographic measurement data.
 * cmocean colormaps are used in the following publications:
- * Kenel, C., Grolimund, D., Li, X., Panepucci, E., Samson, V. A., Sanchez, D. F., ... & Leinenbach, C. (2017). In situ investigation of phase transformations in Ti-6Al-4V under additive manufacturing conditions combining laser melting and high-speed micro-X-ray diffraction. Scientific reports, 7(1), 16358.
- `<https://www.nature.com/articles/s41598-017-16760-0>`_
+ * Kenel, C., Grolimund, D., Li, X., Panepucci, E., Samson, V. A., Sanchez, D. F., ... & Leinenbach, C. (2017). In situ investigation of phase transformations in Ti-6Al-4V under additive manufacturing conditions combining laser melting and high-speed micro-X-ray diffraction. Scientific reports, 7(1), 16358. `<https://www.nature.com/articles/s41598-017-16760-0>`_
  * Usamentiaga, R., Ibarra-Castanedo, C., Klein, M., Maldague, X., Peeters, J., & Sanchez-Beato, A. (2017). Nondestructive evaluation of carbon fiber bicycle frames using infrared thermography. Sensors, 17(11), 2679. `<http://www.mdpi.com/1424-8220/17/11/2679/htm>`_
  * WUNSCH, C. (2018). Towards determining uncertainties in global oceanic mean values of heat, salt, and surface elevation. Tellus A: Dynamic Meteorology and Oceanography, 70(1), 1-14. `<https://www.tandfonline.com/doi/full/10.1080/16000870.2018.1471911>`_
 

@@ -6,4 +6,6 @@ dist
 *.npy
 figures/eval*
 figures/gallery*
+.pytest_cache/*
+docs/build/*
 figures/lightness*
