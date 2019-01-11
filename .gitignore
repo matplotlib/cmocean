@@ -1,3 +1,4 @@
+cmocean/rgb/drafts/
 dist
 *.pyc
 .DS_STORE
@@ -8,4 +9,5 @@ figures/eval*
 figures/gallery*
 .pytest_cache/*
 docs/build/*
+build
 figures/lightness*

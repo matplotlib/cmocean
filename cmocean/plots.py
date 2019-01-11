@@ -22,8 +22,9 @@ def plot_lightness(saveplot=False):
     x = np.linspace(0.0, 1.0, 256)
     locs = []  # locations for text labels
 
-    fig = plt.figure(figsize=(16, 6))
+    fig = plt.figure(figsize=(16, 5))
     ax = fig.add_subplot(111)
+    fig.subplots_adjust(left=0.03, right=0.97)
     ax.set_xlim(-0.1, len(cm.cmap_d)/2. + 0.1)
     ax.set_ylim(0, 100)
     ax.set_xlabel('Lightness for each colormap', fontsize=14)
@@ -38,9 +39,9 @@ def plot_lightness(saveplot=False):
         lab = cspace_converter("sRGB1", "CAM02-UCS")(rgb)
         L = lab[0, :, 0]
         if L[-1] > L[0]:
-            ax.scatter(x+j*dc, L, c=x, cmap=cmap, s=300, linewidths=0.)
+            ax.scatter(x+j*dc, L, c=x, cmap=cmap, s=200, linewidths=0.)
         else:
-            ax.scatter(x+j*dc, L[::-1], c=x[::-1], cmap=cmap, s=300, linewidths=0.)
+            ax.scatter(x+j*dc, L[::-1], c=x[::-1], cmap=cmap, s=200, linewidths=0.)
         locs.append(x[-1]+j*dc)  # store locations for colormap labels
 
     # Set up labels for colormaps
