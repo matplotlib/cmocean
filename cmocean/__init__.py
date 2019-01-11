@@ -17,4 +17,4 @@ __all__ = ['cm',
 
 __authors__ = ['Kristen Thyng <kthyng@tamu.edu>']
 
-__version__ = "1.2"
+__version__ = "2.0"
