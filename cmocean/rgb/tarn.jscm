@@ -1,0 +1,50 @@
+{
+    "content-type": "application/vnd.matplotlib.colormap-v1+json",
+    "name": "rain_anomaly7c",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "usage-hints": [
+        "red-green-colorblind-safe",
+        "greyscale-safe",
+        "diverging"
+    ],
+    "colorspace": "sRGB",
+    "domain": "continuous",
+    "colors": "101e4f0f20520f22540e24560e26580d28590c2a5b0b2d5d0a2f5e09315f0933600935600937610a39620b3b620c3c630d3e630e40640f4265104465104666114867124968134b68144d69154f6a16516b17536b18546c18566d19586e1a5a6f1a5c6f1b5d701c5f711c61721d63731d65741e67751e69761f6a761f6c77206e7820707921727a22747a24757b25777c27797c2a7b7d2c7c7d2e7e7e31807e34817f37837f3a85803d8680418881448982478b824a8c834e8e83518f845491855792855a94865e9587619788649889679a896a9b8a6d9c8b709e8c739f8d76a18e79a28f7ca4907fa59182a79285a89288aa938bab948ead9591ae9694b09797b29899b3999cb59a9fb69ba2b89ca5b99da8bb9eabbd9faebea0b1c0a1b4c1a2b7c3a3bac4a4bec6a5c1c8a6c4c9a7c7cba8cbccaaceceabd1cfadd4d1afd7d2b2dad4b4ddd6b8dfd7bbe1d9bfe3dbc2e5ddc6e7dfcae9e2cdebe4d1ede6d5efe8d8f0eadcf2ece0f4eee3f6f0e7f8f2eaf9f4edfbf5f0fbf6f3fcf7f5fcf7f6fcf7f6fcf6f4fcf5f2fbf3effaf1ecf9efe9f8ece5f7eae2f6e8dff4e5dbf3e3d8f2e0d4f1ded1f0dbcdefd9c9edd7c6ecd4c2ebd2bfead0bbe9cdb8e8cbb4e7c8b1e6c6ade5c4aae4c1a6e3bfa3e2bd9fe1ba9ce0b898dfb695deb391ddb18edcaf8adbad87dbaa83daa880d9a67cd8a379d7a175d69f72d59c6fd49a6bd39868d29664d29361d1915dd08f5acf8c57ce8a53cd884fcc864ccb8448c98244c68141c4803ec17f3cbe7e3abb7d39b87c37b57b36b27a35af7933ac7832a97731a67630a3752fa0742e9e732d9b722c98712b95702a926f298f6e288c6d27896c27866b26846a258169247e68237b672278662176642173632070621f6d611e6b601d685f1c655e1b625d1a605c1a5d5b195a59185758175557165256154f55144d54134a5312475111445010424f0f3f4e0e3c4d0d394b0c364a0c34490c32470d30460e2f440e2e420f2c410f2b3f0f2a3d10283c10273a102638102537102335102233102131102030101f2e101d2c0f1c2a0f1b290f19270e18250e17230e",
+    "extensions": {
+        "https://matplotlib.org/viscm": {
+            "min_Jp": 100,
+            "max_Jp": 15,
+            "xp": [
+                3.8377443637331794,
+                -5.366608689579621,
+                -10.65801045092823,
+                -21.93045150111189,
+                -0.8055505240852199,
+                0,
+                7.683556865582133,
+                14.487686676545664,
+                -9.927666855074008,
+                -11.608056705519317,
+                -7.046998540024916
+            ],
+            "yp": [
+                -15.76931041623525,
+                -22.275968024581694,
+                -16.95263733988108,
+                -3.7916796696833543,
+                13.252274527690432,
+                0,
+                13.222199213087592,
+                22.39298287134278,
+                18.293444079026344,
+                17.09316561442256,
+                8.451160669275282
+            ],
+            "fixed": 5,
+            "filter_k": 50.5824662003114,
+            "cmtype": "diverging",
+            "uniform_colorspace": "CAM02-UCS",
+            "spline_method": "CatmulClark"
+        }
+    }
+}

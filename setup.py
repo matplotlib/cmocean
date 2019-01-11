@@ -26,11 +26,11 @@ extras_require={
 
 setup(
     name = "cmocean",
-    version = "1.2",
+    version = "2.0",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
     url = 'https://github.com/matplotlib/cmocean',
-    download_url = 'https://github.com/matplotlib/cmocean/tarball/1.1',
+    download_url = 'https://github.com/matplotlib/cmocean/tarball/2.0',
     description = ("Colormaps for Oceanography"),
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',

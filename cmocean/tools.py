@@ -107,3 +107,164 @@ def lighten(cmapin, alpha):
 
     # set the alpha value while retaining the number of rows in original cmap
     return cmap(cmapin(np.linspace(0,1,cmapin.N), alpha))
+
+
+def crop(cmapin, vmin, vmax, pivot, N=None, dmax=None):
+    '''Crop end or ends of a diverging colormap by vmin/vmax values.
+
+    :param cmap: A colormap object, like cmocean.cm.matter.
+    :param vmin/vmax: vmin/vmax for use in plot with colormap.
+    :param pivot: center point to be used in plot with diverging colormap.
+    :param N=None: User can specify the number of rows for the outgoing colormap.
+        If unspecified, N from incoming colormap will be used and values will
+        be interpolated as needed to fill in rows.
+    :param dmax=None: dmax is the highest number to be included in a plot with
+        the colormap; values higher in magnitude than dmax are removed from both
+        ends of colormap. It should be less than abs(vmin) and abs(vmax), which
+        should be equal for this parameter to be used.
+
+    Outputs resultant colormap object.
+
+    This function can be used for sequential and other non-diverging colormaps
+        but it is easier to use that way through crop_by_percent().
+    This should be useful for plotting bathymetry and topography data with the
+        topo colormap when max bathymetry value is different from max topography.
+
+    Example usage:
+        # example for crop on min end of diverging colormap
+        vmin = -2; vmax = 5; pivot = 0
+        newcmap = crop(cmocean.cm.curl, vmin, vmax, pivot)
+        A = np.random.randint(vmin, vmax, (5,5))
+        plt.pcolormesh(A, vmin=vmin, vmax=vmax, cmap=newcmap)
+        plt.colorbar()
+
+        # example for crop on max end of diverging colormap
+        vmin = -10; vmax = 8; pivot = 0
+        newcmap = crop(cmocean.cm.delta, vmin, vmax, pivot)
+        A = np.random.randint(vmin, vmax, (5,5))
+        plt.pcolormesh(A, vmin=vmin, vmax=vmax, cmap=newcmap)
+        plt.colorbar()
+
+    '''
+
+    assert pivot >= vmin and pivot <= vmax
+
+    # dmax used if and only if ends are equal
+    if vmax-pivot == pivot-vmin:
+        assert dmax is not None
+
+    # allow user to input N, but otherwise use N for incoming colormap
+    if N is None:
+        N = cmapin.N
+    else:
+        N = N
+
+    # ratio of the colormap to remove
+    below = pivot - vmin  # below pivot
+    above = vmax - pivot  # above pivot
+
+    ranges = (above, below)
+    half_range = max(ranges)
+    full_range = half_range*2
+    reduced_range = min(ranges)
+    range_to_keep = half_range + reduced_range
+
+    ratio = (full_range-range_to_keep)/full_range
+
+
+    if below < above:  # reducing colormap on side below pivot
+        # start colormap partway through
+        shortcmap = cmapin(np.linspace(0,1,N))[int(np.ceil(N*ratio)):]
+
+    elif above < below:  # reducing colormap on side above pivot
+        # end colormap early
+        shortcmap = cmapin(np.linspace(0,1,N))[:-int(np.ceil(N*ratio))]
+
+    elif (below == above) and (dmax is not None):  # equal
+        ratio = dmax/full_range
+        shortcmap = cmapin(np.linspace(0,1,N))[int(np.ceil(N*ratio)):-int(np.ceil(N*ratio))]
+
+    # interpolate to original number of rows in colormap
+    newrgb = np.zeros((N, 4))
+    shnum = shortcmap.shape[0]
+    for i in range(4):  # loop through each column of cmap
+        newrgb[:,i] = np.interp(np.linspace(0,shnum,N), np.arange(0,shnum), shortcmap[:,i])
+
+    newcmap = cmap(newrgb)
+
+    return newcmap
+
+
+def crop_by_percent(cmap, per, which='both', N=None):
+    '''Crop end or ends of a colormap by per percent.
+
+    :param cmap: A colormap object, like cmocean.cm.matter.
+    :param per: Percent of colormap to remove. If which=='both', take this
+        percent off both ends of colormap. If which=='min' or which=='max',
+        take percent only off the specified end of colormap.
+    :param which='both': which end or ends of colormap to cut off. which='both'
+        removes from both ends, which='min' from bottom end, and which='max'
+        from top end.
+    :param N=None: User can specify the number of rows for the outgoing colormap.
+        If unspecified, N from incoming colormap will be used and values will
+        be interpolated as needed to fill in rows.
+
+    Outputs resultant colormap object.
+
+    This is a wrapper around crop() to make it easier to use for cropping
+        based on percent.
+
+    Examples:
+        # example with oxy map: cut off yellow part which is top 20%
+        # compare with full colormap
+        vmin = 0; vmax = 10; pivot = 5
+        A = np.random.randint(vmin, vmax, (5,5))
+        fig, axes = plt.subplots(1, 2)
+        mappable = axes[0].pcolormesh(A, vmin=vmin, vmax=vmax, cmap=cmocean.cm.oxy)
+        fig.colorbar(mappable, ax=axes[0])
+        vmin = 0; vmax = 8; pivot = 5
+        newcmap = crop_by_percent(cmocean.cm.oxy, 20, which='max', N=None)
+        plt.figure()
+        plt.pcolormesh(A, vmin=vmin, vmax=vmax, cmap=newcmap)
+        plt.colorbar()
+
+        # example with oxy map: cut off red part which is bottom 20%
+        # compare with full colormap
+        vmin = 0; vmax = 10; pivot = 5
+        A = np.random.randint(vmin, vmax, (5,5))
+        fig, axes = plt.subplots(1, 2)
+        mappable = axes[0].pcolormesh(A, vmin=vmin, vmax=vmax, cmap=cmocean.cm.oxy)
+        fig.colorbar(mappable, ax=axes[0])
+        vmin = 2; vmax = 10; pivot = 5
+        A = np.random.randint(vmin, vmax, (5,5))
+        newcmap = crop_by_percent(cmocean.cm.oxy, 20, which='min', N=None)
+        plt.figure()
+        plt.pcolormesh(A, vmin=vmin, vmax=vmax, cmap=newcmap)
+        plt.colorbar()
+
+        # crop both dark ends off colormap to reduce range
+        newcmap = crop_by_percent(cmocean.cm.balance, 10, which='both', N=None)
+        plt.figure()
+        A = np.random.randint(-5, 5, (5,5))
+        plt.pcolormesh(A, vmin=vmin, vmax=vmax, cmap=newcmap)
+        plt.colorbar()
+
+    '''
+
+    if which == 'both':  # take percent off both ends of cmap
+        vmin = -100; vmax = 100; pivot = 0
+        dmax = per
+
+    elif which == 'min':  # take percent off bottom of cmap
+        vmax = 10; pivot = 5
+        vmin = (0 + per/100)*2*pivot
+        dmax = None
+
+    elif which == 'max':  # take percent off top of cmap
+        vmin = 0; pivot = 5
+        vmax = (1 - per/100)*2*pivot
+        dmax = None
+
+    newcmap = crop(cmap, vmin, vmax, pivot, dmax=dmax, N=N)
+
+    return newcmap

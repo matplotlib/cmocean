@@ -22,7 +22,7 @@ datadir = os.path.join(os.path.split(__file__)[0], 'rgb')
 # List of colormap names
 cmapnames = ['thermal', 'haline', 'solar', 'ice', 'gray', 'oxy', 'deep',
              'dense', 'algae', 'matter', 'turbid', 'speed', 'amp', 'tempo',
-             'phase', 'balance', 'delta', 'curl']
+             'rain', 'phase', 'topo', 'balance', 'delta', 'curl', 'diff', 'tarn']
 
 # initialize dictionary to contain colormaps
 cmap_d = dict()
