@@ -9,6 +9,9 @@ Beautiful colormaps for oceanography: `cmocean <http://github.com/matplotlib/cmo
 This package contains colormaps for commonly-used oceanographic variables. Most of the colormaps started from `matplotlib <http://matplotlib.org/>`_ colormaps, but have now been adjusted using the `viscm tool <https://github.com/BIDS/viscm>`_ to be `perceptually uniform <http://bids.github.io/colormap/>`_.
 
 
+.. note::  This is a new version of `cmocean` with four new colormaps!
+
+
 .. note::  We have a paper with guidelines to colormap selection for your application and a description of the `cmocean` colormaps:
 
     Thyng, K. M., Greene, C. A., Hetland, R. D., Zimmerle, H. M., & DiMarco, S. F. (2016). True colors of oceanography. Oceanography, 29(3), 10.
@@ -539,6 +542,18 @@ The *tempo* colormap is sequential from whitish to dark teal and could be used t
    Estimated nitrate in San Francisco Bay by Rusty Holleman.
 
 
+rain
+^^^^
+
+The *rain* colormap is sequential from light, dry colors to blue, wet colors, and could be used to plot amounts of rainfall.
+
+
+.. figure:: https://user-images.githubusercontent.com/3487237/51001559-092d8800-14f6-11e9-93d4-57379b4c7701.png
+   :target: https://user-images.githubusercontent.com/3487237/51001559-092d8800-14f6-11e9-93d4-57379b4c7701.png
+
+   Rainfall, by Chad Greene.
+
+
 phase
 ^^^^^
 
@@ -547,6 +562,18 @@ The *phase* colormap is circular, spanning all hues at a set lightness value. Th
 .. figure:: https://user-images.githubusercontent.com/3487237/42728991-41ed6e0c-878f-11e8-80ad-4623b26de2cc.png
 
    Tidal phase in the North Atlantic ocean, by Kristen Thyng.
+
+
+topo
+^^^^
+
+The *topo* colormap has two distinct parts: one that is shades of blue and yellow to represent water depths (this is the *deep* colormap) and one that is shades of browns and greens to represent land elevation.
+
+
+.. figure:: https://user-images.githubusercontent.com/3487237/51001557-0894f180-14f6-11e9-9f8e-94fc0ffcfe11.png
+   :target: https://user-images.githubusercontent.com/3487237/51001557-0894f180-14f6-11e9-9f8e-94fc0ffcfe11.png
+
+   Bathymetry and topography, by Chad Greene.
 
 
 balance
@@ -581,16 +608,43 @@ The *delta* colormap is diverging from darker blues to just off-white through sh
 curl
 ^^^^
 
-The *curl* colormap is diverging from darker teal to just off-white through shades of magenta and could be used to represent diverging vorticity values around a critical value (usually zero). An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf.
+The *curl* colormap is diverging from darker teal to just off-white through shades of magenta and could be used to represent diverging vorticity values around a critical value (usually zero).
 
 .. figure:: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010-07-30T00.png
    :target: http://pong.tamu.edu/~kthyng/movies/txla_plots/vort/2010.mp4
+
+   An example of this colormap is from a numerical simulation of the Texas and Louisiana shelf.
 
 
 .. figure:: https://pbs.twimg.com/media/CuqlwdJWIAA1wT1.jpg
    :target: https://plot.ly/~empet/13557/cmoceanvorticity-colorscale
 
    Julia Set fractal in `plotly <https://plot.ly/>`_
+
+
+diff
+^^^^
+
+The *diff* colormap is diverging, with one side shades of blues and one side shades of browns.
+
+
+.. figure:: https://user-images.githubusercontent.com/3487237/51001561-092d8800-14f6-11e9-868b-009e947ed5eb.png
+   :target: https://user-images.githubusercontent.com/3487237/51001561-092d8800-14f6-11e9-868b-009e947ed5eb.png
+
+   Surface pressure anomaly for December 2017, by Chad Greene.
+
+
+tarn
+^^^^
+
+The *tarn* colormap is diverging, with one side dry shades of browns and the other a range of greens and blues. The positive end of the colormap is meant to reflect the colors in *rain* and thus be a complementary colormap to *rain* for rain anomaly (around 0 or some other critical value).
+
+
+.. figure:: https://user-images.githubusercontent.com/3487237/51001558-0894f180-14f6-11e9-91e1-3ef9e28fcc81.png
+   :target: https://user-images.githubusercontent.com/3487237/51001558-0894f180-14f6-11e9-91e1-3ef9e28fcc81.png
+
+   Rain anomaly, by Chad Greene.
+
 
 Resources
 ---------
