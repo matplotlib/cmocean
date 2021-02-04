@@ -55,8 +55,8 @@ def plot_lightness(saveplot=False):
         label.set_rotation(60)
 
     if saveplot:
-        fig.savefig('figures/lightness.png', bbox_inches='tight')
-        fig.savefig('figures/lightness.pdf', bbox_inches='tight')
+        fig.savefig('cmocean_lightness.png', bbox_inches='tight')
+        fig.savefig('cmocean_lightness.pdf', bbox_inches='tight')
 
     plt.show()
 
@@ -109,8 +109,8 @@ def plot_gallery(saveplot=False):
         ax.set_axis_off()
 
     if saveplot:
-        fig.savefig('figures/gallery.pdf', bbox_inches='tight')
-        fig.savefig('figures/gallery.png', bbox_inches='tight')
+        fig.savefig('cmocean_gallery.pdf', bbox_inches='tight')
+        fig.savefig('cmocean_gallery.png', bbox_inches='tight')
 
     plt.show()
 
@@ -132,8 +132,8 @@ def wrap_viscm(cmap, dpi=100, saveplot=False):
     plt.show()
 
     if saveplot:
-        fig.savefig('figures/eval_' + cmap.name + '.png', bbox_inches='tight', dpi=dpi)
-        fig.savefig('figures/eval_' + cmap.name + '.pdf', bbox_inches='tight', dpi=dpi)
+        fig.savefig('cmocean_eval_' + cmap.name + '.png', bbox_inches='tight', dpi=dpi)
+        fig.savefig('cmocean_eval_' + cmap.name + '.pdf', bbox_inches='tight', dpi=dpi)
 
 
 def test(cmap, fig=None, ax=None):
