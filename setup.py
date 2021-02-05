@@ -44,6 +44,8 @@ setup(
     ext_package='cmocean',
     scripts = [],
     keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
+    setup_requires=['setuptools'],
+    install_requires=['matplotlib', 'numpy'],
     tests_require=['pytest'],
     extras_require=extras_require
     )
