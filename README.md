@@ -19,6 +19,7 @@ Besides Python, the cmocean colormaps are also available:
 * Chad Greene's [Antarctic Mapping Tools](http://www.mathworks.com/matlabcentral/fileexchange/47638-antarctic-mapping-tools) in Matlab uses `cmocean`
 * For [Tableau](https://www.tableau.com) as a preferences file on [github](https://github.com/shaunwbell/cmocean_tableau)
 * For [ImageJ](https://imagej.nih.gov/ij/) as [LUTs](https://github.com/mikeperrins/cmocean-LUT-ImageJ)
+* For [ncview](http://meteora.ucsd.edu/~pierce/ncview_home_page.html) via [ncmaps](https://github.com/TomLav/ncmaps).
 
 
 To install:
