@@ -45,7 +45,8 @@ setup(
     scripts = [],
     keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
     setup_requires=['setuptools'],
-    install_requires=['matplotlib', 'numpy'],
+    install_requires=['matplotlib', 'numpy', 'packaging'],
     tests_require=['pytest'],
+    python_requires=">=3.8",
     extras_require=extras_require
     )

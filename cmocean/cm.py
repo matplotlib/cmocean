@@ -12,8 +12,10 @@ from __future__ import absolute_import
 
 import numpy as np
 import os
-from matplotlib import colors, cm
-
+from matplotlib import colors
+import matplotlib as mpl
+from packaging.version import Version
+from importlib.metadata import version
 from . import tools
 
 # Location of rgb files
@@ -27,6 +29,18 @@ cmapnames = ['thermal', 'haline', 'solar', 'ice', 'gray', 'oxy', 'deep',
 # initialize dictionary to contain colormaps
 cmap_d = dict()
 
+
+# a comparable version object
+MPL_VERSION = Version(version("matplotlib"))
+
+def _register_cmap(cmap, *, name):
+    # wrap matplotlib.cm API, use non-deprecated API when available
+    if MPL_VERSION >= Version("3.5"):
+        mpl.colormaps.register(cmap, name=name)
+    else:
+        # deprecated API
+        mpl.cm.register_cmap(name=name, cmap=cmap)
+
 # add colormaps and reversed to dictionary
 for cmapname in cmapnames:
     rgb = np.loadtxt(os.path.join(datadir, cmapname + '-rgb.txt'))
@@ -39,12 +53,12 @@ for cmapname in cmapnames:
     rgb_with_alpha = np.zeros((rgb.shape[0],4))
     rgb_with_alpha[:,:3] = rgb
     rgb_with_alpha[:,3]  = 1.  #set alpha channel to 1
-    reg_map = colors.ListedColormap(rgb_with_alpha, 'cmo.' + cmapname, rgb.shape[0])
-    cm.register_cmap(cmap = reg_map)
+    reg_map = colors.ListedColormap(rgb_with_alpha, N=rgb.shape[0])
+    _register_cmap(reg_map, name=f'cmo.{cmapname}')
 
     # Register the reversed map
-    reg_map_r = colors.ListedColormap(rgb_with_alpha[::-1,:], 'cmo.' + cmapname + '_r', rgb.shape[0])
-    cm.register_cmap(cmap = reg_map_r)
+    reg_map_r = colors.ListedColormap(rgb_with_alpha[::-1,:], N=rgb.shape[0])
+    _register_cmap(reg_map_r, name=f'cmo.{cmapname}_r')
 
 # make colormaps available to call
 locals().update(cmap_d)
