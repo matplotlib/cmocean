@@ -1,0 +1,14 @@
+name: test_env_cmocean
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  ############## These will have to be adjusted to your specific project
+  - matplotlib-base
+  - numpy
+  ##############
+  - pytest
+  - pip:
+    - codecov
+    - pytest-cov
+    - coverage[toml]
