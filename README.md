@@ -1,6 +1,14 @@
 cmocean
 =======
 
+[![Build Status](https://img.shields.io/github/actions/workflow/status/matplotlib/cmocean/test.yaml?branch=main&logo=github&style=for-the-badge)](https://github.com/matplotlib/cmocean/actions/workflows/test.yaml)
+[![Code Coverage](https://img.shields.io/codecov/c/github/matplotlib/cmocean.svg?style=for-the-badge)](https://codecov.io/gh/matplotlib/cmocean)
+[![License:MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/cmocean.svg?style=for-the-badge)](https://anaconda.org/conda-forge/cmocean)
+[![Python Package Index](https://img.shields.io/pypi/v/cmocean.svg?style=for-the-badge)](https://pypi.org/project/cmocean)
+<!-- [![Documentation Status](https://img.shields.io/readthedocs/cmocean/latest.svg?style=for-the-badge)](https://cmocean.readthedocs.io/en/latest/?badge=latest) -->
+<!-- [![Code Style Status](https://img.shields.io/github/actions/workflow/status/matplotlib/cmocean/linting.yaml?branch=main&label=Code%20Style&style=for-the-badge)](https://github.com/matplotlib/cmocean/actions/workflows/linting.yaml) -->
+
 Documentation available: [http://matplotlib.org/cmocean/](http://matplotlib.org/cmocean/).
 
 We have a paper with guidelines to colormap selection for your application and a description of the `cmocean` colormaps:
