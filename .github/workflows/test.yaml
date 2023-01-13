@@ -31,8 +31,10 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           # mamba-version: "*" # activate this to build with mamba.
-          # channels: conda-forge, defaults # These need to be specified to use mamba
-          # channel-priority: true
+          python-version: ${{ matrix.python-version }}
+          miniforge-variant: Mambaforge
+          channels: conda-forge, defaults # These need to be specified to use mamba
+          channel-priority: true
           environment-file: ci/environment-py${{ matrix.python-version }}.yml
 
           activate-environment: test_env_cmocean
