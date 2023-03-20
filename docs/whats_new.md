@@ -1,6 +1,6 @@
 # What's New
 
-## v3.0.0 (March 17, 2023)
+## v3.0.0 (March 20, 2023)
 
 * Fixed a deprecation warning (https://github.com/matplotlib/cmocean/pull/86), by @neutrinoceros
 * Added CodeQL workflow (https://github.com/matplotlib/cmocean/pull/85), by bot
