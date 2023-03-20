@@ -15,6 +15,6 @@ __all__ = ['cm',
            'plots',
            'data']
 
-__authors__ = ['Kristen Thyng <kthyng@tamu.edu>']
+__authors__ = ['Kristen Thyng <kthyng@gmail.com>']
 
-__version__ = "2.0"
+__version__ = "v3.0.2"
