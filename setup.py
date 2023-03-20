@@ -26,7 +26,7 @@ extras_require={
 
 setup(
     name = "cmocean",
-    version = "2.0",
+    version = "v3.0.2",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
     url = 'https://github.com/matplotlib/cmocean',
