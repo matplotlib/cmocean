@@ -17,4 +17,4 @@ __all__ = ['cm',
 
 __authors__ = ['Kristen Thyng <kthyng@gmail.com>']
 
-__version__ = "v3.0.1"
+__version__ = "v3.0.2"
