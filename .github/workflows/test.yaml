@@ -28,7 +28,7 @@ jobs:
         with:
           path: ~/conda_pkgs_dir
           key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('ci/environment-py${{ matrix.python-version }}.yml') }}
-      - uses: conda-incubator/setup-miniconda@v2
+      - uses: conda-incubator/setup-miniconda@v3
         with:
           # mamba-version: "*" # activate this to build with mamba.
           python-version: ${{ matrix.python-version }}
