@@ -8,10 +8,7 @@ import numpy as np
 import matplotlib as mpl
 
 
-if sys.version_info > (3,):
-    _string_types = (str, np.str_, np.unicode_)
-else:
-    _string_types = (basestring, np.str_, np.unicode_)
+_string_types = (str, np.str_)
 
 
 def print_colormaps(cmaps, N=256, returnrgb=True, savefiles=False):
