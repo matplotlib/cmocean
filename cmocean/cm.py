@@ -60,5 +60,25 @@ for cmapname in cmapnames:
     reg_map_r = colors.ListedColormap(rgb_with_alpha[::-1,:], N=rgb.shape[0])
     _register_cmap(reg_map_r, name=f'cmo.{cmapname}_r')
 
+    # Load inverted cmaps
+    rgb_i = np.loadtxt(os.path.join(datadir, 'inverted', cmapname + '_i-rgb.txt'))
+    cmap_d[cmapname + '_i'] = tools.cmap(rgb_i, N=256)
+    cmap_d[cmapname + '_i'].name = cmapname + '_i'
+    cmap_d[cmapname + '_r_i'] = tools.cmap(rgb_i[::-1, :], N=256)
+    cmap_d[cmapname + '_r_i'].name = cmapname + '_r_i'
+    rgb_with_alpha = np.zeros((rgb_i.shape[0],4))
+    rgb_with_alpha[:,:3] = rgb_i
+    rgb_with_alpha[:,3]  = 1.  #set alpha channel to 1
+
+    # Register inverted cmaps
+    reg_map_i = colors.ListedColormap(rgb_with_alpha, N=rgb_i.shape[0])
+    _register_cmap(reg_map_i, name=f'cmo.{cmapname}_i')
+    reg_map_r_i = colors.ListedColormap(rgb_with_alpha[::-1,:], N=rgb_i.shape[0])
+    _register_cmap(reg_map_r_i, name=f'cmo.{cmapname}_r_i')
+
+    # order shouldn't matter
+    cmap_d[cmapname + '_i_r'] = cmap_d[cmapname + '_r_i']
+    _register_cmap(reg_map_r_i, name=f'cmo.{cmapname}_i_r')
+
 # make colormaps available to call
 locals().update(cmap_d)

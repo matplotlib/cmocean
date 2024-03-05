@@ -25,7 +25,7 @@ def plot_lightness(saveplot=False):
     fig = plt.figure(figsize=(16, 5))
     ax = fig.add_subplot(111)
     fig.subplots_adjust(left=0.03, right=0.97)
-    ax.set_xlim(-0.1, len(cm.cmap_d)/2. + 0.1)
+    ax.set_xlim(-0.1, len(cm.cmap_d)/5. + 0.1)
     ax.set_ylim(0, 100)
     ax.set_xlabel('Lightness for each colormap', fontsize=14)
 
@@ -75,12 +75,12 @@ def plot_gallery(saveplot=False):
     gradient = np.vstack((gradient, gradient))
     x = np.linspace(0.0, 1.0, 256)
 
-    fig, axes = plt.subplots(nrows=int(len(cm.cmap_d)/2), ncols=1, figsize=(6, 12))
+    fig, axes = plt.subplots(nrows=int(len(cm.cmap_d)/5), ncols=1, figsize=(6, 12))
     fig.subplots_adjust(top=0.99, bottom=0.01, left=0.2, right=0.99, wspace=0.05)
 
     for ax, cmapname in zip(axes, cm.cmapnames):
 
-        if '_r' in cmapname:  # skip reversed versions for plot
+        if '_r' in cmapname or '_i' in cmapname:  # skip reversed versions for plot
             continue
 
         cmap = cm.cmap_d[cmapname]  # get the colormap instance
