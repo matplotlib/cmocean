@@ -133,6 +133,22 @@ Reversed versions of all colormaps are available by appending "_r" to the colorm
    cmocean.plots.test(cmocean.cm.gray_r, ax=ax)
    fig.tight_layout()
 
+Inverted lightness versions of all colormaps are available by appending "_i" to the colormap name. This is particularly useful for diverging colormaps used on light backgrounds:
+
+.. plot::
+   :include-source:
+
+   import cmocean
+   import matplotlib.pyplot as plt
+
+   fig = plt.figure(figsize=(8, 3))
+   ax = fig.add_subplot(1, 2, 1)
+   cmocean.plots.test(cmocean.cm.balance, ax=ax)
+   ax = fig.add_subplot(1, 2, 2)
+   cmocean.plots.test(cmocean.cm.balance_i, ax=ax)
+   fig.tight_layout()
+
+Reversed and inverted lightness versions of all colormaps are available by appending "_r_i" or "_i_r" to the colormap name, e.g., ``cmocean.cm.balance_i_r``.
 
 You can lighten a colormap using an alpha value below 1 with the `cmocean.tools.lighten()` function so that you can overlay contours and other lines that are more easily visible:
 
