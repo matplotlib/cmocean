@@ -78,6 +78,7 @@ for cmapname in cmapnames:
 
     # order shouldn't matter
     cmap_d[cmapname + '_i_r'] = cmap_d[cmapname + '_r_i']
+    _register_cmap(reg_map_r_i, name=f'cmo.{cmapname}_i_r')
 
 # make colormaps available to call
 locals().update(cmap_d)
