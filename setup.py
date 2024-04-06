@@ -26,7 +26,7 @@ extras_require={
 
 setup(
     name = "cmocean",
-    version = "v4.0.1",
+    version = "v4.0.2",
     author = "Kristen Thyng",
     author_email = "kthyng@gmail.com",
     url = 'https://github.com/matplotlib/cmocean',
@@ -38,7 +38,7 @@ setup(
                  "Development Status :: 3 - Alpha",
                  ],
     package_data={
-        'cmocean': ['rgb/*.txt'],
+        'cmocean': ['rgb/*.txt', 'rgb/inverted/*.txt],
     },
     packages = ["cmocean"],
     ext_package='cmocean',
