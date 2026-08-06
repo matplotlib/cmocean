@@ -4,22 +4,11 @@
 setup.py for cmocean
 
 """
-import sys
 from setuptools import setup # to support "develop" mode
-from setuptools.command.test import test as TestCommand
-
-class PyTest(TestCommand):
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.verbose = True
-
-    def run_tests(self):
-        import pytest
-        errno = pytest.main(self.test_args)
-        sys.exit(errno)
 
 extras_require={
     'plots':  ["colorspacious", "viscm"],
+    'test':  ["pytest"],
 }
 # # in case I add more later
 # extras_require['complete'] = sorted(set(sum(extras_require.values(), [])))
@@ -44,9 +33,7 @@ setup(
     ext_package='cmocean',
     scripts = [],
     keywords = ['colormaps', 'oceanography', 'plotting', 'visualization'],
-    setup_requires=['setuptools'],
     install_requires=['matplotlib', 'numpy', 'packaging'],
-    tests_require=['pytest'],
     python_requires=">=3.8",
     extras_require=extras_require
     )

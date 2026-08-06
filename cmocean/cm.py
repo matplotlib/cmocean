@@ -38,8 +38,11 @@ def _register_cmap(cmap, *, name):
     if MPL_VERSION >= Version("3.5"):
         mpl.colormaps.register(cmap, name=name)
     else:
-        # deprecated API
-        mpl.cm.register_cmap(name=name, cmap=cmap)
+        # deprecated API.  `matplotlib.cm` is imported here because importing
+        # `matplotlib` alone does not make the submodule available, so this
+        # branch used to raise an AttributeError.
+        import matplotlib.cm
+        matplotlib.cm.register_cmap(name=name, cmap=cmap)
 
 # add colormaps and reversed to dictionary
 for cmapname in cmapnames:
