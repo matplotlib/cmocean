@@ -16,7 +16,7 @@ def test_cmap_import():
     # Loop through all methods in cmocean.
     for name, cmap in vars(cm).items():
         # See if it is a colormap.
-        if isinstance(cmap, matplotlib.colors.LinearSegmentedColormap):
+        if isinstance(cmap, (matplotlib.colors.LinearSegmentedColormap, matplotlib.colors.ListedColormap)):
             print(name)
             x = np.linspace(0, 10)
             X, _ = np.meshgrid(x, x)
