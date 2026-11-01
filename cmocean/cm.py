@@ -53,11 +53,11 @@ for cmapname in cmapnames:
     rgb_with_alpha = np.zeros((rgb.shape[0],4))
     rgb_with_alpha[:,:3] = rgb
     rgb_with_alpha[:,3]  = 1.  #set alpha channel to 1
-    reg_map = colors.ListedColormap(rgb_with_alpha, N=rgb.shape[0])
+    reg_map = colors.ListedColormap(rgb_with_alpha)
     _register_cmap(reg_map, name=f'cmo.{cmapname}')
 
     # Register the reversed map
-    reg_map_r = colors.ListedColormap(rgb_with_alpha[::-1,:], N=rgb.shape[0])
+    reg_map_r = colors.ListedColormap(rgb_with_alpha[::-1,:])
     _register_cmap(reg_map_r, name=f'cmo.{cmapname}_r')
 
     # Load inverted cmaps
@@ -71,9 +71,9 @@ for cmapname in cmapnames:
     rgb_with_alpha[:,3]  = 1.  #set alpha channel to 1
 
     # Register inverted cmaps
-    reg_map_i = colors.ListedColormap(rgb_with_alpha, N=rgb_i.shape[0])
+    reg_map_i = colors.ListedColormap(rgb_with_alpha)
     _register_cmap(reg_map_i, name=f'cmo.{cmapname}_i')
-    reg_map_r_i = colors.ListedColormap(rgb_with_alpha[::-1,:], N=rgb_i.shape[0])
+    reg_map_r_i = colors.ListedColormap(rgb_with_alpha[::-1,:])
     _register_cmap(reg_map_r_i, name=f'cmo.{cmapname}_r_i')
 
     # order shouldn't matter
